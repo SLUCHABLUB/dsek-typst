@@ -1,0 +1,11 @@
+[package]
+name = "dsekdocs"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["D-sektionen inom TLTH"]
+license = "MIT"
+# description = "Document classes and so forth for D-sektionen inom TLTH"
+
+homepage = "dsek.se"
+# TODO: specify branch?
+repository = "https://github.com/Dsek-LTH/dsekdocs"
