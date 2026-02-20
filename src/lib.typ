@@ -4,10 +4,6 @@
 
 #import "strings.typ": *
 
-// TODO: Parameters:
-// - Colour or Black & White.
-// - Image directory (maybe).
-
 // TODO: Att list (note enumeration).
 
 // TODO: Signatures
