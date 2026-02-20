@@ -1,8 +1,8 @@
-#import "text_constants.typ": *
-
 #import "diff.typ": *
 
 #import "graphics.typ": *
+
+#import "strings.typ": *
 
 // TODO: Parameters:
 // - Colour or Black & White.
