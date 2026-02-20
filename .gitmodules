@@ -1,0 +1,3 @@
+[submodule "graphics"]
+	path = graphics
+	url = https://github.com/Dsek-LTH/grafik.git
