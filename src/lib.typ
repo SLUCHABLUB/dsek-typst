@@ -6,7 +6,7 @@
 
 // TODO: Att list (note enumeration).
 
-// TODO: Graphics (sigils && symbols)
+// TODO: Graphics (sigills && symbols)
 
 // TODO: Diff highlighting (add && remove).
 
