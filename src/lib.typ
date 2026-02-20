@@ -2,13 +2,13 @@
 
 #import "diff.typ": *
 
+#import "graphics.typ": *
+
 // TODO: Parameters:
 // - Colour or Black & White.
 // - Image directory (maybe).
 
 // TODO: Att list (note enumeration).
-
-// TODO: Graphics (sigills && symbols)
 
 // TODO: Signatures
 // - global sign space height parameter
