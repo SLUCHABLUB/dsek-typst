@@ -2,9 +2,9 @@
 
 #import "graphics.typ": *
 
-#import "strings.typ": *
+#import "resolutions.typ": *
 
-// TODO: Att list (note enumeration).
+#import "strings.typ": *
 
 // TODO: Signatures
 // - global sign space height parameter
