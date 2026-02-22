@@ -4,9 +4,6 @@
 
 #import "resolutions.typ": *
 
-#import "strings.typ": *
+#import "signature.typ": *
 
-// TODO: Signatures
-// - global sign space height parameter
-// - global sign space min width parameter
-// - width is max of minimum, position, name and "date"
+#import "strings.typ": *
