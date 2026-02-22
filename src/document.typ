@@ -4,10 +4,14 @@
   date: datetime.today(),
   content
 ) = [
-  // TODO: Set font?
+  #set document(
+    title: title,
+    // TODO: Set the authors from the signatures.
+    date: date,
+  )
+  // TODO: Set font.
   // TODO: Style headers.
   // TODO: Style paragraphs.
-  // TODO: Set document properties.
   // TODO: Take and set the "short title".
   // TODO: Style the title.
   // TODO: Style the headers and footers.
