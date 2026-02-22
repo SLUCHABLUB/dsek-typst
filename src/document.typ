@@ -21,8 +21,10 @@
   #show heading.where(level: 2): set text(size: 12pt)
   #show heading.where(level: 3): set text(size: 11pt)
 
+  // TODO: justify?
+  #set par(spacing: 3mm)
+
   // TODO: Set font.
-  // TODO: Style paragraphs.
   // TODO: Take and set the "short title".
   // TODO: Style the title.
   // TODO: Style the headers and footers.
