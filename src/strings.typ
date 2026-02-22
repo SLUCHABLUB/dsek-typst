@@ -32,10 +32,24 @@
   "Øverpeppare", "Head of Introduction Coordinators"
 )
 
-// Alternative variable names that may have greater discoverability for Swedish speakers.
+// Swedish bindings.
 
-#let medals_committee = honours_committee
-#let medals_committee_member = honours_committee_member
+#let medaljelelekommittén = honours_committee
+#let medaljelelekommittémedlem = honours_committee_member
+
+#let medaljkommittén = honours_committee
+#let medaljkommittémedlem = honours_committee_member
+
+#let överphös = head_of_introductions_committee
+#let överpeppare = head_of_introduction_coordinators
+
+// Swedish bindings without diacritics.
+
+#let medaljelelekommitten = honours_committee
+#let medaljelelekommittemedlem = honours_committee_member
+
+#let medaljkommitten = honours_committee
+#let medaljkommittemedlem = honours_committee_member
 
 #let overphos = head_of_introductions_committee
 #let overpeppare = head_of_introduction_coordinators

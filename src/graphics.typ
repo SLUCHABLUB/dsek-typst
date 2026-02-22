@@ -44,3 +44,12 @@
 #let data_symbol = data_logo.with(symbol: true)
 #let info_com_symbol = info_com_logo.with(symbol: true)
 #let vr_ar_symbol = vr_ar_logo.with(symbol: true)
+
+// Swedish bindings.
+
+#let sektions_logga = guild_logo
+#let data_logga = data_logo
+#let info_com_logga = info_com_logo
+#let vr_ar_logga = vr_ar_logo
+
+#let sektions_symbol = guild_symbol

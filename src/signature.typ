@@ -34,3 +34,8 @@
 
 // A helper function to load an image.
 #let signature_image = image.with(height: 1fr, fit: "contain")
+
+// Swedish bindings.
+
+#let signatur = signature
+#let signatur_bild = signature_image
