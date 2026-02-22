@@ -1,3 +1,8 @@
+// TODO: Import a module for text size (or general size) constants.
+
+// TODO: Change these.
+#let sans_serif = "DejaVu Sans Mono"
+
 #let doc(
   title: none,
   meeting: none,
@@ -9,8 +14,14 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
+  #show heading: set text(font: sans_serif)
+  #show heading: strong
+
+  #show heading.where(level: 1): set text(size: 14pt)
+  #show heading.where(level: 2): set text(size: 12pt)
+  #show heading.where(level: 3): set text(size: 11pt)
+
   // TODO: Set font.
-  // TODO: Style headers.
   // TODO: Style paragraphs.
   // TODO: Take and set the "short title".
   // TODO: Style the title.
