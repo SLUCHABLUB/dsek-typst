@@ -1,5 +1,7 @@
 #import "diff.typ": *
 
+#import "document.typ": *
+
 #import "graphics.typ": *
 
 #import "resolutions.typ": *
