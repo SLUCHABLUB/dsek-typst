@@ -8,8 +8,12 @@
 #let caption_text_size = 9pt
 #let footnote_text_size = 9pt
 
+#let no_style = content => content
+
 #let heading_style = strong
+#let body_style = no_style
 #let caption_style = emph
+#let footnote_style = no_style
 
 // TODO: Use the actual fonts.
 #let serif = "Libertinus Serif"
