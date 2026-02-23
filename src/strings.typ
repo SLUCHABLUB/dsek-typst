@@ -12,7 +12,7 @@
 
 // Strings used by the templates.
 
-#let organisation_name = translated("D-Sektionen inom TLTH", "The D-guild within TLTH")
+#let organisation_name = translated("D-sektionen inom TLTH", "The D-guild within TLTH")
 
 // Hard to spell strings.
 

@@ -1,11 +1,38 @@
 #import "style.typ": *
+#import "../graphics.typ": guild_logo
+#import "../strings.typ": organisation_name
 
-// TODO: Change these.
-#let sans_serif = "DejaVu Sans Mono"
+#let header(short_title, meeting, date) = pad(
+  bottom: header_padding,
+  box(
+    height: header_height,
+    align(
+      horizon,
+      stack(
+        dir: ltr,
+        box(width: 18mm)[
+          #guild_logo(height: header_height)
+        ],
+        box(width: 82mm)[
+          #show: smallcaps
+          #organisation_name \
+          #short_title
+        ],
+        box(width: 60mm)[
+          #set align(right)
+          #meeting \
+          // TODO: This does currently not respect `text.lang`.
+          #date.display("[day] [month repr:long] [year]")
+        ]
+      )
+    )
+  )
+)
 
 #let doc(
   title: none,
   meeting: none,
+  short_title: "",
   date: datetime.today(),
   content
 ) = [
@@ -50,6 +77,18 @@
 
   // TODO: justify?
   #set par(spacing: paragraph_spacing)
+
+  #set page(
+    header: header(short_title, meeting, date),
+    footer: {},
+    header-ascent: 0%,
+    footer-descent: 0%,
+    margin: (
+      x: horizontal_margin,
+      top: top_margin,
+      bottom: bottom_margin,
+    )
+  )
 
   // TODO: Take and set the "short title".
   // TODO: Style the title.
