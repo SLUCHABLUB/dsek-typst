@@ -1,8 +1,8 @@
 // These are taken from the guidelines.
 
-#let heading_level_1_text_size = 14mm
-#let heading_level_2_text_size = 12mm
-#let heading_level_3_text_size = 11mm
+#let heading_level_1_text_size = 14pt
+#let heading_level_2_text_size = 12pt
+#let heading_level_3_text_size = 11pt
 
 #let body_text_size = 11pt
 #let caption_text_size = 9pt
