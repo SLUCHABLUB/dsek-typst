@@ -14,6 +14,24 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
+
+  #let footer() = {
+    line(length: 100%)
+    set align(center)
+    v(-8pt)
+    
+    context {
+      let current_page = counter(page).get().at(0)
+      let last_page = counter(page).final().at(0)
+      let location = (page: last_page, x: 0pt, y: 0pt)
+      
+      [
+        #current_page 
+        (#link(location)[#text(fill: red, [#last_page])])
+      ]
+    }
+  }
+  
   #show heading: set text(font: heading_font)
   #show heading: heading_style
 
@@ -36,6 +54,8 @@
   // TODO: Take and set the "short title".
   // TODO: Style the title.
   // TODO: Style the headers and footers.
+
+  #set page(footer: footer())
 
   #content
 ]
