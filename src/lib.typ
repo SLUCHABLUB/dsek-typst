@@ -1,6 +1,6 @@
 #import "diff.typ": *
 
-#import "document.typ": *
+#import "document/module.typ": *
 
 #import "graphics.typ": *
 

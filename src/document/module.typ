@@ -1,4 +1,4 @@
-// TODO: Import a module for text size (or general size) constants.
+#import "style.typ": *
 
 // TODO: Change these.
 #let sans_serif = "DejaVu Sans Mono"
@@ -14,15 +14,15 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
-  #show heading: set text(font: sans_serif)
-  #show heading: strong
+  #show heading: set text(font: heading_font)
+  #show heading: heading_style
 
-  #show heading.where(level: 1): set text(size: 14pt)
-  #show heading.where(level: 2): set text(size: 12pt)
-  #show heading.where(level: 3): set text(size: 11pt)
+  #show heading.where(level: 1): set text(size: heading_level_1_text_size)
+  #show heading.where(level: 2): set text(size: heading_level_2_text_size)
+  #show heading.where(level: 3): set text(size: heading_level_3_text_size)
 
   // TODO: justify?
-  #set par(spacing: 3mm)
+  #set par(spacing: paragraph_spacing)
 
   // TODO: Set font.
   // TODO: Take and set the "short title".

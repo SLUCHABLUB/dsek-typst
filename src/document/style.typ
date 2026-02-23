@@ -1,0 +1,24 @@
+// These are taken from the guidelines.
+
+#let heading_level_1_text_size = 14mm
+#let heading_level_2_text_size = 12mm
+#let heading_level_3_text_size = 11mm
+
+#let body_text_size = 11pt
+#let caption_text_size = 9pt
+#let footnote_text_size = 9pt
+
+#let heading_style = strong
+#let caption_style = emph
+
+// TODO: Use the actual fonts.
+#let serif = "Libertinus Serif"
+#let sans_serif = "DejaVu Sans Mono"
+
+#let heading_font = sans_serif
+#let body_font = serif
+#let caption_font = serif
+#let footnote_font = serif
+
+// These are copied from the LaTeX templates.
+#let paragraph_spacing = 3mm
