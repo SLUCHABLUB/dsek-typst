@@ -57,7 +57,8 @@
   )
   #set text(lang: language)
 
-  // #show document.title: set text(font: sans_serif, weight: "bold", size: 21pt)
+  // TODO: Investigate spacing between bumbering and heading text
+  //       as well as heading text and paragraph.
   #show heading: set text(font: sans_serif, weight: "bold")
   #show heading.where(level: 1): set text(size: 14pt)
   #show heading.where(level: 2): set text(size: 12pt)
@@ -81,11 +82,6 @@
       bottom: bottom_margin,
     )
   )
-
-  // TODO: Take and set the "short title".
-  // TODO: Style the title.
-  // TODO: Style the headers and footers.
-
 
   #text(font: sans_serif, weight: "bold", size: 17pt, title)
   #set heading(numbering: "1.1")
