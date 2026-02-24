@@ -30,9 +30,9 @@
 )
 
 #let footer() = {
-  line(length: 100%)
+  line(length: 100%, stroke: 0.4pt)
   set align(center)
-  v(-8pt)
+  v(-6pt)
 
   context {
     let current_page = counter(page).get().at(0)
@@ -68,6 +68,16 @@
   #show heading.where(level: 2): set text(size: heading_level_2_text_size)
   #show heading.where(level: 3): set text(size: heading_level_3_text_size)
 
+  // set text(font: "Palatino", size: 11pt)
+  // show title: set text(font: "Helvetica", weight: "bold", size: 14pt)
+  // show footnote: set text(size: 9pt)
+  // show figure.caption: set text(style: "italic", size: 9pt)
+  
+  // show heading: set text(font: "Helvetica", weight: "bold")
+  // show heading.where(level: 1): set text(size: 14pt)
+  // show heading.where(level: 2): set text(size: 12pt)
+  // show heading.where(level: 3): set text(size: 11pt)
+
   #show par: set text(font: body_font, size: body_text_size)
   #show par: body_style
 
@@ -78,7 +88,7 @@
   #show figure.caption: caption_style
 
   // TODO: justify?
-  #set par(spacing: paragraph_spacing)
+  #set par(spacing: paragraph_spacing, justify: true)
 
   #set page(
     header: header(short_title, meeting, date),

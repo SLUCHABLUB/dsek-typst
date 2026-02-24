@@ -17,7 +17,8 @@
 
 // TODO: Use the actual fonts.
 #let serif = "Domitian"
-#let sans_serif = "TeX Gyre Heroes"
+#let monospace = "DejaVu Sans Mono"
+#let sans_serif = "TeX Gyre Heros"
 
 #let heading_font = sans_serif
 #let body_font = serif
