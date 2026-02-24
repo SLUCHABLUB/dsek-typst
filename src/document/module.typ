@@ -68,7 +68,6 @@
   #show footnote: set text(font: serif, size: 9pt)
   #show figure.caption: set text(font: serif, size: 9pt, style: "italic")
 
-  // TODO: justify?
   #set par(spacing: paragraph_spacing, justify: true)
 
   #set page(
