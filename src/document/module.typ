@@ -1,8 +1,9 @@
+#import "@preview/datify:1.0.1": custom-date-format
 #import "style.typ": *
 #import "../graphics.typ": guild_logo
 #import "../strings.typ": organisation_name
 
-#let header(short_title, meeting, date) = pad(
+#let header(short_title, meeting, date) = context pad(
   bottom: header_padding,
   box(
     height: header_height,
@@ -21,8 +22,7 @@
         box(width: 60mm)[
           #set align(right)
           #meeting \
-          // TODO: This does currently not respect `text.lang`.
-          #date.display("[day] [month repr:long] [year]")
+          #custom-date-format(date, pattern: "d MMMM y", lang: text.lang)
         ]
       )
     )
@@ -50,6 +50,7 @@
   title: none,
   meeting: none,
   short_title: "",
+  language: "sv",
   date: datetime.today(),
   content
 ) = [
@@ -58,6 +59,7 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
+  #set text(lang: language)
 
   #show heading: set text(font: heading_font)
   #show heading: heading_style
