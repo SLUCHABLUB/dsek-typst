@@ -55,7 +55,7 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
-  
+
   #set text(lang: language, font: serif, size: 11pt)
 
   // TODO: Investigate spacing between numbering and heading text
