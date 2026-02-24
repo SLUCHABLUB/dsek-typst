@@ -38,7 +38,7 @@
 #let guild_logo = graphic.with(type: "dsek")
 #let data_logo = graphic.with(type: "datateknik")
 #let info_com_logo = graphic.with(type: "infocom")
-#let vr_ar_logo = graphic.with(type: "infocom")
+#let vr_ar_logo = graphic.with(type: "vr_ar")
 
 #let guild_symbol = guild_logo.with(symbol: true)
 #let data_symbol = data_logo.with(symbol: true)

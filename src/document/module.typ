@@ -15,7 +15,7 @@
       box(width: 82mm)[
         #show: smallcaps
         #organisation_name \
-        #short_title
+        #lower(short_title)
       ],
       box(width: 60mm)[
         #set align(right)
@@ -55,7 +55,8 @@
     // TODO: Set the authors from the signatures.
     date: date,
   )
-  #set text(lang: language)
+  
+  #set text(lang: language, font: serif, size: 11pt)
 
   // TODO: Investigate spacing between numbering and heading text
   //       as well as heading text and paragraph.
@@ -63,8 +64,6 @@
   #show heading.where(level: 1): set text(size: 14pt)
   #show heading.where(level: 2): set text(size: 12pt)
   #show heading.where(level: 3): set text(size: 11pt)
-
-  #set text(font: serif, size: 11pt)
 
   #show footnote: set text(font: serif, size: 9pt)
   #show figure.caption: set text(font: serif, size: 9pt, style: "italic")

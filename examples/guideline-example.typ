@@ -83,18 +83,19 @@ I regel brukar sektionens dokument skrivas med mallar likt den som denna riktlin
 
 // TODO: Should we match the hline stroke width to latex?
 #show table.cell: set align(left)
+#set table.hline(stroke: 0.4pt)
 #figure(table(
   columns: 2,
   stroke: none,
   table.hline(),
   table.header[*Del av dokumentet*][*Typsnitt och grad*],
   table.hline(),
-  [Brödtext                                 ], [Palatino, 11 pt],
-  [Fotnoter                                 ], [Palatino, 9 pt],
-  [Första rubriknivån (x)                   ], [#text(font: sans_serif, weight: "bold")[Helvetica fet], 14 pt],
-  [Andra rubriknivån (x.y)                  ], [#text(font: sans_serif, weight: "bold")[Helvetica fet], 12 pt],
-  [Tredje rubriknivån (x.y.z)               ], [#text(font: sans_serif, weight: "bold")[Helvetica fet], 11 pt],
-  [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic")[Palatino kursiv] 9 pt],
+  [Brödtext], [Palatino, 11 pt],
+  [Fotnoter], [#text(size: 9pt)[Palatino], 9 pt],
+  [Första rubriknivån (x)], [#text(font: sans_serif, weight: "bold", size: 14pt)[Helvetica fet], 14 pt],
+  [Andra rubriknivån (x.y)], [#text(font: sans_serif, weight: "bold", size: 12pt)[Helvetica fet], 12 pt],
+  [Tredje rubriknivån (x.y.z)], [#text(font: sans_serif, weight: "bold")[Helvetica fet], 11 pt],
+  [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic", size: 9pt)[Palatino kursiv], 9 pt],
   table.hline()
 ))
 
