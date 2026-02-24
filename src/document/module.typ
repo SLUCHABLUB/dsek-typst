@@ -57,7 +57,7 @@
   )
   #set text(lang: language)
 
-  // TODO: Investigate spacing between bumbering and heading text
+  // TODO: Investigate spacing between numbering and heading text
   //       as well as heading text and paragraph.
   #show heading: set text(font: sans_serif, weight: "bold")
   #show heading.where(level: 1): set text(size: 14pt)
@@ -68,6 +68,8 @@
 
   #show footnote: set text(font: serif, size: 9pt)
   #show figure.caption: set text(font: serif, size: 9pt, style: "italic")
+
+  // TODO: Pick and set a monospace font for code-esque excerpts.
 
   #set par(spacing: paragraph_spacing, justify: true)
 
