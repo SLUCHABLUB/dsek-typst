@@ -16,8 +16,8 @@
 #let footnote_style = no_style
 
 // TODO: Use the actual fonts.
-#let serif = "Libertinus Serif"
-#let sans_serif = "DejaVu Sans Mono"
+#let serif = "Domitian"
+#let sans_serif = "TeX Gyre Heroes"
 
 #let heading_font = sans_serif
 #let body_font = serif
