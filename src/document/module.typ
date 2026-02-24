@@ -5,28 +5,25 @@
 
 #let header(short_title, meeting, date) = context pad(
   bottom: header_padding,
-  box(
-    height: header_height,
-    align(
-      horizon,
-      stack(
-        dir: ltr,
-        box(width: 18mm)[
-          #guild_logo(height: header_height)
-        ],
-        box(width: 82mm)[
-          #show: smallcaps
-          #organisation_name \
-          #short_title
-        ],
-        box(width: 60mm)[
-          #set align(right)
-          #meeting \
-          #custom-date-format(date, pattern: "d MMMM y", lang: text.lang)
-        ]
-      )
+  box(height: header_height)[
+    #set align(horizon)
+    #stack(
+      dir: ltr,
+      box(width: 18mm)[
+        #guild_logo(height: header_height)
+      ],
+      box(width: 82mm)[
+        #show: smallcaps
+        #organisation_name \
+        #short_title
+      ],
+      box(width: 60mm)[
+        #set align(right)
+        #meeting \
+        #custom-date-format(date, pattern: "d MMMM y", lang: text.lang)
+      ]
     )
-  )
+  ]
 )
 
 #let footer() = {
@@ -61,31 +58,16 @@
   )
   #set text(lang: language)
 
-  #show heading: set text(font: heading_font)
-  #show heading: heading_style
+  // #show document.title: set text(font: sans_serif, weight: "bold", size: 21pt)
+  #show heading: set text(font: sans_serif, weight: "bold")
+  #show heading.where(level: 1): set text(size: 14pt)
+  #show heading.where(level: 2): set text(size: 12pt)
+  #show heading.where(level: 3): set text(size: 11pt)
 
-  #show heading.where(level: 1): set text(size: heading_level_1_text_size)
-  #show heading.where(level: 2): set text(size: heading_level_2_text_size)
-  #show heading.where(level: 3): set text(size: heading_level_3_text_size)
+  #set text(font: serif, size: 11pt)
 
-  // set text(font: "Palatino", size: 11pt)
-  // show title: set text(font: "Helvetica", weight: "bold", size: 14pt)
-  // show footnote: set text(size: 9pt)
-  // show figure.caption: set text(style: "italic", size: 9pt)
-  
-  // show heading: set text(font: "Helvetica", weight: "bold")
-  // show heading.where(level: 1): set text(size: 14pt)
-  // show heading.where(level: 2): set text(size: 12pt)
-  // show heading.where(level: 3): set text(size: 11pt)
-
-  #show par: set text(font: body_font, size: body_text_size)
-  #show par: body_style
-
-  #show footnote: set text(font: footnote_font, size: footnote_text_size)
-  #show footnote: footnote_style
-
-  #show figure.caption: set text(font: caption_font, size: caption_text_size)
-  #show figure.caption: caption_style
+  #show footnote: set text(font: serif, size: 9pt)
+  #show figure.caption: set text(font: serif, size: 9pt, style: "italic")
 
   // TODO: justify?
   #set par(spacing: paragraph_spacing, justify: true)
@@ -106,6 +88,9 @@
   // TODO: Style the title.
   // TODO: Style the headers and footers.
 
+  
+  #text(font: sans_serif, weight: "bold", size: 17pt, title)
+  #set heading(numbering: "1.1")
   #content
 ]
 
