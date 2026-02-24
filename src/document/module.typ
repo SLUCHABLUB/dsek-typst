@@ -26,21 +26,20 @@
   ]
 )
 
-#let footer() = {
-  line(length: 100%, stroke: 0.4pt)
+#let footer() = context {
   set align(center)
+
+  line(length: 100%, stroke: 0.4pt)
   v(-6pt)
 
-  context {
-    let current_page = counter(page).get().at(0)
-    let last_page = counter(page).final().at(0)
-    let location = (page: last_page, x: 0pt, y: 0pt)
+  let current_page = counter(page).get().at(0)
+  let last_page = counter(page).final().at(0)
+  let location = (page: last_page, x: 0mm, y: 0mm)
 
-    [
-      #current_page
-      (#link(location)[#text(fill: red, [#last_page])])
-    ]
-  }
+  [
+    #current_page
+    (#link(location)[#text(fill: red, [#last_page])])
+  ]
 }
 
 #let doc(
@@ -88,7 +87,7 @@
   // TODO: Style the title.
   // TODO: Style the headers and footers.
 
-  
+
   #text(font: sans_serif, weight: "bold", size: 17pt, title)
   #set heading(numbering: "1.1")
   #content
