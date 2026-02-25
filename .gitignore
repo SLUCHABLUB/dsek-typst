@@ -1,18 +1,1 @@
-# LaTeX stuff
-*.log
 *.pdf
-*.aux
-*.out
-*.dvi
-*.toc
-*.fdb_latexmk
-*.fls
-*.synctex.gz
-*.hd
-
-# Testing stuff
-results/
-build/
-
-# Publishing stuff
-*.zip
