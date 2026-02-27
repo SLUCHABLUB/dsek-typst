@@ -1,5 +1,4 @@
 #let serif = "Domitian"
-#let monospace = "DejaVu Sans Mono"
 #let sans_serif = "TeX Gyre Heros"
 
 // These are copied from the LaTeX templates.
