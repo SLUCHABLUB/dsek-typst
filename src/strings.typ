@@ -179,3 +179,23 @@
   "talman": translate("Talman", "Assembly speaker"),
   "jublegeneral": translate("Jubileumsgeneral", "Head of the Anniversary Committee"),
 )
+
+#let lth-symbols = (
+  "asek": text(font: "LTH symbols", "A"),
+  "dsek": text(font: "LTH symbols", "D"),
+  "esek": text(font: "LTH symbols", "E"),
+  "fsek": text(font: "LTH symbols", "F"),
+  "ing": text(font: "LTH symbols", "H"),
+  "isek": text(font: "LTH symbols", "I"),
+  "ksek": text(font: "LTH symbols", "K"),
+  "msek": text(font: "LTH symbols", "M"),
+  "dokt": text(font: "LTH symbols", "O"),
+  "tlth": text(font: "LTH symbols", "T"),
+  "vsek": text(font: "LTH symbols", "V"),
+  "wsek": text(font: "LTH symbols", "W"),
+  "biif": text(font: "LTH symbols", "b"),
+  "infocom": text(font: "LTH symbols", "C"),
+  "helge": text(font: "LTH symbols", "h"),
+  "lant": text(font: "LTH symbols", "l"),
+  "td": text(font: "LTH symbols", "t"),
+)
