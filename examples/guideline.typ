@@ -7,9 +7,9 @@
 #show: doc.with(
   title: "Riktlinje för grafisk profil",
   // TODO: Bör denna bara vara "Riktlinje"?
-  short_title: "Riktlinje för grafisk profil",
+  short_title: "Riktlinje",
   // TODO: Denna bör nog sättas till mötet för sista ändring.
-  meeting: "Riktlinje"
+  meeting: "VTM-extra 2023"
 )
 
 = Formalia

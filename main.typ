@@ -1,9 +1,9 @@
 #import "src/lib.typ": *
 
 #show: doc.with(
-  title: "Ett dokument",
-  short_title: "Protokoll",
-  meeting: "VTM-1"
+  title: [Proposition: #emoji.aubergine],
+  short_title: "Proposition",
+  // meeting: "VTM-1",
 )
 
 = En titel
@@ -28,12 +28,12 @@
 
 == Och så vidare
 
-#lorem(300)#footnote[Detta är en fotnot]
+#lorem(300)
 
 === Underundertitel!
 
 #lorem(10)
 
-= Sita titeln
+= Sista titeln
 
 #lorem(20)

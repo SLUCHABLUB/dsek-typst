@@ -1,12 +1,14 @@
 #import "@preview/datify:1.0.1": custom-date-format
 #import "style.typ": *
 #import "../graphics.typ": guild_logo
-#import "../strings.typ": organisation_name
+#import "../strings.typ": guild
+#import "../resolutions.typ": *
 
 #let header(short_title, meeting, date) = context pad(
   bottom: header_padding,
   box(height: header_height)[
     #set align(horizon)
+    #set text(size: 10pt)
     #stack(
       dir: ltr,
       box(width: 18mm)[
@@ -14,8 +16,8 @@
       ],
       box(width: 82mm)[
         #show: smallcaps
-        #organisation_name \
-        #lower(short_title)
+        #text(size: 11pt, guild.dseklth) \
+        #short_title
       ],
       box(width: 60mm)[
         #set align(right)
@@ -28,9 +30,11 @@
 
 #let footer() = context {
   set align(center)
+  set text(number-type: "lining")
 
+  v(2em)
   line(length: 100%, stroke: 0.4pt)
-  v(-6pt)
+  v(-(par.leading + 6pt))
 
   let current_page = counter(page).get().at(0)
   let last_page = counter(page).final().at(0)
@@ -41,6 +45,8 @@
     (#link(location)[#text(fill: red, [#last_page])])
   ]
 }
+
+#let titel = title
 
 #let doc(
   title: none,
@@ -56,17 +62,21 @@
     date: date,
   )
 
-  #set text(lang: language, font: serif, size: 11pt)
+  #set text(lang: language, font: serif, size: 11pt, number-type: "old-style")
+
+  #show titel: set text(font: sans_serif, weight: "bold", size: 15pt)
 
   // TODO: Investigate spacing between numbering and heading text
   //       as well as heading text and paragraph.
-  #show heading: set text(font: sans_serif, weight: "bold")
+  #show heading: set text(font: sans_serif, weight: "bold", number-type: "lining")
   #show heading.where(level: 1): set text(size: 14pt)
   #show heading.where(level: 2): set text(size: 12pt)
   #show heading.where(level: 3): set text(size: 11pt)
-
+  
   #show footnote: set text(font: serif, size: 9pt)
   #show figure.caption: set text(font: serif, size: 9pt, style: "italic")
+
+  #show list: resolutions
 
   // TODO: Pick and set a monospace font for code-esque excerpts.
 
@@ -81,11 +91,12 @@
       x: horizontal_margin,
       top: top_margin,
       bottom: bottom_margin,
-    )
+    ),
   )
 
-  #text(font: sans_serif, weight: "bold", size: 17pt, title)
-  #set heading(numbering: "1.1")
+  #set heading(numbering: "1.1   ")
+  
+  #titel()
   #content
 ]
 
@@ -93,3 +104,4 @@
 // TODO: Agenda function.
 // TODO: Attachments.
 // TODO: LTH symbols.
+// TODO: Colors (pink links, footnotes)
