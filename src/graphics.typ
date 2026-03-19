@@ -1,5 +1,6 @@
 // TODO: Committee logos?
 // TODO: "Word marks"?
+// TODO: move to dedicated package so we can update things separately
 
 #let graphic(type: "dsek", colour: false, symbol: false, height: 10pt) = {
   let available = ("dsek", "datateknik", "infocom", "vr_ar")

@@ -1,15 +1,15 @@
 #import "../src/lib.typ": *
+#import "../src/graphics.typ": *
 #import "@preview/metalogo:1.2.0": LaTeX
 
 // TODO: Update the contents of the guideline.
 
 // TODO: Use the guideline function.
-#show: doc.with(
+#show: plain-document.with(
   title: "Riktlinje för grafisk profil",
-  // TODO: Bör denna bara vara "Riktlinje"?
   short_title: "Riktlinje",
   // TODO: Denna bör nog sättas till mötet för sista ändring.
-  meeting: "VTM-extra 2023"
+  meeting: "VTM-extra"
 )
 
 = Formalia
@@ -92,9 +92,9 @@ I regel brukar sektionens dokument skrivas med mallar likt den som denna riktlin
   table.hline(),
   [Brödtext], [Palatino, 11 pt],
   [Fotnoter], [#text(size: 9pt)[Palatino], 9 pt],
-  [Första rubriknivån (x)], [#text(font: sans_serif, weight: "bold", size: 14pt)[Helvetica fet], 14 pt],
-  [Andra rubriknivån (x.y)], [#text(font: sans_serif, weight: "bold", size: 12pt)[Helvetica fet], 12 pt],
-  [Tredje rubriknivån (x.y.z)], [#text(font: sans_serif, weight: "bold")[Helvetica fet], 11 pt],
+  [Första rubriknivån (x)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 14pt)[Helvetica fet], 14 pt],
+  [Andra rubriknivån (x.y)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 12pt)[Helvetica fet], 12 pt],
+  [Tredje rubriknivån (x.y.z)], [#text(font: "TeX Gyre Heros", weight: "bold")[Helvetica fet], 11 pt],
   [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic", size: 9pt)[Palatino kursiv], 9 pt],
   table.hline()
 ))

@@ -1,15 +1,4 @@
-#let translate(swedish, english) = context {
-  let lang = text.lang
-  if lang == "sv" {
-    swedish
-  } else if lang == "en" {
-    english
-  } else {
-    panic("language `" + lang + "` is not supported for name translations")
-  }
-}
-
-// TODO: (maybe) add the other words from i18n guideline?
+#import "utils/misc.typ": translate
 
 #let guild = (
   "dsek": translate("D-sektionen", "The D-guild"),
@@ -21,8 +10,10 @@
 
 #let styr = (
   "name": translate("Styrelsen", "The Board"),
-  "ordf": translate("Sektionsordförande", "Guild President"),
-  "vice_ordf": translate("Vice sektionsordförande", "Vice Guild President"),
+  "ordf": translate("Ordförande", "President"),
+  "sordf": translate("Sektionsordförande", "Guild President"),
+  "vice_ordf": translate("Vice ordförande", "Vice President"),
+  "vice_sordf": translate("Vice sektionsordförande", "Vice Guild President"),
 )
 
 #let aktu = (
@@ -91,7 +82,7 @@
 
 #let nollu = (
   "name": translate("Nollningsutskottet", "The Introductions Committee"),
-  "mastare": translate("Øverphøs", "Head of the Introductions Committee"),
+  "oph": translate("Øverphøs", "Head of the Introductions Committee"),
   "stab": translate("Stabsmedlem", "Member of the Introductions Committee"),
   "opepp": translate("Øverpeppare", "Head of Introduction Coordinators"),
   "pepp": translate("Peppare", "Introduction Coordinator"),
@@ -173,7 +164,7 @@
   "varldsm": translate("Världsmästare", "World Master"),
 )
 
-#let others = (
+#let otherpos = (
   "inspektor": translate("Inspektor", "Inspector"),
   "revisor": translate("Revisor", "Auditor"),
   "talman": translate("Talman", "Assembly speaker"),

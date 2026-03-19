@@ -1,38 +1,10 @@
-// helper function to convert content to text
-#let to-text(c) = {
-  if type(c) == "string" { 
-    return c 
-  } else if type(c) == content {
-    let f = c.func()
-    
-    if f == text { 
-      return c.text 
-    } else if f == [ ].func() { 
-      return " " 
-    } else if f == [\n].func() { 
-      return "\n" 
-    } else if f == ['].func() {
-      return if c.double { "\"" } else { "'" }
-    } 
-    else if c.has("children") { 
-      return c.children.map(to-text).join() 
-    } else if c.has("body") { 
-      return to-text(c.body) 
-    } 
-    else { 
-      return "" 
-    }
-  } else { 
-    return "" 
-  }
-}
+#import "misc.typ": enhanced_ref, to-text
 
 // a possibly more typsty way of doing resolutions
 // start all list items with `att` (or a word of your choice) and it ✨automatically✨ displays a formatted list
 // also show rule-compatible!
 
 #let resolutions(enumerate: auto, term: auto, it) = context {
-  // TODO: figure out how to do descriptions (possibly through indented lists?)
   // TODO: wrap in a figure to make references in feature parity with LaTeX
 
   // language detection
@@ -40,7 +12,7 @@
     if text.lang == "sv" {
       "att"
     } else if text.lang == "en" {
-      "that"
+      "to"
     } else {
       panic("language `" + text.lang + "` is not supported automatically for resolutions, set term manually using `term: \"...\"`")
     }
@@ -55,8 +27,7 @@
   let res = counter("resolutions")
   res.update(0)
   
-  v(1em)
-  show figure: set align(left)
+  // TODO: add spacing above last paragraph above resolutions automatically
   list(
     tight: false,
     marker: {
@@ -70,22 +41,26 @@
       strong(term)
     },
     ..elems.map(e => {
+      
       // if there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept
       if e.body.has("children") {
+        
+        // descriptions are made by creating a sublist
+        show list: set text(style: "italic")
+        set list(marker: none, spacing: par.spacing)
+
         let cn = e.body.children
+        
         // edge case if someone starts formatting something immediately after the term
         let from = if cn.first() == [#term] { 2 } else { 1 }
+        
         fmt(cn.first()) + cn.slice(from, cn.len()).join()
       } else {
         fmt(e)
       }
     })
-  ) 
-  v(1em)
+  )
 }
-
-// Swedish binding
-#let att-lista = resolutions
 
 // --- Example ---
 
@@ -106,25 +81,27 @@ och sedan yrkar vi på
 
 Vi kan även se
 
+- att vi kan lägga till beskrivningar
+  - Beskrivningar ger en möjligheten att ge en utförligare förklaring eller förtydligande
 - att satserna numreras om det är 4 eller fler totalt
+  - detta sker automatiskt, men man kan även ställa in att det alltid eller aldirg ska ske
 - att numreringen börjar om vid en ny lista
 - att `formattering` behålls
-- att show rules är feta
 
 #set text(lang: "en")
 
-Now we'll switch to english and show
+Now we'll switch to English and move
 
-- that we can combine the 2 different variants
-- that it can work automatically based on language
+- to show that it can work automatically based on language
+- to combine the 2 different variants
 
-Y hasta en español podemos mostrar
+// Y hasta en español podemos mostrar
 
-#att-lista(term: "que", enumerate: true)[
-  - que puedes elegir tu propio palabra para "att"
-  - que también se puede invocar como una función convencional,
-  - que se puede especificar si se desea numerar la lista completa o no.
-]
+// #att-lista(term: "que", enumerate: true)[
+//   - que puedes elegir tu propio palabra para "att"
+//   - que también se puede invocar como una función convencional,
+//   - que se puede especificar si se desea numerar la lista completa o no.
+// ]
 
 och till sist återgår vi till 
 

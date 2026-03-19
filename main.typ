@@ -1,9 +1,9 @@
 #import "src/lib.typ": *
 
-#show: doc.with(
-  title: [Proposition: #emoji.aubergine],
-  short_title: "Proposition",
-  // meeting: "VTM-1",
+#show: plain-document.with(
+  title: [Motion: detta är en titel],
+  short_title: "Mötesdokumentshandling",
+  meeting: "VTM-1",
 )
 
 = En titel
