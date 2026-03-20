@@ -1,58 +1,99 @@
 #import "../document.typ": doc
-#import "../../utils/misc.typ": translate as tr
+#import "../governing/statutes-regulations.typ": terms-fmt
+#import "../../utils/misc.typ": labelize, old-terms, ref-id, to-text, translate
 #import "../../utils/minutes-fmt.typ": minutes-fmt
-#import "../../utils/resolutions.typ": resolutions
-#import "../../utils/attendance.typ": attendance
+#import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../utils/signature.typ": signature
 #import "../../strings.typ"
 
+#let attendance(..names) = {
+  grid(
+    columns: 3,
+    row-gutter: 0.55em,
+    column-gutter: 1em,
+    stroke: none,
+    ..names
+      .pos()
+      .enumerate()
+      .map(xi => {
+        let (i, name-pos) = xi
+        let (name, position) = if type(name-pos) == array {
+          if name-pos.len() > 2 {
+            panic("Expected 2 arguments, got " + str(name-pos.len()))
+          }
+          name-pos
+        } else {
+          (name-pos, none)
+        }
+
+        (
+          if i == 0 [*#translate("Närvaro", "Attendance"):*],
+          context [
+            // q) why headings?
+            // a) you can pass along hidden data with supplement
+            // meaning you can access mandates directly from the reference :)
+            // also you can make it behave exactly like text
+            #show heading: set text(font: text.font, weight: text.weight, size: text.size)
+            #set heading(depth: ref-id.person, numbering: none, outlined: false)
+            #heading(name, supplement: position) #label(labelize(name))
+          ],
+          position,
+        )
+      })
+      .flatten()
+  )
+}
+
 #let minutes(
   meeting: none,
-  meeting_type: none,
-  language: "sv",
+  meeting-type: none,
+  lang: "sv",
   date: datetime.today(),
   attendees: (),
   chair: none,
   secretary: none,
   reviewers: (),
   attested: false,
-  it
+  it,
 ) = context {
-  
   let watermark = if not attested {
     set align(center + horizon)
     show rotate: set block(width: 150%)
     rotate(-45deg, text(
-      size: 100pt, 
+      size: 100pt,
       fill: luma(95%),
       weight: "bold",
-      tr("OJUSTERAT", "UNATTESTED")
+      translate("OJUSTERAT", "UNATTESTED"),
     ))
   }
-  
+
+  if meeting == none {
+    panic("Please provide a meeting name (key: `meeting`)")
+  }
+
   set page(background: watermark)
-  
+
   let reviewers = if type(reviewers) == array { reviewers } else { (reviewers,) }
-  let protocol_name = tr("Protokoll", "Meeting minutes")
-  
-  show: doc.with(
-    title: [
-      #protocol_name #tr("för", "for")
-      #meeting_type
-      #{
-        if meeting not in (none, "") { meeting } 
-        else { tr("[möte saknas]", "[meeting name missing]") }
-      },
-      #date.display()
-    ],
-    short_title: protocol_name,
-    meeting: meeting,
-    language: language,
-    date: date
-  )
+  let minutes-name = translate("Protokoll", "Meeting minutes")
+  let of = translate("för", "of")
+  // let meeting-name = if meeting not in (none, "") {
+  //   meeting
+  // } else {
+  //   translate("[möte saknas]", "[meeting name missing]")
+  // }
 
   show terms: minutes-fmt
-  
+  show: doc.with(
+    title: [#minutes-name #of #meeting-type #meeting, #date.display()],
+    short-title: minutes-name,
+    meeting: meeting,
+    lang: lang,
+    date: date,
+  )
+
+  set document(title: [#minutes-name #meeting], author: to-text(secretary))
+
+
   attendance(..attendees)
   v(2em)
   it
@@ -63,22 +104,22 @@
     columns: 4,
     row-gutter: 2em,
     signature(
-      tr("Vid protokollet", "Recorded by"), 
+      translate("Vid protokollet", "Recorded by"),
       secretary,
-      tr("Mötessekreterare", "Meeting secretary")
+      translate("Mötessekreterare", "Meeting secretary"),
     ),
     signature(
-      tr("Vid mötet", "Presided by"), 
+      translate("Vid mötet", "Presided by"),
       chair,
-      tr("Mötesordförande", "Meeting chair"), 
+      translate("Mötesordförande", "Meeting chair"),
     ),
-    ..reviewers.map(reviewer => context [
-      #signature(
-        tr("Justeras", "Attested by"),
+    ..reviewers.map(reviewer => context {
+      signature(
+        translate("Justeras", "Attested by"),
         reviewer,
-        tr("Justerare", "Minute reviewer")
-      )]
-    )
+        translate("Justerare", "Minute reviewer"),
+      )
+    }),
   )
-  
 }
+

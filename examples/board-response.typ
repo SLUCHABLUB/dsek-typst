@@ -9,11 +9,11 @@
       name: "Dag Hemberg",
       position: strings.infu.mastare,
     ),
-  )
+  ),
 )
 
 #emoji.thumb.up
-#v(1em)
 
 Styrelsen yrkar på
 - att bifalla motionen i sin helhet
+

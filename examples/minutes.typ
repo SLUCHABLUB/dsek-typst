@@ -2,8 +2,8 @@
 #import strings: *
 
 #show: minutes.with(
+  meeting-type: "Styrelsemöte",
   meeting: "S06",
-  meeting_type: "Styrelsemöte",
   date: datetime(year: 2026, month: 2, day: 24),
   attendees: (
     ("Ella Svensson", styr.ordf),
@@ -23,7 +23,7 @@
   chair: [@ellasvensson],
   secretary: [@lokebahr],
   reviewers: ([@ludwiggehlsdorf],),
-  attested: true
+  attested: true,
 )
 
 / OFMÖ:
@@ -46,10 +46,10 @@
   - att godkänna föregående mötesprotokoll
 
 / Information från Kåren:
-  - Inte jättemånga som kan komma till styrelseutbildning. Det kanske blir ett uppsamlingstilfälle. 
-  - Speak up days: Det finns Feta priser, hörlurar, polarid, högtalare. 
-  - Har öppnat val för heltidare styrelsen och utskottsordförande på hemsidan. 
-  - Tentafrukost lävecka 8 i cornelius. 
+  - Inte jättemånga som kan komma till styrelseutbildning. Det kanske blir ett uppsamlingstilfälle.
+  - Speak up days: Det finns Feta priser, hörlurar, polarid, högtalare.
+  - Har öppnat val för heltidare styrelsen och utskottsordförande på hemsidan.
+  - Tentafrukost lävecka 8 i cornelius.
   - Media och logisicmanager behövs i PG och koordinatoransökan för arkad börjar nästa vecka.
 
 / Information från studierådet:
@@ -92,7 +92,7 @@
 / Val av CPU-funkis:
   @davidagardh[] presenterade handlingen.
 
-  Mötet beslöt 
+  Mötet beslöt
   - att välja Emil Mollin till CPU-funktionär
 
 / Avsägelser:
@@ -110,3 +110,4 @@
 
 / OFMA:
   @ellasvensson förklarade mötet avslutat kl 12:37.
+

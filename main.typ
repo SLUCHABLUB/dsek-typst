@@ -2,7 +2,7 @@
 
 #show: plain-document.with(
   title: [Motion: detta är en titel],
-  short_title: "Mötesdokumentshandling",
+  short-title: "Mötesdokumentshandling",
   meeting: "VTM-1",
 )
 
@@ -37,3 +37,4 @@
 = Sista titeln
 
 #lorem(20)
+

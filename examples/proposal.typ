@@ -1,18 +1,19 @@
-#import "../src/lib.typ": proposition as propp, strings
-#import strings: * 
+#import "../src/lib.typ": proposal, strings
+#import "../src/utils/misc.typ": to-text
+#import strings: *
 
-#show: propp.with(
+#show: proposal.with(
   title: "Policy för samverkan med D-chip",
   date: datetime(year: 2024, month: 9, day: 28),
   meeting: "HTM1",
   authors: (
     (name: "Emma Haggren", position: styr.ordf, greeting: "För Sryrelsen, dag som ovan"),
-  )
+  ),
 )
 
 = Bakgrund
 
-Under VTM röstade sektionen igenom den första läsningen angående att ta bort D-Chip från Fristående förening under sektionen i stadgarna. Under diskussionen fick jag (Emma Haggren) uppgiften att undersöka sammarbetet med D-Chip under nollningen, i syftet att behålla D-Chips del i D-sektionens nollning. I samband med denna uppgift har jag dessutom kontaktat D-Chips styrelse och frågat dem om de kan utvärdera policyn nu när den har varit i bruk under ett år.
+Under VTM röstade sektionen igenom den första läsningen angående att ta bort D-Chip från Fristående förening under sektionen i stadgarna. Under diskussionen fick jag (@emmahaggren) uppgiften att undersöka sammarbetet med D-Chip under nollningen, i syftet att behålla D-Chips del i D-sektionens nollning. I samband med denna uppgift har jag dessutom kontaktat D-Chips styrelse och frågat dem om de kan utvärdera policyn nu när den har varit i bruk under ett år.
 
 = Ändringar
 
@@ -28,6 +29,5 @@ Vi har också internt med D-Chip bestämt att de ska betala för bensin/diesel n
 
 Dessa ändringar har jag lagt till i bilagan, en uppdaterad version av Policy för samverkan med D-Chip.
 
-#v(1em)
-Styrelsen yrkar därmed på 
+Styrelsen yrkar därmed på
 - att uppdatera _Policy för samverkan med D-chip_ enligt bilaga

@@ -1,174 +1,174 @@
 #import "utils/misc.typ": translate
 
 #let guild = (
-  "dsek": translate("D-sektionen", "The D-guild"),
-  "dseklth": translate("D-sektionen inom TLTH", "The D-guild within TLTH"),
-  "data": translate("Datateknik", "Computer Science and Engineering"),
-  "infocom": translate("Informations- och kommunikationsteknik", "Information and Communication Engineering"),
-  "vrar": translate("Virtuell verklighet och förstärkt verklighet", "Virtual Reality and Augmented Reality"),
+  "dsek": translate([D-sektionen], [The D-guild]),
+  "dseklth": translate([D-sektionen inom TLTH], [The D-guild within TLTH]),
+  "data": translate([Data-?teknik], [Computer Science and Engi-?neering]),
+  "infocom": translate([Informations- och kommunikations-?teknik], [Information and Communi-?cation Engi-?neering]),
+  "vrar": translate([Virtuell verk-?lighet och förstärkt verk-?lighet], [Virtual Reality and Aug-?mented Reality]),
 )
 
 #let styr = (
-  "name": translate("Styrelsen", "The Board"),
-  "ordf": translate("Ordförande", "President"),
-  "sordf": translate("Sektionsordförande", "Guild President"),
-  "vice_ordf": translate("Vice ordförande", "Vice President"),
-  "vice_sordf": translate("Vice sektionsordförande", "Vice Guild President"),
+  "name": translate([Styrelsen], [The Board]),
+  "ordf": translate([Ordförande], [President]),
+  "sordf": translate([Sektions-?ordförande], [Guild President]),
+  "vice_ordf": translate([Vice ordförande], [Vice President]),
+  "vice_sordf": translate([Vice sektions-?ordförande], [Vice Guild President]),
 )
 
 #let aktu = (
-  "name": translate("Aktivitetsutskottet", "The Recreation Committee"),
-  "mastare": translate("Aktivitetsansvarig", "Head of Recreation"),
-  "vice_mastare": translate("Vice Aktivitetsansvarig", "Vice Head of Recreation"),
-  "dischoansv": translate("UtEDischoansvarig", "UtEDischo Manager"),
-  "idrottsfm": translate("Idrottsförman", "Head of Sports Events"),
-  "dsportare": translate("D-sportare", "Tournament Organizer"),
-  "karnevalsansv": translate("Karnevalsansvarig", "Lundakarnevalen Representative"),
-  "lanpartyansv": translate("LAN-partyansvarig", "LAN-party Coordinator"),
-  "semester": translate("Semesterfirare", "Holidaymaker"),
-  "tandemgen": translate("Tandemgeneral", "Tandem Relay Team Captain"),
-  "nojesfm": translate("Nöjesförman", "Chief of Joy"),
-  "coach": translate("Coach", "Coach"),
+  "name": translate([Aktivitets-?utskottet], [The Recreation Com-?mittee]),
+  "mastare": translate([Aktivitets-?ansvarig], [Head of Recreation]),
+  "vice_mastare": translate([Vice Aktivitets-?ansvarig], [Vice Head of Recreation]),
+  "dischoansv": translate([UtEDischo-?ansvarig], [UtEDischo Manager]),
+  "idrottsfm": translate([Idrotts-?förman], [Head of Sports Events]),
+  "dsportare": translate([D-sportare], [Tournament Organizer]),
+  "karnevalsansv": translate([Karnevals-?ansvarig], [Lundakarnevalen Repre-?sentative]),
+  "lanpartyansv": translate([LAN-party-?ansvarig], [LAN-party Coor-?dinator]),
+  "semester": translate([Semester-?firare], [Holiday-?maker]),
+  "tandemgen": translate([Tandem-?general], [Tandem Relay Team Captain]),
+  "nojesfm": translate([Nöjes-?förman], [Chief of Joy]),
+  "coach": translate([Coach], [Coach]),
 )
 
 #let infu = (
-  "name": translate("Informationsutskottet", "The Communications Committee"),
-  "mastare": translate("Informationsansvarig", "Head of Communications"),
-  "vice_mastare": translate("Vice Informationsansvarig", "Vice Head of Communications"),
-  "fotograf": translate("Fotograf", "Photographer"),
-  "filmare": translate("Filmare", "Filmmaker"),
-  "arkivarie": translate("Arkivare", "Archivist"),
-  "artist": translate("Artist", "Artist"),
-  "influencer": translate("Influencer", "Influencer"),
-  "journalist": translate("Journalist", "Journalist"),
-  "redaktor": translate("Redaktör", "Editor"),
-  "shopaholic": translate("Shopaholic", "Shopaholic"),
-  "skald": translate("Skald", "Bard"),
-  "markv": translate("Märkvärdig", "Patchy"),
+  "name": translate([Informations-?utskottet], [The Communi-?cations Com-?mittee]),
+  "mastare": translate([Informations-?ansvarig], [Head of Communi-?cations]),
+  "vice_mastare": translate([Vice Informations-?ansvarig], [Vice Head of Communi-?cations]),
+  "fotograf": translate([Fotograf], [Photographer]),
+  "filmare": translate([Filmare], [Filmmaker]),
+  "arkivarie": translate([Arkivarie], [Archivist]),
+  "artist": translate([Artist], [Artist]),
+  "influencer": translate([Influencer], [Influencer]),
+  "journalist": translate([Journalist], [Journalist]),
+  "redaktor": translate([Redaktör], [Editor]),
+  "shopaholic": translate([Shopaholic], [Shopaholic]),
+  "skald": translate([Skald], [Bard]),
+  "markv": translate([Märkvärdig], [Patchy]),
 )
 
 #let cafe = (
-  "name": translate("Cafémästeriet", "The Café Committee"),
-  "mastare": translate("Cafémästare", "Head of the Café"),
-  "vice_mastare": translate("Vice cafémästare", "Vice Head of the Café"),
-  "dagsansv": translate("Dagsansvarig", "Daycarer"),
-  "inventarieansv": translate("Inventarieansvarig", "Stockpiler"),
-  "stekare": translate("Stekare", "Grillmaster"),
-  "brunchm": translate("Brunchmästare", "Head of Brunch"),
-  "bakis": translate("Bakis", "Baked"),
+  "name": translate([Café-?mästeriet], [The Café Com-?mittee]),
+  "mastare": translate([Café-?mästare], [Head of the Café]),
+  "vice_mastare": translate([Vice café-?mästare], [Vice Head of the Café]),
+  "dagsansv": translate([Dags-?ansvarig], [Daycarer]),
+  "inventarieansv": translate([Inventarie-?ansvarig], [Stockpiler]),
+  "stekare": translate([Stekare], [Grillmaster]),
+  "brunchm": translate([Brunch-?mästare], [Head of Brunch]),
+  "bakis": translate([Bakis], [Baked]),
 )
 
 #let skattm = (
-  "name": translate("Skattmästeriet", "The Treasury"),
-  "mastare": translate("Skattmästare", "Treasurer"),
-  "vice_mastare": translate("Vice Skattmästare", "Vice Treasurer"),
-  "fm": translate("Skattförman", "Treasury Foreman"),
+  "name": translate([Skatt-?mästeriet], [The Treasury]),
+  "mastare": translate([Skatt-?mästare], [Treasurer]),
+  "vice_mastare": translate([Vice Skatt-?mästare], [Vice Treasurer]),
+  "fm": translate([Skatt-?förman], [Treasury Foreman]),
 )
 
 #let fram = (
-  "name": translate("Framtidsutskottet", "The Strategic Committee"),
-  "ordf": translate("Framtidsordförande", "Head of the Strategic Committee"),
-  "ledamot": translate("Framtidsledamot", "Member of the Strategic Committee"),
+  "name": translate([Framtids-?utskottet], [The Strategic Com-?mittee]),
+  "ordf": translate([Framtids-?ordförande], [Head of the Strategic Com-?mittee]),
+  "ledamot": translate([Framtids-?ledamot], [Member of the Strategic Com-?mittee]),
 )
 
 #let km = (
-  "name": translate("Källarmästeriet", "The Facilities Committee"),
-  "mastare": translate("Källarmästare", "Head of Facilities"),
-  "vice_mastare": translate("Vice källarmästare", "Vice Head of Facilities"),
-  "bilansv": translate("Bilansvarig", "Guild Car Mechanic"),
-  "ljudoljus": translate("Ljud- och ljusansvarig", "Audiovisual Technician"),
-  "tradgm": translate("Trädgårdsmästare", "Gardener"),
+  "name": translate([Källar-?mästeriet], [The Facilities Com-?mittee]),
+  "mastare": translate([Källar-?mästare], [Head of Facilities]),
+  "vice_mastare": translate([Vice källar-?mästare], [Vice Head of Facilities]),
+  "bilansv": translate([Bil-?ansvarig], [Guild Car Mechanic]),
+  "ljudoljus": translate([Ljud- och ljus-?ansvarig], [Audiovisual Technician]),
+  "tradgm": translate([Trädgårds-?mästare], [Gardener]),
 )
 
 #let nollu = (
-  "name": translate("Nollningsutskottet", "The Introductions Committee"),
-  "oph": translate("Øverphøs", "Head of the Introductions Committee"),
-  "stab": translate("Stabsmedlem", "Member of the Introductions Committee"),
-  "opepp": translate("Øverpeppare", "Head of Introduction Coordinators"),
-  "pepp": translate("Peppare", "Introduction Coordinator"),
-  "phadder": translate("Phadder", "Mentor"),
-  "pluggphadder": translate("Pluggphadder", "Study Mentor"),
+  "name": translate([Nollnings-?utskottet], [The Intro-?ductions Com-?mittee]),
+  "oph": translate([Øver-?phøs], [Head of the Intro-?ductions Com-?mittee]),
+  "stab": translate([Stabs-?medlem], [Member of the Intro-?ductions Com-?mittee]),
+  "opepp": translate([Øver-?peppare], [Head of Introduction Coor-?dinators]),
+  "pepp": translate([Peppare], [Introduction Coor-?dinator]),
+  "phadder": translate([Phadder], [Mentor]),
+  "pluggphadder": translate([Plugg-?phadder], [Study Mentor]),
 )
 
 #let naru = (
-  "name": translate("Näringslivsutskottet", "The Corporate Relations Committee"),
-  "mastare": translate("Näringslivsansvarig", "Head of Corporate Relations"),
-  "vice_mastare": translate("Vice näringslivsansvarig", "Vice Head of Corporate Relations"),
-  "alumniansv": translate("Alumnigruppsansvarig", "Head of the Alumni Committee"),
-  "aulmnimdlm": translate("Alumnigruppsmedlem", "Member of the Alumni Committee"),
-  "koordinator": translate("Näringslivskoordinator", "Corporate Relations Coordinator"),
+  "name": translate([Näringslivs-?utskottet], [The Corpo-?rate Rela-?tions Com-?mittee]),
+  "mastare": translate([Näringslivs-?ansvarig], [Head of Corpo-?rate Rela-?tions]),
+  "vice_mastare": translate([Vice näringslivs-?ansvarig], [Vice Head of Corpo-?rate Rela-?tions]),
+  "alumniansv": translate([Alumni-?grupps-?ansvarig], [Head of the Alumni Com-?mittee]),
+  "aulmnimdlm": translate([Alumni-?grupps-?medlem], [Member of the Alumni Com-?mittee]),
+  "koordinator": translate([Näringslivs-?koordinator], [Corpo-?rate Rela-?tions Coor-?dinator]),
 )
 
 #let sexm = (
-  "name": translate("Sexmästeriet", "The Festivities Committee"),
-  "mastare": translate("Sexmästare", "Head of Festivities"),
-  "vice_mastare": translate("Vice sexmästare", "Vice Head of Festivities"),
-  "barm": translate("Barmästare", "Bartender"),
-  "vbarm": translate("Vice barmästare", "Vice Bartender"),
-  "pubm": translate("Pubmästare", "Head of Pubs"),
-  "vpubm": translate("Vice pubmästare", "Vice Head of Pubs"),
-  "hovm": translate("Hovmästare", "Maître D'guild"),
-  "sangfm": translate("Sångförman", "Toastmaster"),
-  "kokm": translate("Köksmästare", "Head chef"),
-  "vkokm": translate("Vice köksmästare", "Sous chef"),
-  "prefm": translate("Preferensmästare", "Preferences chef"),
-  "olfm": translate("Ölförman", "Beer Boss"),
-  "vinfm": translate("Vinförman", "Wine Warden"),
-  "tappad": translate("TappaD", "Beer Boss in charge of Draft"),
-  "sektkock": translate("Sektionskock", "Guild Cook"),
+  "name": translate([Sex-?mästeriet], [The Festivities Com-?mittee]),
+  "mastare": translate([Sex-?mästare], [Head of Festivities]),
+  "vice_mastare": translate([Vice sex-?mästare], [Vice Head of Festivities]),
+  "barm": translate([Bar-?mästare], [Bartender]),
+  "vbarm": translate([Vice bar-?mästare], [Vice Bartender]),
+  "pubm": translate([Pub-?mästare], [Head of Pubs]),
+  "vpubm": translate([Vice pub-?mästare], [Vice Head of Pubs]),
+  "hovm": translate([Hov-?mästare], [Maître D'guild]),
+  "sangfm": translate([Sång-?förman], [Toastmaster]),
+  "kokm": translate([Köks-?mästare], [Head chef]),
+  "vkokm": translate([Vice köks-?mästare], [Sous chef]),
+  "prefm": translate([Preferens-?mästare], [Preferences chef]),
+  "olfm": translate([Öl-?förman], [Beer Boss]),
+  "vinfm": translate([Vin-?förman], [Wine Warden]),
+  "tappad": translate([TappaD], [Beer Boss in charge of Draft]),
+  "sektkock": translate([Sektions-?kock], [Guild Cook]),
 )
 
 #let srd = (
-  "name": translate("Studierådet", "The Student Council"),
-  "ordf": translate("Studierådsordförande", "Head of the Student Council"),
-  "vice_ordf": translate("Vice studierådsordförande", "Vice Head of the Student Council"),
-  "sekr": translate("Studierådssekreterare", "Secretary of the Student Council"),
-  "progledrep": translate("Programledningsrepresentant", "Student Representative of Program Management"),
-  "instledrep": translate("Institutionsledningsrepresentant", "Student Representative of the Department Board"),
-  "husrep": translate("Husrepresentant", "Student Representative of the House Board"),
-  "arskursrep": translate("Årskursrepresentant", "Class Representative"),
+  "name": translate([Studie-?rådet], [The Student Council]),
+  "ordf": translate([Studie-?råds-?ordförande], [Head of the Student Council]),
+  "vice_ordf": translate([Vice studie-?råds-?ordförande], [Vice Head of the Student Council]),
+  "sekr": translate([Studie-?råds-?sekreterare], [Secretary of the Student Council]),
+  "progledrep": translate([Program-?lednings-?representant], [Student Repre-?sentative of Program Manage-?ment]),
+  "instledrep": translate([Institutions-?lednings-?representant], [Student Repre-?sentative of the Depart-?ment Board]),
+  "husrep": translate([Hus-?representant], [Student Repre-?sentative of the House Board]),
+  "arskursrep": translate([Års-?kurs-?representant], [Class Repre-?sentative]),
 )
 
 #let cpu = (
-  "name": translate("Centralprocessutskottet", "The Central Processing Unit"),
-  "mastare": translate("Processmästare", "Head Processor"),
-  "vice_mastare": translate("Vice Processmästare", "Subprocessor"),
-  "dwwwansv": translate("DWWW-ansvarig", "Head of DWWW"),
-  "root": translate("root", "root"),
-  "utvecklare": translate("Utvecklare", "Developer"),
+  "name": translate([Central-?process-?utskottet], [The Central Process-?ing Unit]),
+  "mastare": translate([Process-?mästare], [Head Processor]),
+  "vice_mastare": translate([Vice Process-?mästare], [Subprocessor]),
+  "dwwwansv": translate([DWWW-ansvarig], [Head of DWWW]),
+  "root": translate([root], [root]),
+  "utvecklare": translate([Utvecklare], [Developer]),
 )
 
 #let medalj = (
-  "name": translate("Medeljelelekommitén", "The Honours Committee"),
-  "mastare": translate("Øvermarskalk", "Master of Ceremonies"),
-  "mdlm": translate("Medaljelelekommitémedlem", "Member of the Honours Committee"),
+  "name": translate([Medeljelele-?kommitén], [The Honours Com-?mittee]),
+  "mastare": translate([Øver-?marskalk], [Master of Ceremonies]),
+  "mdlm": translate([Medaljelele-?kommité-?medlem], [Member of the Honours Com-?mittee]),
 )
 
 #let valb = (
-  "name": translate("Valberedningen", "The Nomination Committee"),
-  "ordf": translate("Valberedningens ordförande", "Head of the Nomination Committee"),
-  "rep": translate("Valberedningsrepresentant", "Member of the Nomination Committee"),
+  "name": translate([Val-?beredningen], [The Nomination Com-?mittee]),
+  "ordf": translate([Val-?beredningens ordförande], [Head of the Nomination Com-?mittee]),
+  "rep": translate([Val-?berednings-?representant], [Member of the Nomination Com-?mittee]),
 )
 
 #let tackm = (
-  "name": translate("Tackmästeriet", "The Thanksgiving Committee"),
-  "mastare": translate("Tackmästare", "Head of the Thanksgiving Committee"),
-  "mdlm": translate("Tackmästerist", "Member of the Thanksgiving Committee"),
+  "name": translate([Tack-?mästeriet], [The Thanks-?giving Com-?mittee]),
+  "mastare": translate([Tack-?mästare], [Head of the Thanks-?giving Com-?mittee]),
+  "mdlm": translate([Tack-?mästerist], [Member of the Thanks-?giving Com-?mittee]),
 )
 
 #let triv = (
-  "name": translate("Trivselrådet", "The Student Well-being Committee"),
-  "mastare": translate("Trivselmästare", "Head of Student Well-being"),
-  "likbehombud": translate("Likabehandlingsombud", "Equal Opportunities Representative"),
-  "skyddsombud": translate("Skyddsombud", "Student Safety Representative"),
-  "varldsm": translate("Världsmästare", "World Master"),
+  "name": translate([Trivsel-?rådet], [The Student Well-being Com-?mittee]),
+  "mastare": translate([Trivsel-?mästare], [Head of Student Well-being]),
+  "likbehombud": translate([Lika-?behandlings-?ombud], [Equal Opportunities Repre-?sentative]),
+  "skyddsombud": translate([Skydds-?ombud], [Student Safety Repre-?sentative]),
+  "varldsm": translate([Världs-?mästare], [World Master]),
 )
 
 #let otherpos = (
-  "inspektor": translate("Inspektor", "Inspector"),
-  "revisor": translate("Revisor", "Auditor"),
-  "talman": translate("Talman", "Assembly speaker"),
-  "jublegeneral": translate("Jubileumsgeneral", "Head of the Anniversary Committee"),
+  "inspektor": translate([Inspektor], [Inspector]),
+  "revisor": translate([Revisor], [Auditor]),
+  "talman": translate([Talman], [Assembly speaker]),
+  "jublegeneral": translate([Jubileums-?general], [Head of the Anniversary Com-?mittee]),
 )
 
 #let lth-symbols = (

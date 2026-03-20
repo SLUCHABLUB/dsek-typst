@@ -4,38 +4,62 @@
 
 // TODO: Update the contents of the guideline.
 
-// TODO: Use the guideline function.
-#show: plain-document.with(
-  title: "Riktlinje för grafisk profil",
-  short_title: "Riktlinje",
-  // TODO: Denna bör nog sättas till mötet för sista ändring.
-  meeting: "VTM-extra"
+#show: guideline.with(
+  title: "grafisk profil",
+  summary: [
+    Riktlinje för grafisk profil beskriver många av sektionens vanligaste förekommande grafiska element samt verktyg som man kan använda för att utforma grafiskt material för D-sektionen.
+  ],
+  purpose: [
+    D-sektionen producerar många olika dokument, affischer, nyhetsbrev och andra former av grafik. Denna riktlinje ämnar att ge vägledning och klarhet för hur sektionens grafiska profil består av, hur den skall användas och vilka verktyg det finns att använda.
+
+    Riktlinjen är menat som ett verktyg och som riktlinjer i första hand, det vill säga att om man bryter mot riktlinjen i strävan efter att utforma något som resulterar i något vackrare än det riktlinjen beskriver bör detta inte betraktas som ett riktlinjebrott.
+  ],
+  scope: [
+    Riktlinjen omfattar sektionen som helhet, men riktar sig framförallt till utskott och funktionärer som sysslar med grafisk design och som vill ta del av de riktlinjer som presenteras hädanefter.
+  ],
+  history: (
+    (
+      meeting: "HTM2 2021",
+      change: "Antagen enligt proposition",
+      who: "Kaspian Jakobsson",
+    ),
+    (
+      meeting: "VTM-extra 2023",
+      change: "Omformades från Policy till Riktlinje enligt proposition",
+      who: "Styrelsen genom Axel Svensson och Oliver Levay",
+    ),
+    (
+      meeting: "S07 2026",
+      change: "Uppdaterad enligt handling",
+      who: "Nelli Skogman",
+    ),
+  ),
 )
 
-= Formalia
+// = Formalia
+//
+// == Sammanfattning
+//
+// Riktlinje för grafisk profil beskriver många av sektionens vanligaste förekommande grafiska element samt verktyg som man kan använda för att utforma grafiskt material för D-sektionen.
+//
+// == Syfte
+//
+// D-sektionen producerar många olika dokument, affischer, nyhetsbrev och andra former av grafik. Denna riktlinje ämnar att ge vägledning och klarhet för hur sektionens grafiska profil består av, hur den skall användas och vilka verktyg det finns att använda.
+//
+// Riktlinjen är menat som ett verktyg och som riktlinjer i första hand, det vill säga att om man bryter mot riktlinjen i strävan efter att utforma något som resulterar i något vackrare än det riktlinjen beskriver bör detta inte betraktas som ett riktlinjebrott.
+//
+// == Omfattning
+//
+// Riktlinjen omfattar sektionen som helhet, men riktar sig framförallt till utskott och funktionärer som sysslar med grafisk design och som vill ta del av de riktlinjer som presenteras hädanefter.
 
-== Sammanfattning
-
-Riktlinje för grafisk profil beskriver många av sektionens vanligaste förekommande grafiska element samt verktyg som man kan använda för att utforma grafiskt material för D-sektionen.
-
-== Syfte
-
-D-sektionen producerar många olika dokument, affischer, nyhetsbrev och andra former av grafik. Denna riktlinje ämnar att ge vägledning och klarhet för hur sektionens grafiska profil består av, hur den skall användas och vilka verktyg det finns att använda.
-
-Riktlinjen är menat som ett verktyg och som riktlinjer i första hand, det vill säga att om man bryter mot riktlinjen i strävan efter att utforma något som resulterar i något vackrare än det riktlinjen beskriver bör detta inte betraktas som ett riktlinjebrott.
-
-== Omfattning
-
-Riktlinjen omfattar sektionen som helhet, men riktar sig framförallt till utskott och funktionärer som sysslar med grafisk design och som vill ta del av de riktlinjer som presenteras hädanefter.
-
-== Historik
-
-Skriven av Kaspian Jakobsson, 2021
-
-Ursprungligen antagen enligt beslut: HTM2 2021.
-
-// Sic.
-Dokumentent omformades från att vara en policy till att bli en riktlinje på VTM-extra 2023.
+// == Historik
+//
+// Skriven av Kaspian Jakobsson, 2021
+//
+// Ursprungligen antagen enligt beslut: HTM2 2021.
+//
+// // Sic.
+// Dokumentent omformades från att vara en policy till att bli en riktlinje på VTM-extra 2023.
 
 = Riktlinjer för grafisk utformning
 
@@ -90,13 +114,13 @@ I regel brukar sektionens dokument skrivas med mallar likt den som denna riktlin
   table.hline(),
   table.header[*Del av dokumentet*][*Typsnitt och grad*],
   table.hline(),
-  [Brödtext], [Palatino, 11 pt],
-  [Fotnoter], [#text(size: 9pt)[Palatino], 9 pt],
-  [Första rubriknivån (x)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 14pt)[Helvetica fet], 14 pt],
-  [Andra rubriknivån (x.y)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 12pt)[Helvetica fet], 12 pt],
-  [Tredje rubriknivån (x.y.z)], [#text(font: "TeX Gyre Heros", weight: "bold")[Helvetica fet], 11 pt],
-  [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic", size: 9pt)[Palatino kursiv], 9 pt],
-  table.hline()
+  [Brödtext], [Domitian, 11 pt],
+  [Fotnoter], [#text(size: 9pt)[Domitian], 9 pt],
+  [Första rubriknivån (x)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 14pt)[TeX Gyre Heros fet], 14 pt],
+  [Andra rubriknivån (x.y)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 12pt)[TeX Gyre Heros fet], 12 pt],
+  [Tredje rubriknivån (x.y.z)], [#text(font: "TeX Gyre Heros", weight: "bold")[TeX Gyre Heros fet], 11 pt],
+  [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic", size: 9pt)[Domitian kursiv], 9 pt],
+  table.hline(),
 ))
 
 == #(LaTeX)-mallar
@@ -104,7 +128,7 @@ I regel brukar sektionens dokument skrivas med mallar likt den som denna riktlin
 Sektionen har historiskt sett varit duktiga på att använda typsättningssystemet #LaTeX, och därmed finns det både dokumentklasser och funktioner som både är väldokumenterade och välfungerande.
 
 All källkod och dokumentmallar och så vidare finns sparat på sektionens GitHub, som ni hittar här:
-#link("https://github.com/Dsek-LTH/dsek-latex")[github.com/Dsek-LTH/dsek-latex]
+#link("https://github.com/Dsek-LTH/dsekdocs")[github.com/Dsek-LTH/dsekdocs]
 
 = Riktlinjer för grafisk formgivning
 
