@@ -6,17 +6,17 @@
   meeting: "HTM1",
   authors: (
     (name: "Dag Hemberg", position: infu.mastare, greeting: "Lund, Dag som jag"),
-    (name: "Philip Nielsen",  position: km.mastare),
+    (name: "Philip Nielsen", position: km.mastare),
     (name: "Daniel Adu-Gyan", position: "DWWW-ansvarig"),
     (name: "Esbjörn Stenberg", position: "root"),
     (name: "Anahita Chavan", position: infu.vice_mastare),
     (name: "Hampus Edén"),
-  )
+  ),
 )
 
 #quote(
-  "Vi har en radikal hypotes att folk på data gillar programmering", 
-  attribution: "Daniel Adu-Gyan"
+  "Vi har en radikal hypotes att folk på data gillar programmering",
+  attribution: "Daniel Adu-Gyan",
 )
 
 = Programmering på sektionen idag
@@ -63,7 +63,7 @@ InfU är egentligen inte mer beroende av hemsidan/DWWW än vad andra utskott är
 
 Även Källarmästeriet har de senaste åren arbetat för att expandera utskottet, så att de inte är beroende av rootmästeriet. I nuläget fungerar det likt InfU och DWWW, där de båda utskotten inte är direkt beroende av varandra när det kommer till att utföra sina åligganden, utan endast ekonomiskt. Försvinner rootmästeriet kommer Källarmästeriet att pågå som vanligt, dock i något mindre utsträckning, men annars kommer samma arbete att utföras.
 
-== Programmästeriet skulle enligt motionen sköta och ansvara för en stor del av sektionens infrastruktur -- något som är väsentligt för samtliga övriga utskott -- och dessutom hantera och ansvara för hårdvara som kan vara ganska dyr. Borde inte Programmästare då vara en styrelsepost med tanke på ansvaret som posten medför? 
+== Programmästeriet skulle enligt motionen sköta och ansvara för en stor del av sektionens infrastruktur -- något som är väsentligt för samtliga övriga utskott -- och dessutom hantera och ansvara för hårdvara som kan vara ganska dyr. Borde inte Programmästare då vara en styrelsepost med tanke på ansvaret som posten medför?
 
 Detta är något vi funderade på väldigt mycket under skrivandet av motionen. Vi gjorde bedömningen att det kan nog bli för mycket att dels lära sig leda ett helt nytt utskott samtidigt som man lär sig vara med i styrelsen och allt vad det innebär, även om Programmästarens roll onekligen kommer att vara väldigt viktig för sektionen.
 
@@ -107,3 +107,4 @@ Flugornas projektgrupp yrkar på
 - att vid bifallen motion utlysa val för Programmästare snarast möjligt
 
 #pagebreak()
+

@@ -8,7 +8,7 @@
   image: none,
   width: auto,
   signature_height: 15mm,
-  minimum_width: 40mm
+  minimum_width: 40mm,
 ) = context {
   let width = if width == auto {
     calc.max(
@@ -39,3 +39,4 @@
 
 #let signatur = signature
 #let signatur_bild = signature_image
+

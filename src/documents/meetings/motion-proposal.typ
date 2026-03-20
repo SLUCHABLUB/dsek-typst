@@ -9,7 +9,7 @@
   date: datetime.today(),
   authors: (),
   doctype: "",
-  content
+  content,
 ) = {
   show: doc.with(
     title: [#doctype: #title],
@@ -21,6 +21,9 @@
 
   set document(author: authors.map(a => a.name))
 
+  let default_greeting = translate("Lund, dag som ovan", "Lund, day as above")
+  let default_position = translate("Sektionsmedlem", "Guild member")
+
   content
   v(1.5em)
   table(
@@ -29,15 +32,30 @@
     row-gutter: 2em,
     ..authors.map(author => {
       signature(
-        author.at("greeting", default: translate("Lund, dag som ovan", "Lund, day as above")),
+        author.at("greeting", default: default_greeting),
         author.name,
-        author.at("position", default: translate("Sektionsmedlem", "Guild member")),
+        author.at("position", default: default_position),
         image: author.at("image", default: none),
       )
     })
   )
 }
 
-#let motion = common.with(doctype: "Motion")
-#let proposal = common.with(doctype: translate("Proposition", "Proposal"))
-#let board-response = common.with(doctype: translate("Styrelsens svar", "Board response"))
+#let motion = common.with(
+  doctype: "Motion",
+)
+
+#let proposal = common.with(
+  doctype: translate(
+    "Proposition",
+    "Proposal",
+  ),
+)
+
+#let board-response = common.with(
+  doctype: translate(
+    "Styrelsens svar",
+    "Board response",
+  ),
+)
+

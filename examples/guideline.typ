@@ -9,7 +9,7 @@
   title: "Riktlinje för grafisk profil",
   short_title: "Riktlinje",
   // TODO: Denna bör nog sättas till mötet för sista ändring.
-  meeting: "VTM-extra"
+  meeting: "VTM-extra",
 )
 
 = Formalia
@@ -96,7 +96,7 @@ I regel brukar sektionens dokument skrivas med mallar likt den som denna riktlin
   [Andra rubriknivån (x.y)], [#text(font: "TeX Gyre Heros", weight: "bold", size: 12pt)[Helvetica fet], 12 pt],
   [Tredje rubriknivån (x.y.z)], [#text(font: "TeX Gyre Heros", weight: "bold")[Helvetica fet], 11 pt],
   [Tabell- och figurbeskrivningar (captions)], [#text(style: "italic", size: 9pt)[Palatino kursiv], 9 pt],
-  table.hline()
+  table.hline(),
 ))
 
 == #(LaTeX)-mallar

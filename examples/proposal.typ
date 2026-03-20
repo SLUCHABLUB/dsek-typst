@@ -1,5 +1,5 @@
 #import "../src/lib.typ": proposition as propp, strings
-#import strings: * 
+#import strings: *
 
 #show: propp.with(
   title: "Policy för samverkan med D-chip",
@@ -7,7 +7,7 @@
   meeting: "HTM1",
   authors: (
     (name: "Emma Haggren", position: styr.ordf, greeting: "För Sryrelsen, dag som ovan"),
-  )
+  ),
 )
 
 = Bakgrund
@@ -29,5 +29,6 @@ Vi har också internt med D-Chip bestämt att de ska betala för bensin/diesel n
 Dessa ändringar har jag lagt till i bilagan, en uppdaterad version av Policy för samverkan med D-Chip.
 
 #v(1em)
-Styrelsen yrkar därmed på 
+Styrelsen yrkar därmed på
 - att uppdatera _Policy för samverkan med D-chip_ enligt bilaga
+

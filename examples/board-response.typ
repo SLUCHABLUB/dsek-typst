@@ -9,7 +9,7 @@
       name: "Dag Hemberg",
       position: strings.infu.mastare,
     ),
-  )
+  ),
 )
 
 #emoji.thumb.up
@@ -17,3 +17,4 @@
 
 Styrelsen yrkar på
 - att bifalla motionen i sin helhet
+

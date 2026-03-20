@@ -14,51 +14,53 @@
     } else if text.lang == "en" {
       "to"
     } else {
-      panic("language `" + text.lang + "` is not supported automatically for resolutions, set term manually using `term: \"...\"`")
+      panic(
+        "language `"
+          + text.lang
+          + "` is not supported automatically for resolutions, set term manually using `term: \"...\"`",
+      )
     }
   } else { term }
-  
+
   let elems = it.children.filter(e => e != [ ])
   let enumerate = if enumerate == auto { elems.len() > 3 } else { enumerate }
   if elems.any(e => not to-text(e).starts-with(term + " ")) { return it }
-  
+
   let fmt(x) = to-text(x).replace(count: 1, regex(term + " ?"), "")
-  
+
   let res = counter("resolutions")
   res.update(0)
-  
+
   // TODO: add spacing above last paragraph above resolutions automatically
   list(
     tight: false,
     marker: {
       res.step()
-      
+
       let number = if enumerate {
         context align(center, text(fill: gray, size: 0.8em, res.display()))
       }
-      
+
       box(width: 1em, number)
       strong(term)
     },
     ..elems.map(e => {
-      
       // if there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept
       if e.body.has("children") {
-        
         // descriptions are made by creating a sublist
         show list: set text(style: "italic")
         set list(marker: none, spacing: par.spacing)
 
         let cn = e.body.children
-        
+
         // edge case if someone starts formatting something immediately after the term
         let from = if cn.first() == [#term] { 2 } else { 1 }
-        
+
         fmt(cn.first()) + cn.slice(from, cn.len()).join()
       } else {
         fmt(e)
       }
-    })
+    }),
   )
 }
 
@@ -103,7 +105,7 @@ Now we'll switch to English and move
 //   - que se puede especificar si se desea numerar la lista completa o no.
 // ]
 
-och till sist återgår vi till 
+och till sist återgår vi till
 
 - en
 - helt
