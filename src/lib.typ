@@ -7,7 +7,7 @@
 #import "documents/meetings/agenda.typ": agenda
 #import "documents/other/requirements_profile.typ": req-profile
 
-#import "utils/misc.typ": date, diff-added, diff-removed
+#import "utils/misc.typ": date, diff-added, diff-deleted
 
 #import "strings.typ"
 #import "util.typ"
@@ -23,5 +23,5 @@
 #let kallelse = notice
 
 #let lägg-till = diff-added
-#let ta-bort = diff-removed
+#let ta-bort = diff-deleted
 

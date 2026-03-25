@@ -1,5 +1,5 @@
-#let diff-added(content, color: green) = highlight(fill: colour, content)
-#let diff-removed(content, color: red) = highlight(fill: colour, content)
+#let diff-added(content, color: green) = highlight(fill: color, content)
+#let diff-deleted(content, color: red) = highlight(fill: color, content)
 
 #let translate(swedish, english) = context {
   let lang = text.lang
