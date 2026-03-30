@@ -2,21 +2,25 @@
 #import "../../utils/signature.typ": author-signatures
 #import "../../utils/misc.typ": labelize, ref-id, to-text, translate
 
-#let common(
-  title: none,
-  meeting: none,
+#let deliberation(
+  title: none, // required
+  meeting: none, // required
+  authors: (), // required
   lang: "sv",
   date: datetime.today(),
-  authors: (),
-  doctype: "",
+  doc-type: "",
   content,
 ) = {
+  if title == none { panic("Please provide a meeting title (key: `title`)") }
+  if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
+  if authors == () { panic("Please provide an author or list of authors (key: `authors`)") }
+
   show: doc.with(
-    title: [#doctype: #title],
+    title: [#doc-type: #title],
     meeting: meeting,
     lang: lang,
     date: date,
-    short-title: doctype,
+    doc-type: doc-type,
   )
 
   set document(author: authors.map(a => a.name))
@@ -38,35 +42,84 @@
     }
   }
 
-  let default_greeting = translate("Lund, dag som ovan", "Lund, day as above")
-  let default_position = translate("Sektionsmedlem", "Guild member")
-
   content
   author-signatures(authors)
 }
 
-#let motion = common.with(
-  doctype: "Motion",
-)
+// if i only do let motion = deliberation.with(doc-type: ...) it doesnt allow me to disable doc-type, it just sets the default :/
 
-#let proposal = common.with(
-  doctype: translate(
-    "Proposition",
-    "Proposal",
-  ),
-)
+#let motion(
+  title: none, // required
+  meeting: none, // required
+  authors: (), // required?
+  lang: "sv",
+  date: datetime.today(),
+  content,
+) = {
+  show: deliberation.with(
+    doc-type: "Motion",
+    title: title,
+    meeting: meeting,
+    authors: authors,
+    lang: lang,
+    date: date,
+  )
+  content
+}
 
-#let board-response = common.with(
-  doctype: translate(
-    "Styrelsens svar",
-    "Board response",
-  ),
-)
+#let proposal(
+  title: none, // required
+  meeting: none, // required
+  authors: (), // required?
+  lang: "sv",
+  date: datetime.today(),
+  content,
+) = {
+  show: deliberation.with(
+    doc-type: translate("Proposition", "Proposal"),
+    title: title,
+    meeting: meeting,
+    authors: authors,
+    lang: lang,
+    date: date,
+  )
+  content
+}
 
-#let consideration = common.with(
-  doctype: translate(
-    "Handling",
-    "Consideration",
-  ),
-)
+#let board-response(
+  title: none, // required
+  meeting: none, // required
+  authors: (), // required?
+  lang: "sv",
+  date: datetime.today(),
+  content,
+) = {
+  show: deliberation.with(
+    doc-type: translate("Styrelsens svar", "Board response"),
+    title: title,
+    meeting: meeting,
+    authors: authors,
+    lang: lang,
+    date: date,
+  )
+  content
+}
 
+#let consideration(
+  title: none, // required
+  meeting: none, // required
+  authors: (), // required?
+  lang: "sv",
+  date: datetime.today(),
+  content,
+) = {
+  show: deliberation.with(
+    doc-type: translate("Handling", "Consideration"),
+    title: title,
+    meeting: meeting,
+    authors: authors,
+    date: date,
+    lang: lang,
+  )
+  content
+}

@@ -23,9 +23,9 @@
 
 Ett av målen som ofta diskuterats på sektionen är hur man kan få fler studenter att engagera sig i sektionens verksamhet. I stadgarna kan man läsa följande: “Föreningens ändamål och syfte är att verka för sammanhållningen mellan sina medlemmar, [...] att tillvarata deras gemensamma intressen”. Mot denna bakgrund tycks det rimligt att fundera över vilka gemensamma intressen sektionens medlemmar har, samt vilka av dessa intressen som idag tillvaratas. Utan tvekan finns det ett stort gemensamt intresse för programmering och teknik bland sektionens medlemmar -- det är ju just detta intresse som har lett till att vi börjar studera på våra program och i förlängningen att vi blivit medlemmar i D-sektionen. Idag har sektionen framförallt två olika underutskott som håller på med programmering: DWWW och rootmästeriet. Utöver D-sektionen finns även CTF-laget och Code\@LTH som är fristående organisationer.
 
-DWWW är ett underutskott inom Informationsutskottet och leds av DWWW-ansvarig. DWWW ansvarar för utveckling av 1) dsek.se (och nolla.nu) och 2) sektionens app, som arbetas med under kodstugor som sker parallellt med InfU-kvällar. DWWW-ansvarig agerar projektledare och delegerar uppgifter till DWWW-medlemmar, och utför mycket av det dagliga arbete som faller på underutskottet. Uppgifterna kommer dels inifrån utskottet men även från kontakt med andra utskott på sektionen.
+DWWW är ett underutskott inom #infu.name och leds av DWWW-ansvarig. DWWW ansvarar för utveckling av 1) dsek.se (och nolla.nu) och 2) sektionens app, som arbetas med under kodstugor som sker parallellt med InfU-kvällar. DWWW-ansvarig agerar projektledare och delegerar uppgifter till DWWW-medlemmar, och utför mycket av det dagliga arbete som faller på underutskottet. Uppgifterna kommer dels inifrån utskottet men även från kontakt med andra utskott på sektionen.
 
-Rootmästeriet är ett underutskott inom Källarmästeriet och leds av root. Rootmästeriet ansvarar för sektionens digitala infrastruktur, det vill säga servrar och mejl- och accessystem, men även skärmar i iDét, “mojtar”/småelektronik, och annat angränsande, t.ex. arkadmaskinen Sparky. Rootmästeriet har ingen direkt koppling till Källarmästeriet utöver att bedriva sin verksamhet vid samma tillfällen som Källarmästeriet.
+Rootmästeriet är ett underutskott inom #km.name och leds av root. Rootmästeriet ansvarar för sektionens digitala infrastruktur, det vill säga servrar och mejl- och accessystem, men även skärmar i iDét, “mojtar”/småelektronik, och annat angränsande, t.ex. arkadmaskinen Sparky. Rootmästeriet har ingen direkt koppling till Källarmästeriet utöver att bedriva sin verksamhet vid samma tillfällen som Källarmästeriet.
 
 = Varför är den nuvarande situationen ett problem?
 
@@ -85,20 +85,19 @@ Detta hoppas vi kunna motverka genom att fokusera mycket på marknadsföring och
 
 D-sektionen behöver ett utskott för programmering och teknik. Vi behöver bli bättre på att engagera fler medlemmar i sektionens verksamhet och skapa ett nytt forum för de som inte är intresserade av sektionens övriga verksamhet. Införandet av Programmästeriet är inte bara ett naturligt steg för att möta detta intresse utan också ett sätt att stärka sammanhållningen mellan DWWW och rootmästeriet.
 
-#v(1em)
 Flugornas projektgrupp yrkar på
 
 - att ändra i stadgarna enligt bifogat dokument
-  - lägger till Programmästeriet
+  + lägger till Programmästeriet
 
 - att ändra i reglementet enligt bifogat dokument
-  - lägger till posterna för Programmästeriet, tar bort poster i Informationsutskottet och Källarmästeriet, lägger till att Programmästare väljs på Valmötet samt att Programmästare är ständigt adjungerad på styrelsemöten
+  + lägger till posterna för Programmästeriet, tar bort poster i Informationsutskottet och Källarmästeriet, lägger till att Programmästare väljs på Valmötet samt att Programmästare är ständigt adjungerad på styrelsemöten
 
 - att ändra i Policy för Val enligt bifogat dokument
-  - lägger till Programmästare, Vice Programmästare, Systemmästare och Webbmästare som kärn- poster och att de bör väljas in innan verksamshetsårets start
+  + lägger till Programmästare, Vice Programmästare, Systemmästare och Webbmästare som kärnposter och att de bör väljas in innan verksamshetsårets start
 
 - att ändra i Policy för Tackverksamhet enligt bifogat dokument
-  - lägger till Programmästare, Vice Programmästare, Systemmästare och Webbmästare som tröjposter
+  + lägger till Programmästare, Vice Programmästare, Systemmästare och Webbmästare som tröjposter
 
 - att vid bifallen motion lägga till en punkt till Beslutsuppföljningen, “Utvärdera hur samarbetet mellan Styrelsen och Programmästeriet har fungerat” med Styrelsen 2025 som ansvarig, till VTM 2025
 

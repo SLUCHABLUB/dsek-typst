@@ -1,5 +1,6 @@
 #import "../src/lib.typ": *
 #import strings: *
+#import util: terms-fmt
 
 #show: policy.with(
   title: "tackverksamhet",
@@ -12,44 +13,35 @@
   scope: [
     Sektionen i sin helhet.
   ],
-  // definitions: (
-  //   "Tackgrupp": "en gruppering av funktionärer inom sektionen som har en egen tackbudget",
-  // ),
   history: (
     (
       meeting: "HTM2 2016",
       change: "Antagen enligt proposition",
       who: "Stylresen genom Martin Johansson",
-      // who: "Martin Johansson",
     ),
     (
       meeting: "HTM2 2018",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Daniel Jannemyr Åhlin",
-      // who: "Daniel Jannemyr Åhlin",
     ),
     (
       meeting: "HTM2 2019",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Noah Mayerhofer",
-      // who: "Noah Mayerhofer",
     ),
     (
       meeting: "VTM 2020",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Felicia Gabrielii Augustsson och Noah Mayerhofer",
-      // who: "Felicia Gabrielii Augustsson och Noah Mayerhofer",
     ),
     (
       meeting: "HTM2 2021",
       change: "Uppdaterad enligt Policy för policyer",
-      // who: "Kaspian Jakobsson",
     ),
     (
       meeting: "HTM1 2022",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Axel Rosenqvist",
-      // who: "Axel Rosenqvist",
     ),
     (
       meeting: "VTM 2023",
@@ -63,20 +55,32 @@
     (
       meeting: "HTM1 2023",
       change: "Uppdaterad enligt motion",
-      // who: "Framtidsutskottet 2023 genom Josefin Wetterstrand, Jakob Gullin och Moa Samuelsson",
       who: "Josefin Wetterstrand, Jakob Gullin och Moa Samuelsson",
     ),
     (
       meeting: "HTM2 2023",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Sofia Tatidis",
-      // who: "Sofia Tatidis",
+    ),
+    (
+      meeting: "VTM 2024",
+      change: "Uppdaterad enligt proposition",
+      who: "Styrelsen genom Felix Vigren och Philip Nielsen",
+    ),
+    (
+      meeting: "HTM1 2024",
+      change: "Uppdaterad enligt motion",
+      who: "Dag Hemberg, Philip Nielsen, Daniel Adu-Gyan, Esbjörn Stenberg, Anahita Chavan och Hampus Edén",
     ),
     (
       meeting: "HTM2 2025",
       change: "Uppdaterad enligt proposition",
       who: "Styrelsen genom Tristan Farkas och Måns Bard Nilsson",
-      // who: "Tristan Farkas och Måns Bard Nilsson",
+    ),
+    (
+      meeting: "VTM 2026",
+      change: "Uppdaterad enligt proposition",
+      who: "Styrelsen, samtliga",
     ),
   ),
 )
@@ -93,7 +97,7 @@ Tackverksamheten på D-sektionen skall ej ha alkohol som huvudsyfte. Den skall f
 
 == Förmåner
 
-Nedan regleras vad var sektionsmedlem äga rätt till samt vad de tillför till budgetering. Var enskild funktionär, inte funktionärspost, bidrar med 0.35% av prisbasbeloppet och dess exakta belopp väljs vid redigering av sektionens budget till tackgruppens tackbudget det året. Varje styrelseledamot som även är utskottsordförande bidrar till tackbudgeten för sitt respektive utskott och inte styrelsen. Dock kan en enskild person inte tackas mer än vad lagen och kårens policys reglerar, om detta inträffar skall tacket för personen i fråga diskuteras med den- ne och en lösning finnas där den känner sig tillfredsställd med det tack denne får.
+Nedan regleras vad var sektionsmedlem äga rätt till samt vad de tillför till budgetering. Var enskild funktionär, inte funktionärspost, bidrar med 0.35% av prisbasbeloppet och dess exakta belopp väljs vid redigering av sektionens budget till tackgruppens tackbudget det året. Varje styrelseledamot som även är utskottsordförande bidrar till tackbudgeten för sitt respektive utskott och inte styrelsen. Dock kan en enskild person inte tackas mer än vad lagen och kårens policys reglerar, om detta inträffar skall tacket för personen i fråga diskuteras med denne och en lösning finnas där den känner sig tillfredsställd med det tack denne får.
 
 Phaddrar, Funktionärer inom Sexmästeriet och Projektgruppen för Teknikfokus särbehandlas. Tacket för dessa funktionärer budgeteras på en separat budgetpost som inte är beroende av antalet funktionärer. Dessa tackkostnader får dock ej överstiga 1% av prisbasbeloppet per funktionär. Dessutom får de även rätt till nedanstående förmåner.
 
@@ -118,15 +122,13 @@ Arbetskläder som används i D-sektionens namn skall följa de lagar som finns a
 
 === Funktionärsposter ned rätt till subventionering av tröja
 
-#show terms: util.terms-fmt.with(space: (11.5em, 1fr))
-// #set list(marker: [#emoji.aubergine])
+#show terms: terms-fmt.with(columns: (11.0em, 1fr))
 
-/ *#sexm.name*:
+/ #sexm.name:
   - #sexm.mastare
   - #sexm.vice_mastare
   - #sexm.barm
   - #sexm.vbarm
-  - #sexm.sangfm
   - #sexm.pubm
   - #sexm.vpubm
   - #sexm.kokm
@@ -135,15 +137,15 @@ Arbetskläder som används i D-sektionens namn skall följa de lagar som finns a
   - #sexm.hovm
   - #sexm.sangfm
 #v(0.5em)
-/ *#km.name*:
+/ #km.name:
   - #km.mastare
   - #km.vice_mastare
 #v(0.5em)
-/ *#aktu.name*:
+/ #aktu.name:
   - #aktu.coach
   - #aktu.idrottsfm
 #v(0.5em)
-/ *#naru.name*:
+/ #naru.name:
   - #naru.mastare
   - #naru.vice_mastare
   - #naru.alumniansv

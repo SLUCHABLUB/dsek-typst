@@ -1,10 +1,5 @@
 #import "misc.typ": enhanced_ref, to-text
 
-// a possibly more typsty way of doing resolutions
-// start all list items with `att` (or a word of your choice) and it ✨automatically✨ displays a formatted list
-// also show rule-compatible!
-
-
 #let resolutions(enumerate: auto, term: auto, it) = context {
   // TODO: wrap in a figure to make references in feature parity with LaTeX
 
@@ -48,10 +43,15 @@
     ..elems.map(e => {
       // if there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept
       if e.body.has("children") {
-        // descriptions are made by creating a sublist
-        show list: set text(style: "italic")
-        set list(marker: none, spacing: par.spacing)
-
+        // descriptions are made by creating a numbered sublist
+        set list(marker: ([–], [•], [‣]))
+        show enum: it => {
+          set text(style: "italic")
+          set list(marker: none)
+          parbreak()
+          it.children.map(x => list.item(x.body)).join(parbreak())
+          parbreak()
+        }
         let cn = e.body.children
         // edge case if someone starts formatting something immediately after the term
         let from = if cn.first() == [#term] { 2 } else { 1 }

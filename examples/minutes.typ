@@ -106,7 +106,7 @@
   Budgetmöte för styrelsen och utskottsansvariga imorgon.
 
 / Veckans hamster:
-  When I was younger, I was playing with my hamster, and it bit me and ran into a hole in the wall. The whole day, I thought I lost it forever and thought it got electrocuted. At 5AM the next morning. I woke up to go pee, and saw my hamster on the flo- or and picked her up immediately, kissed her on the nose, and said don’t ever do that again and spanked her butt (I really just tapped it hard)
+  When I was younger, I was playing with my hamster, and it bit me and ran into a hole in the wall. The whole day, I thought I lost it forever and thought it got electrocuted. At 5AM the next morning. I woke up to go pee, and saw my hamster on the floor and picked her up immediately, kissed her on the nose, and said don't ever do that again and spanked her butt (I really just tapped it hard)
 
 / OFMA:
   @ellasvensson förklarade mötet avslutat kl 12:37.

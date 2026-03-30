@@ -2,7 +2,7 @@
 
 #show: plain-document.with(
   title: [Motion: detta är en titel],
-  short-title: "Mötesdokumentshandling",
+  doc-type: "Mötesdokumentshandling",
   meeting: "VTM-1",
 )
 

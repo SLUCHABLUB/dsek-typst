@@ -5,30 +5,32 @@
 #import "@preview/datify:1.0.1": custom-date-format
 
 #let notice(
+  meeting: none, // required
+  authors: (), // required
+  time: none, // required
+  location: none, // required
+  adjournment: none, // TODO: implement
   meeting-type: none,
-  meeting: none,
-  date: datetime.today(),
   lang: "sv",
-  authors: (),
-  time: none,
-  location: [],
+  date: datetime.today(),
   it,
 ) = {
-  if time == none { panic("Please provide a meeting datetime using `datetime(day: ..., month: ...)`") }
-  if location == none { panic("Please provide a meeting location") }
+  if location == none { panic("Please provide a meeting location (key: `location`)") }
+  if authors == () { panic("Please provide an author or list of authors (key: `authors`)") }
+  if time == none {
+    panic("Please provide a meeting datetime using `date(day, month, year, time: (hour, minute))`")
+  }
 
   let notice-name = translate("Kallelse", "Notice")
+  let conj = translate("till", "for")
+  let meeting-time = context custom-date-format(time, pattern: "full", lang: text.lang)
+
   show: doc.with(
-    title: [
-      #notice-name
-      #translate("till", "for")
-      #meeting-type #meeting,
-      #context custom-date-format(time, pattern: "full", lang: text.lang)
-    ],
+    title: [#notice-name #conj #meeting-type #meeting, #meeting-time],
     date: date,
     lang: lang,
     meeting: meeting,
-    short-title: notice-name,
+    doc-type: notice-name,
   )
 
   set document(title: [#notice-name #meeting #time.year()])

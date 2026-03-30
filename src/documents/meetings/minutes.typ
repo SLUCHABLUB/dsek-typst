@@ -1,10 +1,10 @@
 #import "../document.typ": doc
-#import "../governing/statutes-regulations.typ": terms-fmt
 #import "../../utils/misc.typ": labelize, old-terms, ref-id, to-text, translate
 #import "../../utils/minutes-fmt.typ": minutes-fmt
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../utils/signature.typ": signature
 #import "../../strings.typ"
+#import "@preview/datify:1.0.1": custom-date-format
 
 #let attendance(..names) = {
   grid(
@@ -45,17 +45,23 @@
 }
 
 #let minutes(
-  meeting: none,
+  meeting: none, // required
+  attendees: (), // required
+  chair: none, // required
+  secretary: none, // required
+  reviewers: (),
   meeting-type: none,
+  attested: false,
   lang: "sv",
   date: datetime.today(),
-  attendees: (),
-  chair: none,
-  secretary: none,
-  reviewers: (),
-  attested: false,
   it,
 ) = context {
+  if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
+  if attendees == () or type(attendees) != array { panic("Please provide a list of attendees (key: `attendees`)") }
+  if chair == none or secretary == none {
+    panic("Please provide a meeting chair and secretary (keys: `chair`, `secretary`)")
+  }
+
   let watermark = if not attested {
     set align(center + horizon)
     show rotate: set block(width: 150%)
@@ -67,32 +73,23 @@
     ))
   }
 
-  if meeting == none {
-    panic("Please provide a meeting name (key: `meeting`)")
-  }
-
   set page(background: watermark)
 
   let reviewers = if type(reviewers) == array { reviewers } else { (reviewers,) }
   let minutes-name = translate("Protokoll", "Meeting minutes")
-  let of = translate("för", "of")
-  // let meeting-name = if meeting not in (none, "") {
-  //   meeting
-  // } else {
-  //   translate("[möte saknas]", "[meeting name missing]")
-  // }
+  let conj = translate("för", "of")
+  let meeting-time = custom-date-format(date, pattern: "long", lang: lang)
 
   show terms: minutes-fmt
   show: doc.with(
-    title: [#minutes-name #of #meeting-type #meeting, #date.display()],
-    short-title: minutes-name,
+    title: [#minutes-name #conj #meeting-type #meeting, #meeting-time],
+    doc-type: minutes-name,
     meeting: meeting,
     lang: lang,
     date: date,
   )
 
   set document(title: [#minutes-name #meeting], author: to-text(secretary))
-
 
   attendance(..attendees)
   v(2em)

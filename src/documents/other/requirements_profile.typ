@@ -4,12 +4,13 @@
 #import "../../strings.typ"
 
 #let req-profile(
-  position: none,
-  lang: "sv",
-  year: datetime.today().year(),
-  mandate: (:),
-  required: (),
+  position: none, // required
+  required: (), // required (heh)
   meriting: (),
+  mandate: auto,
+  year: datetime.today().year(),
+  lang: "sv",
+  date: datetime.today(),
   it,
 ) = {
   let req-profile-name = translate("Kravprofil", "Requirements profile")
@@ -18,16 +19,18 @@
 
   show: doc.with(
     title: [#req-profile-name: #position],
-    short-title: req-profile-name,
+    doc-type: req-profile-name,
     lang: lang,
     // meeting: meeting,
-    date: year,
+    date: date,
   )
 
-  let mandate = if mandate.len() == 0 {
+  let mandate = if mandate == auto {
     (from: default-start, to: default-stop)
   } else if mandate.keys().sorted() != ("from", "to") {
-    panic("Please provide mandate as a dictionary `(from: date, to: date)` or leave empty to use default calendar year")
+    panic(
+      "Please provide mandate as a dictionary `(from: date, to: date)` or set to `auto` to use default calendar year",
+    )
   } else {
     mandate
   }

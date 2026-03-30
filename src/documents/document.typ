@@ -36,7 +36,7 @@
 //  ██▄██ ██▄▄  ██    ██▄█▀ ██▄▄  ██▄█▄ ███▄▄
 //  ██ ██ ██▄▄▄ ██▄▄▄ ██    ██▄▄▄ ██ ██ ▄▄██▀
 
-#let header(short-title, meeting, date) = context pad(
+#let header(doc-type, meeting, date) = context pad(
   bottom: header_padding,
   box(height: header_height)[
     #set align(horizon)
@@ -49,7 +49,7 @@
       box(width: 82mm)[
         #show: smallcaps
         #text(size: 11pt, guild.dseklth) \
-        #short-title
+        #doc-type
       ],
       box(width: 60mm)[
         #set align(right)
@@ -89,7 +89,7 @@
 #let doc(
   title: none,
   meeting: none,
-  short-title: "",
+  doc-type: "",
   lang: "sv",
   date: datetime.today(),
   content,
@@ -97,7 +97,7 @@
   set document(
     title: title,
     // TODO: Set the authors from the signatures.
-    date: if type(date) == int { auto } else { date },
+    date: date,
   )
 
   show document_title: set text(
@@ -140,7 +140,7 @@
   )
 
   set page(
-    header: header(short-title, meeting, date),
+    header: header(doc-type, meeting, date),
     footer: footer(),
     header-ascent: 0%,
     footer-descent: 0%,

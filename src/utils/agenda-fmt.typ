@@ -1,10 +1,8 @@
-#import "misc.typ": date, translate
-#import "signature.typ": author-signatures
+#import "misc.typ": translate
 #import "@preview/datify:1.0.1": custom-date-format
 
 #let agenda-fmt(make-heading: false, en) = {
   let items = en.children
-  let n = 0
 
   // only format if correct syntax
   if items.any(item => {
