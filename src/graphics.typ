@@ -1,6 +1,6 @@
-// TODO: Committee logos?
-// TODO: "Word marks"?
-// TODO: move to dedicated package so we can update things separately
+// TODO: Add committee logos?
+// TODO: Add "word marks"?
+// TODO: Move this module to a dedicated package so we can update things separately.
 
 #let graphic(type: "dsek", colour: false, symbol: false, height: 10pt) = {
   let available = ("dsek", "datateknik", "infocom", "vr_ar")
@@ -46,7 +46,7 @@
 #let info_com_symbol = info_com_logo.with(symbol: true)
 #let vr_ar_symbol = vr_ar_logo.with(symbol: true)
 
-// Swedish bindings.
+// --- Swedish bindings. ---
 
 #let sektions_logga = guild_logo
 #let data_logga = data_logo

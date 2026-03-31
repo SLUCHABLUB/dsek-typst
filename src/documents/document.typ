@@ -154,7 +154,6 @@
   content
 }
 
-// TODO: Cover page function.
-// TODO: Agenda function.
-// TODO: Attachments.
-// TODO: Colors (pink links, footnotes)
+// TODO: Add a cover page function.
+// TODO: Add a way to add attachments.
+// TODO: Fix colours (råsa links, footnotes).

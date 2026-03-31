@@ -13,7 +13,8 @@
 #import "strings.typ"
 #import "util.typ"
 
-// swedish bindings
+// --- Swedish Bindings. ---
+
 #let dokument = plain-document
 #let protokoll = minutes
 #let proposition = proposal
@@ -25,4 +26,3 @@
 
 #let lägg-till = diff-added
 #let ta-bort = diff-deleted
-
