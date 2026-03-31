@@ -2,11 +2,11 @@
 #import "../../utils/misc.typ": translate
 #import "../../utils/terms-fmt.typ": terms-fmt
 
-// since these generally arent edited/written as often i think its
-// fine--or even good--for them to be more function-heavy, rather
-// than everything just working through magic syntax. this way it
-// forces a more correct way of doing things rather than relying on
-// freehand typing to be consistent
+// Since these generally are not edited nor written often,
+// we think it is fine, or even appropriate,
+// for rubrics to be more "function-heavy".
+// This way, a more correct way of writing is enforced,
+// rather than relying on freehand typing to be consistent.
 
 #let rubric(
   title: none, // required
