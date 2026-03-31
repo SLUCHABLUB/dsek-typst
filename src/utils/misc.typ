@@ -1,3 +1,5 @@
+// TODO: Should we use the `diff-` prefix?
+// TODO: Should we call it `remove`?
 #let diff-added(content, color: green) = highlight(fill: color, content)
 #let diff-deleted(content, color: red) = highlight(fill: color, content)
 
@@ -41,13 +43,16 @@
   for (t, f) in chars {
     new = new.replace(t, f)
   }
+  // TODO: Remove other non-ascii characters?
   return new
 }
 
+// Should the main separator be `-` to match our style?
 #let labelize(str, sep: "") = latinize(lower(str.split(regex("[-`'´\s]")).join(sep)))
 
 // Turn content into a string representation
 #let to-text(c) = {
+  // TODO: Fix this.
   if type(c) == "string" {
     return c
   } else if type(c) == content {
@@ -72,6 +77,7 @@
   }
 }
 
+// TODO: Document this thoroughly.
 #let ref-id = (
   "person": 99,
   "minute": 98,
@@ -133,4 +139,3 @@
     second: s,
   )
 }
-

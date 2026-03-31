@@ -10,6 +10,7 @@
 
 #import "utils/misc.typ": date, diff-added, diff-deleted
 
+// TODO: Why do we import content?
 #import "strings.typ"
 #import "util.typ"
 

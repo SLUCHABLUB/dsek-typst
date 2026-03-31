@@ -35,7 +35,7 @@
 }
 
 // A helper function to load an image.
-#let signature_image = image.with(height: 1fr, fit: "contain")
+#let signature-image = image.with(height: 1fr, fit: "contain")
 
 #let author-signatures(
   authors,

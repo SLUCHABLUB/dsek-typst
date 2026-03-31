@@ -11,10 +11,6 @@
 #let serif = "Domitian"
 #let sans_serif = "TeX Gyre Heros"
 
-// These are copied from the LaTeX templates.
-// #let paragraph_spacing = 3mm
-// #let paragraph_leading = 0.55em
-
 #let page_content_width = 160mm
 #let page_content_height = 230mm
 
@@ -54,7 +50,7 @@
       box(width: 60mm)[
         #set align(right)
         #meeting \
-        // #custom-date-format(date, pattern: "d MMMM y", lang: text.lang)
+        // TODO: Why can date be an int?
         #if type(date) == int { date } else {
           custom-date-format(date, pattern: "long", lang: text.lang)
         }
