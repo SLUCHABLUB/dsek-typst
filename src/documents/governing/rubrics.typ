@@ -25,10 +25,8 @@
   if scope == [] { panic("Please provide a scope (key: `scope`)") }
   if history == () { panic("Please provide at least one history entry (key: `history`)") }
 
-  let conj = translate("för", "for")
-
   show: doc.with(
-    title: [#doc-type #conj #title],
+    title: [#doc-type #translate("för", "for") #title],
     doc-type: doc-type,
     meeting: history.map(x => x.meeting).last(),
     date: date,
