@@ -1,5 +1,7 @@
 #import "utils/misc.typ": translate
 
+// TODO: Prettify/regularise the keys.
+
 #let guild = (
   "dsek": translate([D-sektionen], [The D-guild]),
   "dseklth": translate([D-sektionen inom TLTH], [The D-guild within TLTH]),
