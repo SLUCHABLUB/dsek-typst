@@ -6,10 +6,9 @@
 
 #let statutes(lang: "sv", it) = {
   let statutes-name = translate("Stadgar", "Statutes")
-  let conj = translate("för", "of")
 
   show: doc.with(
-    title: [#statutes-name #conj #guild.dseklth],
+    title: [#statutes-name #translate("för", "of") #guild.dseklth],
     lang: lang,
     doc-type: statutes-name,
   )
@@ -21,10 +20,9 @@
 
 #let regulations(lang: "sv", it) = {
   let regulations-name = translate("Reglemente", "Regulations")
-  let conj = translate("för", "of")
 
   show: doc.with(
-    title: [#regulations-name #conj #guild.dseklth],
+    title: [#regulations-name #translate("för", "of") #guild.dseklth],
     lang: lang,
     doc-type: regulations-name,
   )

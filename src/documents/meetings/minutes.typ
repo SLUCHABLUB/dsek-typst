@@ -77,12 +77,11 @@
 
   let reviewers = if type(reviewers) == array { reviewers } else { (reviewers,) }
   let minutes-name = translate("Protokoll", "Meeting minutes")
-  let conj = translate("för", "of")
   let meeting-time = custom-date-format(date, pattern: "long", lang: lang)
 
   show terms: minutes-fmt
   show: doc.with(
-    title: [#minutes-name #conj #meeting-type #meeting, #meeting-time],
+    title: [#minutes-name #translate("för", "of") #meeting-type #meeting, #meeting-time],
     doc-type: minutes-name,
     meeting: meeting,
     lang: lang,
@@ -119,4 +118,3 @@
     }),
   )
 }
-

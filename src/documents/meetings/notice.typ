@@ -22,11 +22,10 @@
   }
 
   let notice-name = translate("Kallelse", "Notice")
-  let conj = translate("till", "for")
   let meeting-time = context custom-date-format(time, pattern: "full", lang: text.lang)
 
   show: doc.with(
-    title: [#notice-name #conj #meeting-type #meeting, #meeting-time],
+    title: [#notice-name #translate("till", "for") #meeting-type #meeting, #meeting-time],
     date: date,
     lang: lang,
     meeting: meeting,
@@ -66,4 +65,3 @@
   it
   author-signatures(authors)
 }
-

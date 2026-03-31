@@ -17,11 +17,10 @@
   if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
 
   let agenda-name = translate("Föredragningslista", "Agenda")
-  let conj = translate("för", "for")
   let meeting-time = context custom-date-format(time, pattern: "full", lang: text.lang)
 
   show: doc.with(
-    title: [#agenda-name #conj #meeting-type #meeting, #meeting-time],
+    title: [#agenda-name #translate("för", "for") #meeting-type #meeting, #meeting-time],
     date: date,
     lang: lang,
     meeting: meeting,
