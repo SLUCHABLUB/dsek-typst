@@ -13,7 +13,7 @@
   meeting-type: none,
   lang: "sv",
   date: datetime.today(),
-  it,
+  body,
 ) = {
   if location == none { panic("Please provide a meeting location (key: `location`)") }
   if authors == () { panic("Please provide an author or list of authors (key: `authors`)") }
@@ -62,6 +62,6 @@
   )
 
   show enum: agenda-fmt.with(make-heading: true)
-  it
+  body
   author-signatures(authors)
 }

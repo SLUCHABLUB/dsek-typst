@@ -88,7 +88,7 @@
   doc-type: "",
   lang: "sv",
   date: datetime.today(),
-  content,
+  body,
 ) = context {
   set document(
     title: title,
@@ -147,7 +147,7 @@
 
   document_title()
   v(1em)
-  content
+  body
 }
 
 // TODO: Add a cover page function.

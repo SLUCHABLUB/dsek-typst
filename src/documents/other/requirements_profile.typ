@@ -11,7 +11,7 @@
   year: datetime.today().year(),
   lang: "sv",
   date: datetime.today(),
-  it,
+  body,
 ) = {
   let req-profile-name = translate("Kravprofil", "Requirements profile")
   let default-start = datetime(day: 1, month: 1, year: year)
@@ -44,7 +44,7 @@
     [*#translate("Mandatperiod", "Mandate"):*], [#from -- #to],
   )
 
-  it
+  body
 
   set heading(numbering: none)
   set par(justify: false)

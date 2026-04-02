@@ -11,7 +11,7 @@
   authors: (),
   date: datetime.today(),
   lang: "sv",
-  it,
+  body,
 ) = {
   if time == none { panic("Please provide a meeting time (key: `time`)") }
   if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
@@ -28,6 +28,6 @@
   )
 
   show enum: agenda-fmt
-  it
+  body
   author-signatures(authors)
 }

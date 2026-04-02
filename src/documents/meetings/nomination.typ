@@ -14,7 +14,7 @@
   authors: (), // required
   lang: "sv",
   date: datetime.today(),
-  it,
+  body,
 ) = {
   if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
   if authors == () { panic("Please provide an author or list of authors (key: `authors`)") }
@@ -33,7 +33,7 @@
     date: date,
   )
 
-  it
+  body
 
   author-signatures(authors)
 }

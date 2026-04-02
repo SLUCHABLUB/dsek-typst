@@ -9,7 +9,7 @@
   lang: "sv",
   date: datetime.today(),
   doc-type: "",
-  content,
+  body,
 ) = {
   if title == none { panic("Please provide a meeting title (key: `title`)") }
   if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
@@ -42,7 +42,7 @@
     }
   }
 
-  content
+  body
   author-signatures(authors)
 }
 
@@ -54,7 +54,7 @@
   authors: (), // required?
   lang: "sv",
   date: datetime.today(),
-  content,
+  body,
 ) = {
   show: deliberation.with(
     doc-type: "Motion",
@@ -64,7 +64,7 @@
     lang: lang,
     date: date,
   )
-  content
+  body
 }
 
 #let proposal(
@@ -73,7 +73,7 @@
   authors: (), // required?
   lang: "sv",
   date: datetime.today(),
-  content,
+  body,
 ) = {
   show: deliberation.with(
     doc-type: translate("Proposition", "Proposal"),
@@ -83,7 +83,7 @@
     lang: lang,
     date: date,
   )
-  content
+  body
 }
 
 #let board-response(
@@ -92,7 +92,7 @@
   authors: (), // required?
   lang: "sv",
   date: datetime.today(),
-  content,
+  body,
 ) = {
   show: deliberation.with(
     doc-type: translate("Styrelsens svar", "Board response"),
@@ -102,7 +102,7 @@
     lang: lang,
     date: date,
   )
-  content
+  body
 }
 
 #let consideration(
@@ -111,7 +111,7 @@
   authors: (), // required?
   lang: "sv",
   date: datetime.today(),
-  content,
+  body,
 ) = {
   show: deliberation.with(
     doc-type: translate("Handling", "Consideration"),
@@ -121,5 +121,5 @@
     date: date,
     lang: lang,
   )
-  content
+  body
 }

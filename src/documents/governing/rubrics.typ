@@ -17,7 +17,7 @@
   date: datetime.today(),
   lang: "sv",
   doc-type: "",
-  it,
+  body,
 ) = {
   if title == none { panic("Please provide a title (key: `title`)") }
   if summary == [] { panic("Please provide a summary of this rubric (key: `summary`)") }
@@ -81,7 +81,7 @@
   )
 
   pagebreak(weak: true)
-  it
+  body
 }
 
 #let policy(
@@ -92,7 +92,7 @@
   history: (), // required
   date: datetime.today(),
   lang: "sv",
-  content,
+  body,
 ) = {
   show: rubric.with(
     title: title,
@@ -104,7 +104,7 @@
     lang: lang,
     doc-type: "Policy",
   )
-  content
+  body
 }
 
 #let guideline(
@@ -115,7 +115,7 @@
   history: (), // required
   date: datetime.today(),
   lang: "sv",
-  content,
+  body,
 ) = {
   show: rubric.with(
     title: title,
@@ -127,5 +127,5 @@
     lang: lang,
     doc-type: translate("Riktlinje", "Guideline"),
   )
-  content
+  body
 }

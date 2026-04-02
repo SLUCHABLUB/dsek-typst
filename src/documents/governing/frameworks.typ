@@ -4,7 +4,7 @@
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../strings.typ": guild
 
-#let statutes(lang: "sv", it) = {
+#let statutes(lang: "sv", body) = {
   let statutes-name = translate("Stadgar", "Statutes")
 
   show: doc.with(
@@ -15,10 +15,10 @@
 
   show terms: terms-fmt.with(columns: (3.5em, 9.5em, 1fr))
 
-  it
+  body
 }
 
-#let regulations(lang: "sv", it) = {
+#let regulations(lang: "sv", body) = {
   let regulations-name = translate("Reglemente", "Regulations")
 
   show: doc.with(
@@ -30,5 +30,5 @@
   show list: resolutions.with(enumerate: false)
   show terms: terms-fmt.with(columns: (9.5em, 1fr))
 
-  it
+  body
 }

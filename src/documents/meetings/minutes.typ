@@ -54,7 +54,7 @@
   attested: false,
   lang: "sv",
   date: datetime.today(),
-  it,
+  body,
 ) = context {
   if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
   if attendees == () or type(attendees) != array { panic("Please provide a list of attendees (key: `attendees`)") }
@@ -92,7 +92,7 @@
 
   attendance(..attendees)
   v(2em)
-  it
+  body
   v(1em)
 
   table(
