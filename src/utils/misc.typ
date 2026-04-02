@@ -52,16 +52,17 @@
 
 // Turn content into a string representation
 #let to-text(c) = {
-  // TODO: Fix this.
-  if type(c) == "string" {
+  if type(c) == str {
     return c
   } else if type(c) == content {
     let f = c.func()
     if f == text {
       return c.text
     } else if f == [ ].func() {
+      // TODO: `[ ].func()` is `space`, so all whitespace will convert to `" "`.
       return " "
     } else if f == [\n].func() {
+      // TODO: `[\n].func()` is `symbol`, so all symbols will convert to newlines.
       return "\n"
     } else if f == ['].func() {
       return if c.double { "\"" } else { "'" }
@@ -73,6 +74,7 @@
       return ""
     }
   } else {
+    // TODO: Use `repr`?
     return ""
   }
 }
