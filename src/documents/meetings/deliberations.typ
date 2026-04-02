@@ -46,8 +46,6 @@
   author-signatures(authors)
 }
 
-// if i only do let motion = deliberation.with(doc-type: ...) it doesnt allow me to disable doc-type, it just sets the default :/
-
 #let motion(
   title: none, // required
   meeting: none, // required
@@ -55,17 +53,15 @@
   lang: "sv",
   date: datetime.today(),
   body,
-) = {
-  show: deliberation.with(
-    doc-type: "Motion",
-    title: title,
-    meeting: meeting,
-    authors: authors,
-    lang: lang,
-    date: date,
-  )
-  body
-}
+) = deliberation(
+  doc-type: "Motion",
+  title: title,
+  meeting: meeting,
+  authors: authors,
+  lang: lang,
+  date: date,
+  body,
+)
 
 #let proposal(
   title: none, // required
@@ -74,17 +70,15 @@
   lang: "sv",
   date: datetime.today(),
   body,
-) = {
-  show: deliberation.with(
-    doc-type: translate("Proposition", "Proposal"),
-    title: title,
-    meeting: meeting,
-    authors: authors,
-    lang: lang,
-    date: date,
-  )
-  body
-}
+) = deliberation(
+  doc-type: translate("Proposition", "Proposal"),
+  title: title,
+  meeting: meeting,
+  authors: authors,
+  lang: lang,
+  date: date,
+  body,
+)
 
 #let board-response(
   title: none, // required
@@ -93,17 +87,15 @@
   lang: "sv",
   date: datetime.today(),
   body,
-) = {
-  show: deliberation.with(
-    doc-type: translate("Styrelsens svar", "Board response"),
-    title: title,
-    meeting: meeting,
-    authors: authors,
-    lang: lang,
-    date: date,
-  )
-  body
-}
+) = deliberation(
+  doc-type: translate("Styrelsens svar", "Board response"),
+  title: title,
+  meeting: meeting,
+  authors: authors,
+  lang: lang,
+  date: date,
+  body,
+)
 
 #let consideration(
   title: none, // required
@@ -112,14 +104,12 @@
   lang: "sv",
   date: datetime.today(),
   body,
-) = {
-  show: deliberation.with(
-    doc-type: translate("Handling", "Consideration"),
-    title: title,
-    meeting: meeting,
-    authors: authors,
-    date: date,
-    lang: lang,
-  )
-  body
-}
+) = deliberation(
+  doc-type: translate("Handling", "Consideration"),
+  title: title,
+  meeting: meeting,
+  authors: authors,
+  date: date,
+  lang: lang,
+  body,
+)

@@ -93,19 +93,18 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = {
-  show: rubric.with(
-    title: title,
-    summary: summary,
-    purpose: purpose,
-    scope: scope,
-    history: history,
-    date: date,
-    lang: lang,
-    doc-type: "Policy",
-  )
-  body
-}
+) = rubric(
+  title: title,
+  summary: summary,
+  purpose: purpose,
+  scope: scope,
+  history: history,
+  date: date,
+  lang: lang,
+  doc-type: "Policy",
+  body,
+)
+
 
 #let guideline(
   title: none, // required
@@ -116,16 +115,14 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = {
-  show: rubric.with(
-    title: title,
-    summary: summary,
-    purpose: purpose,
-    scope: scope,
-    history: history,
-    date: date,
-    lang: lang,
-    doc-type: translate("Riktlinje", "Guideline"),
-  )
-  body
-}
+) = rubric(
+  title: title,
+  summary: summary,
+  purpose: purpose,
+  scope: scope,
+  history: history,
+  date: date,
+  lang: lang,
+  doc-type: translate("Riktlinje", "Guideline"),
+  body,
+)
