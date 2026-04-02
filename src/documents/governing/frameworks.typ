@@ -18,6 +18,8 @@
   body
 }
 
+// TODO: Should we force a cover page here?
+//       The regulation have a cover page currently.
 #let regulations(lang: "sv", body) = {
   let regulations-name = translate("Reglemente", "Regulations")
 
