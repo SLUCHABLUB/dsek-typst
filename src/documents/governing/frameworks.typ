@@ -4,7 +4,16 @@
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../strings.typ": guild
 
-#let statutes(lang: "sv", body) = {
+/// Creates the guild statutes (stadgar) document. Apply with `#show: statutes.with(...)`.
+///
+/// - Terms blocks (`/ Term: Description`) are formatted as a §-numbered 3-column table.
+///   The §-number reflects the current heading section (e.g. §2.3 inside `== 2 Organ`).
+/// - Nested terms in a description cell use `old-terms` style (bold term, hanging indent).
+/// - Standard heading numbering (`= 1`, `== 1.1`) creates the section structure.
+///
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// -> content
+#let statutes(lang: "sv", it) = {
   let statutes-name = translate("Stadgar", "Statutes")
 
   show: doc.with(
@@ -20,6 +29,17 @@
 
 // TODO: Should we force a cover page here?
 //       The regulation have a cover page currently.
+//       A: yes
+
+/// Creates the guild regulations (reglemente) document. Apply with `#show: regulations`.
+///
+/// - Terms blocks (`/ Term: Description`) are formatted as a 2-column table (term, description)
+///   without §-numbers (the heading structure provides the section context instead).
+/// - Lists where every item starts with `att` are formatted as un-enumerated operative clauses.
+/// - Otherwise identical structure to `statutes`.
+///
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// -> content
 #let regulations(lang: "sv", body) = {
   let regulations-name = translate("Reglemente", "Regulations")
 

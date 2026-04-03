@@ -1,5 +1,20 @@
 #import "misc.typ": enhanced_ref, to-text
 
+/// Formats a bullet list as operative clauses ("att"-lista / "to"-list).
+///
+/// Applied automatically to all lists inside `doc()` via `show list: resolutions`,
+/// so it rarely needs to be called directly. A list is only reformatted when
+/// *every* item begins with the resolution term; otherwise the list is rendered
+/// unchanged, so regular bullet lists are unaffected.
+///
+/// Sub-items (created with a nested numbered list `+`) are rendered in italics
+/// as an elaboration of the clause above them.
+///
+/// - enumerate (bool | auto): Number each clause. `auto` enumerates when there
+///   are more than 3 items.
+/// - term (str | auto): Resolution keyword. `auto` detects from document language:
+///   `"att"` for Swedish, `"to"` for English. Panics for other languages if left `auto`.
+/// -> content
 #let resolutions(enumerate: auto, term: auto, it) = context {
   // TODO: wrap in a figure to make references in feature parity with LaTeX
 
@@ -27,7 +42,6 @@
   let res = counter("resolutions")
   res.update(0)
 
-  // TODO: add spacing above last paragraph above resolutions automatically
   list(
     tight: false,
     marker: {
@@ -43,7 +57,7 @@
     ..elems.map(e => {
       // if there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept
       if e.body.has("children") {
-        // descriptions are made by creating a numbered sublist
+        // descriptions are made by creating a numbered numbered sublist
         set list(marker: ([–], [•], [‣]))
         show enum: it => {
           set text(style: "italic")

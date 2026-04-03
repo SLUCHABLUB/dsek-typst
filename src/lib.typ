@@ -13,7 +13,12 @@
 #import "strings.typ"
 #import "util.typ"
 
-// --- Swedish Bindings. ---
+// --- Aliases ---
+
+#let add = diff-added
+#let remove = diff-deleted
+
+// --- Swedish Bindings ---
 
 #let dokument = plain-document
 #let protokoll = minutes

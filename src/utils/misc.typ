@@ -1,8 +1,22 @@
-// TODO: Should we use the `diff-` prefix?
-// TODO: Should we call it `remove`?
+/// Highlights content with a green background to indicate an addition (e.g. in a diff).
+///
+/// - content (content): The content to highlight.
+/// - color (color): Highlight colour. Defaults to `green`.
+/// -> content
 #let diff-added(content, color: green) = highlight(fill: color, content)
+
+/// Highlights content with a red background to indicate a deletion (e.g. in a diff).
+///
+/// - content (content): The content to highlight.
+/// - color (color): Highlight colour. Defaults to `red`.
+/// -> content
 #let diff-deleted(content, color: red) = highlight(fill: color, content)
 
+/// Returns Swedish or English content based on the active document language.
+///
+/// - swedish (content): Shown when `text.lang == "sv"`.
+/// - english (content): Shown when `text.lang == "en"`.
+/// -> content
 #let translate(swedish, english) = context {
   let lang = text.lang
   if lang == "sv" {
@@ -48,9 +62,16 @@
 }
 
 // Should the main separator be `-` to match our style?
+/// Converts a name string into a valid Typst label identifier.
+///
+/// Lowercases, removes accents via `latinize`, and joins on whitespace, dashes,
+/// and quote characters. Used to auto-generate `@labels` for attendees and authors.
+///
+/// - str (str): Input string, typically a person's name.
+/// - sep (str): Separator inserted between words. Defaults to `""` (no separator).
+/// -> str
 #let labelize(str, sep: "") = latinize(lower(str.split(regex("[-`'´\s]")).join(sep)))
 
-// Turn content into a string representation
 #let to-text(c) = {
   if type(c) == str {
     return c
@@ -85,6 +106,15 @@
   "minute": 98,
 )
 
+/// Custom `@ref` renderer applied automatically by `doc()` via `show ref`.
+///
+/// Renders person references (depth `ref-id.person`) as "Position Name" links,
+/// and minute-item references (depth `ref-id.minute`) as "§N Title" links,
+/// both in the body text colour (no pink). Falls back to the default renderer
+/// for all other references.
+///
+/// Not called directly — set via `show ref: enhanced_ref` inside `doc()`.
+/// -> content
 #let enhanced_ref(it) = {
   let elem = it.element
   show: box
@@ -118,6 +148,21 @@
     .join(parbreak())
 }
 
+/// Constructs a `datetime` from separate components.
+///
+/// Shorthand for the verbose `datetime(year: ..., month: ..., day: ...)` constructor.
+/// Pass to any `time:` or `date:` parameter in this library.
+///
+/// ```typst
+/// date(15, 3, 2025)                  // 15 March 2025 at midnight
+/// date(15, 3, 2025, time: (13, 30))  // 15 March 2025 at 13:30
+/// ```
+///
+/// - day (int): Day of the month (1-31).
+/// - month (int): Month (1-12).
+/// - year (int): Full year, e.g. `2026`.
+/// - time (array): Optional `(hour)`, `(hour, minute)`, or `(hour, minute, second)`.
+/// -> datetime
 #let date(day, month, year, time: none) = {
   let (h, m, s) = if time != none {
     let time = (time,).flatten()

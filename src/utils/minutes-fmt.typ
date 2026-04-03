@@ -1,5 +1,13 @@
 #import "misc.typ": labelize, old-terms, ref-id, to-text, translate
 
+/// Formats a terms block as a meeting minutes table (§N | Title | Description).
+///
+/// Applied automatically inside `minutes()` via `show terms: minutes-fmt`,
+/// not called directly. Each term gets automatically labeled, enabling `@title`
+/// references that resolve to "§N Title".
+///
+/// - mins (content): A terms block produced by `/` syntax in the document body.
+/// -> content
 #let minutes-fmt(mins) = {
   table(
     columns: (2.5em, 10.5em, 1fr),
@@ -12,7 +20,6 @@
         let (n, item) = x
         (
           [
-            // #set align(center)
             §#n
           ],
           {

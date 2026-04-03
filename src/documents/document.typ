@@ -50,10 +50,7 @@
       box(width: 60mm)[
         #set align(right)
         #meeting \
-        // TODO: Why can date be an int?
-        #if type(date) == int { date } else {
-          custom-date-format(date, pattern: "long", lang: text.lang)
-        }
+        #custom-date-format(date, pattern: "long", lang: text.lang)
       ],
     )
   ],
@@ -82,6 +79,23 @@
 //    ██   ██▄▄  ██▀▄▀██ ██▄█▀ ██    ██▀██  ██   ██▄▄
 //    ██   ██▄▄▄ ██   ██ ██    ██▄▄▄ ██▀██  ██   ██▄▄▄
 
+/// Base document wrapper that applies the guild document styling.
+///
+/// All document-type functions in this library apply `doc` internally.
+/// Use this directly (via `plain-document` in `lib.typ`) only when no
+/// specialised document type fits.
+///
+/// Sets up page geometry, header/footer, fonts (Domitian serif body, TeX Gyre
+/// Heros sans-serif headings), heading numbering, link colours, and the
+/// resolution list formatter. Renders `title` as a styled document title above
+/// the content.
+///
+/// - title (str | content): Document title displayed at the top of the page.
+/// - meeting (str | content): Meeting identifier shown in the page header.
+/// - doc-type (str): Document type label shown in the page header.
+/// - lang (str): Document language, `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Document date shown in the header. Defaults to today.
+/// -> content
 #let doc(
   title: none,
   meeting: none,
@@ -92,7 +106,6 @@
 ) = context {
   set document(
     title: title,
-    // TODO: Set the authors from the signatures.
     date: date,
   )
 

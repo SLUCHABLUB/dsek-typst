@@ -1,6 +1,7 @@
 #import "../document.typ": doc
 #import "../../utils/signature.typ": author-signatures
 #import "../../utils/misc.typ": labelize, ref-id, to-text, translate
+#import "../../utils/assert.typ": required
 
 #let deliberation(
   title: none, // required
@@ -11,9 +12,14 @@
   doc-type: "",
   body,
 ) = {
-  if title == none { panic("Please provide a meeting title (key: `title`)") }
-  if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
-  if authors == () { panic("Please provide an author or list of authors (key: `authors`)") }
+  required(title, "title", fn: "deliberation", hint: "document title, e.g. title: \"Skattmästaren till verkligheten\"")
+  required(meeting, "meeting", fn: "deliberation", hint: "meeting identifier, e.g. meeting: \"HTM1\"")
+  required(
+    authors,
+    "authors",
+    fn: "deliberation",
+    hint: "list of author dicts, e.g. authors: ((name: \"Truls Teknolog\", position: \"Funktionär inom Informationsutskottet\", greeting: \"Lund, dag som ovan\"),)",
+  )
 
   show: doc.with(
     title: [#doc-type: #title],
@@ -46,6 +52,49 @@
   author-signatures(authors)
 }
 
+/// Creates a motion document. Apply with `#show: motion.with(...)`.
+///
+/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
+///   automatically get extra vertical space before them.
+/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
+///   operative clauses; other lists render normally.
+/// - Author signatures are appended automatically.
+///
+/// ```typst
+/// #show: motion.with(
+///   title: [3.0 flugor i en smäll],
+///   meeting: "HTM1",
+///   authors: (
+///     // position defaults to "Sektionsmedlem" / "Guild member",
+///     // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     (name: "Truls Teknolog", position: aktu.dsportare),
+///     (name: "Trula Teknolog", greeting: "gaming"),
+///   ),
+/// )
+///
+/// #quote(
+///   "Vi har en radikal hypotes att folk på data gillar gaming",
+///   attribution: "LAN-partyansvarig",
+/// )
+///
+/// = Bakgrund
+///
+/// Geekend är ett väldigt uppskattat event. Senast slog vi rekord med 247
+/// sittande. Jag är inte helt säker på hur vi fick plats, men kul var det.
+///
+/// = Sammanfattning
+///
+/// Aktivitetsutskottet yrkar på // extra space is inserted before this paragraph automatically
+/// - att införa ett månadslångt Geekend // becomes: *att* införa...
+/// ```
+///
+/// - title (str | content): Motion title.
+/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Defaults to today.
+/// -> content
 #let motion(
   title: none, // required
   meeting: none, // required
@@ -63,6 +112,43 @@
   body,
 )
 
+/// Creates a proposal (proposition) document. Apply with `#show: proposition.with(...)` or `#show: proposal.with(...)`.
+///
+/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
+///   automatically get extra vertical space before them.
+/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
+///   operative clauses; other lists render normally.
+/// - Author signatures are appended automatically.
+///
+/// ```typst
+/// #show: proposition.with(
+///   title: [Budgetrevidering],
+///   meeting: "VTM-Extra",
+///   authors: (
+///     // position defaults to "Sektionsmedlem" / "Guild member",
+///     // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     (name: "Truls Teknolog", position: styr.ordf),
+///     (name: "Trula Teknolog", greeting: "För styrelsen"),
+///   ),
+/// )
+///
+/// = Bakgrund
+///
+/// vi är broke :(
+///
+/// = Förslag
+///
+/// Styrelsen yrkar på // extra space is inserted before this paragraph automatically
+/// - att avskaffa sektionen // becomes: *att* avskaffa...
+/// ```
+///
+/// - title (str | content): Proposal title.
+/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Defaults to today.
+/// -> content
 #let proposal(
   title: none, // required
   meeting: none, // required
@@ -80,6 +166,39 @@
   body,
 )
 
+/// Creates a board response (styrelsens svar) document. Apply with `#show: styrelsens-svar.with(...)` or `#show: board-response.with(...)`.
+///
+/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
+///   automatically get extra vertical space before them.
+/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
+///   operative clauses; other lists render normally.
+/// - Author signatures are appended automatically.
+///
+/// ```typst
+/// #show: styrelsens-svar.with(
+///   title: [3.0 flugor i en smäll],  // should same title as the motion
+///   meeting: "HTM1",
+///   // position defaults to "Sektionsmedlem" / "Guild member",
+///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///   authors: (
+//      (name: "Truls Teknolog", position: strings.styr.ordf),
+//      (name: "Trula Teknolog", greeting: "För styrelsen"),
+//    )
+/// )
+///
+/// #emoji.thumb.up
+///
+/// Styrelsen yrkar på // extra space is inserted before this paragraph automatically
+/// - att bifalla motionen i sin helhet // becomes: *att* bifalla...
+/// ```
+///
+/// - title (str | content): Title of the motion being responded to.
+/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Defaults to today.
+/// -> content
 #let board-response(
   title: none, // required
   meeting: none, // required
@@ -97,6 +216,40 @@
   body,
 )
 
+/// Creates a consideration (handling) document. Apply with `#show: handling.with(...)` or `#show: consideration.with(...)`.
+///
+/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
+///   automatically get extra vertical space before them.
+/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
+///   operative clauses; other lists render normally.
+/// - Author signatures are appended automatically.
+///
+/// ```typst
+/// #show: handling.with(
+///   title: [Uppdatering av Riktlinje för marknadsföring och prissättning],
+///   meeting: "S23",
+///   // position defaults to "Sektionsmedlem" / "Guild member",
+///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///   authors: (
+//      (name: "Truls Teknolog", position: naru.koordinator),
+//      (name: "Trula Teknolog", greeting: "För uppdaterad information"),
+//    )
+/// )
+///
+/// Det här är en uråldrig riktlinje vars innehåll inte längre är representativt
+/// för vad vi gör på sektionen.
+///
+/// Jag yrkar på // extra space is inserted before this paragraph automatically
+/// - att uppdatera Riktlinjen enligt bilaga // becomes: *att* uppdatera...
+/// ```
+///
+/// - title (str | content): Consideration title.
+/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Defaults to today.
+/// -> content
 #let consideration(
   title: none, // required
   meeting: none, // required

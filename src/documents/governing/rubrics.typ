@@ -1,6 +1,7 @@
 #import "../document.typ": doc
 #import "../../utils/misc.typ": translate
 #import "../../utils/terms-fmt.typ": terms-fmt
+#import "../../utils/assert.typ": required, required-keys
 
 // Since these generally are not edited nor written often,
 // we think it is fine, or even appropriate,
@@ -10,20 +11,33 @@
 
 #let rubric(
   title: none, // required
-  summary: [], // required
-  purpose: [], // required
-  scope: [], // required
+  summary: none, // required
+  purpose: none, // required
+  scope: none, // required
   history: (), // required
   date: datetime.today(),
   lang: "sv",
   doc-type: "",
   body,
 ) = {
-  if title == none { panic("Please provide a title (key: `title`)") }
-  if summary == [] { panic("Please provide a summary of this rubric (key: `summary`)") }
-  if purpose == [] { panic("Please provide the purpose of this rubric (key: `purpose`)") }
-  if scope == [] { panic("Please provide a scope (key: `scope`)") }
-  if history == () { panic("Please provide at least one history entry (key: `history`)") }
+  required(title, "title", fn: "policy/guideline")
+  required(summary, "summary", fn: "policy/guideline")
+  required(purpose, "purpose", fn: "policy/guideline")
+  required(scope, "scope", fn: "policy/guideline")
+  required(
+    history,
+    "history",
+    fn: "policy/guideline",
+    hint: "array of (meeting: ..., change: ..., who: ...) dicts, e.g. ((meeting: \"HTM1\", change: \"Uppdaterad enligt proposition\", who: \"Styrelsen genom Truls Teknolog och Trula Teknolog\"),)",
+  )
+  for entry in history {
+    required-keys(
+      entry,
+      ("meeting", "change", "who"),
+      fn: "policy/guideline (history entry)",
+      hint: "(meeting: \"HTM1\", change: \"Uppdaterad enligt proposition\", who: \"Styrelsen genom Truls Teknolog och Trula Teknolog\")",
+    )
+  }
 
   show: doc.with(
     title: [#doc-type #translate("för", "for") #title],
@@ -33,7 +47,7 @@
     lang: lang,
   )
 
-  [= Formalia]
+  [= #translate("Formalia", "Overview")]
 
   [
     // new style?
@@ -46,7 +60,7 @@
   heading(
     numbering: none,
     depth: 2,
-    translate("Historik", "History"),
+    translate("Historik", "Revisions"),
   )
 
   context table(
@@ -84,6 +98,22 @@
   body
 }
 
+/// Creates a policy document. Apply with `#show: policy.with(...)`.
+///
+/// - The document begins with a "Formalia" / "Overview" section containing the
+///   summary, purpose, scope, and a revision history table.
+/// - A page break separates Formalia from the body.
+/// - Terms blocks in the body are formatted as a 2-column table (term, description).
+///
+/// - title (str | content): Document subject, e.g. `"Val"` or `"Tackverksamhet"`.
+/// - summary (str | content): Description of what this document covers.
+/// - purpose (str | content): Why this document exists.
+/// - scope (str | content): Who or what this document applies to.
+/// - history (array): Modification history. Each entry is a dict with required keys
+///   `meeting`, `change`, and `who`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Document date shown in the header. Defaults to today.
+/// -> content
 #let policy(
   title: none, // required
   summary: [], // required
@@ -105,7 +135,20 @@
   body,
 )
 
-
+/// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
+///
+/// A riktlinje provides recommended practice without being as binding as a `policy`.
+/// Same structure as `policy`: Formalia section, page break, then body.
+///
+/// - title (str | content): Document subject, e.g. `"Grafisk design"` or `"Överlämning"`.
+/// - summary (str | content): Description of what this document covers.
+/// - purpose (str | content): Why this document exists.
+/// - scope (str | content): Who or what this document applies to.
+/// - history (array): Modification history. Each entry is a dict with required keys
+///   `meeting`, `change`, and `who`.
+/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Document date shown in the header. Defaults to today.
+/// -> content
 #let guideline(
   title: none, // required
   summary: [], // required

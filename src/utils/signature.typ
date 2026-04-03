@@ -1,8 +1,10 @@
 #import "misc.typ": labelize, ref-id, to-text, translate
+#import "assert.typ": required-keys
 
 // TODO: In typst 0.15.0+, we can take a path to the image.
 //       We cannot do this at the moment since paths are resolved
 //       relative to the file in which the image function was called.
+
 #let signature(
   message,
   name,
@@ -43,11 +45,19 @@
   default_position: translate("Sektionsmedlem", "Guild member"),
 ) = {
   let authors = if type(authors) == array {
-    if authors.len() == 2 and type(authors.at(0)) in (str, content) and type(authors.at(1)) in (str, content) {
-      ((name: authors.at(0), position: authors.at(1)),)
-    } else {
-      authors
-    }
+    authors.map(author => {
+      if type(author) == dictionary {
+        required-keys(
+          author,
+          ("name",),
+          fn: "author-signatures",
+          hint: "each author dict needs at least `name`, e.g. (name: \"Truls Teknolog\", position: \"Gammal och dryg\") -- `position`, `message`, and `image` are optional (but have default values)",
+        )
+        author
+      } else {
+        (name: author)
+      }
+    })
   } else if type(authors) in (str, content) {
     ((name: authors),)
   } else {

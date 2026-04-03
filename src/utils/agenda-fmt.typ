@@ -1,5 +1,4 @@
 #import "misc.typ": translate
-#import "@preview/datify:1.0.1": custom-date-format
 
 #let agenda-fmt(make-heading: false, en) = {
   let items = en.children

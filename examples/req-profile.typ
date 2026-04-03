@@ -2,7 +2,7 @@
 #show: req-profile.with(
   position: strings.nollu.pepp,
   year: 2025,
-  required: (
+  requirements: (
     "Passionerad",
     "Omtänksam",
     "Samarbetsvillig",
@@ -12,7 +12,7 @@
     "Stresshanteringsförmåga",
     "Självinsikt",
   ),
-  meriting: (
+  merits: (
     "Erfarenhet av att hålla event",
     "Ledarskapsförmåga",
     "Förståelse av postens innebörd",

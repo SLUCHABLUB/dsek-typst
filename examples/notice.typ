@@ -3,8 +3,9 @@
 #show: notice.with(
   meeting: "S06",
   meeting-type: "Styrelsemöte",
-  location: [E:2116],
   time: date(24, 3, 2026, time: (12, 15)),
+  location: [E:2116],
+  // adjournment: date(25, 3, 2026, time: (12, 15)),
   authors: (
     (name: "Ella Svensson", position: strings.styr.ordf),
   ),

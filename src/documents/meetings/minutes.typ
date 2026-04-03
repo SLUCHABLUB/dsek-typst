@@ -1,5 +1,6 @@
 #import "../document.typ": doc
 #import "../../utils/misc.typ": labelize, old-terms, ref-id, to-text, translate
+#import "../../utils/assert.typ": required
 #import "../../utils/minutes-fmt.typ": minutes-fmt
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../utils/signature.typ": signature
@@ -19,7 +20,11 @@
         let (i, name-pos) = xi
         let (name, position) = if type(name-pos) == array {
           if name-pos.len() > 2 {
-            panic("Expected 2 arguments, got " + str(name-pos.len()))
+            panic(
+              "attendance: attendee entry has "
+                + str(name-pos.len())
+                + " elements, expected at most 2\n  hint: each entry is (name, position) or just a name, e.g. (\"Truls Teknolog\", \"Kårkontakt\") or just \"Truls Teknolog\"",
+            )
           }
           name-pos
         } else {
@@ -44,6 +49,63 @@
   )
 }
 
+/// Creates a meeting minutes (protokoll) document. Apply with `#show: minutes.with(...)`.
+///
+/// - The body uses `/` term syntax where each term is an agenda item title and the
+///   description is the item text. Inside an item, term items are formatted normally.
+/// - Items are automatically numbered as §1, §2, … and can be cross-referenced with
+///   `@item` (resolves to "§N") or `@item[]` (resolves to "§N Item").
+/// - Attendees are auto-labelled so they can be referenced with `@name` or `@name[]`
+///   (to include position) anywhere in the document.
+///
+/// Example:
+/// ```typst
+/// #show: minutes.with(
+///   meeting: "S06",
+///   attendance: (
+///     ("Truls Teknolog", styr.ordf),
+///     ("Trula Teknolog", infu.mastare),
+///     "Pelle Postlös", // name only, no position
+///   ),
+///   chair: [@trulsteknolog],
+///   secretary: [@trulateknolog],
+///   reviewers: ([@pellepostlös],),
+/// )
+///
+/// / OFMÖ:
+///   @trulsteknolog[] förklarade mötet öppnat 12:15. // Ordförande Truls Teknolog förklarade...
+///
+/// / Tid och sätt:
+///   Tid och sätt godkändes.
+///
+/// / Val av justerare:
+///   Mötet beslöt
+///   - att välja @pellepostlös till justerare // *att* välja Pelle Postlös till...
+///
+/// / Information från kollegierna:
+///   / InfoK: Ingen ny information. // normal terms
+///
+/// / Veckans roliga punkt:
+///   @trulateknolog drog en ordvits.
+///
+/// / Uppföljning\: Veckans roliga punkt:
+///   @pellepostlös yrkade på
+///   - att stryka @veckans-roliga-punkt från protokollet
+///   Mötet avslog yrkandet.
+/// ```
+///
+/// - meeting (str | content): Short meeting identifier shown in the title, e.g. `"S06"`.
+/// - attendees (array): Attendee list. Each entry is a `name` string/content,
+///   or a 2-element `(name, position)` array. Positions can be entered manually or taken
+///   from the `strings` module.
+/// - chair (str | content): Meeting chair, shown in the signature block.
+/// - secretary (str | content): Meeting secretary, shown in the signature block.
+/// - reviewers (array): Optional minute reviewers, shown in the signature block.
+/// - meeting-type (str | content): Optional label in the title, e.g. `"Styrelsemöte"`.
+/// - attested (bool): Shows "OJUSTERAT"/"UNATTESTED" watermark when `false`. Default `false`.
+/// - lang (str): Document language, `"sv"` or `"en"`. Default `"sv"`.
+/// - date (datetime): Document date shown in the header. Defaults to today.
+/// -> content
 #let minutes(
   meeting: none, // required
   attendees: (), // required
@@ -56,11 +118,22 @@
   date: datetime.today(),
   body,
 ) = context {
-  if meeting == none { panic("Please provide a meeting name (key: `meeting`)") }
-  if attendees == () or type(attendees) != array { panic("Please provide a list of attendees (key: `attendees`)") }
-  if chair == none or secretary == none {
-    panic("Please provide a meeting chair and secretary (keys: `chair`, `secretary`)")
+  required(meeting, "meeting", fn: "minutes", hint: "short meeting identifier, e.g. meeting: \"HTM1\"")
+  required(
+    attendees,
+    "attendees",
+    fn: "minutes",
+    hint: "array of (name, position) pairs, e.g. ((\"Truls Teknolog\", \"Kårkontakt\"),)",
+  )
+  if type(attendees) != array {
+    panic(
+      "minutes: `attendees` must be an array, not "
+        + type(attendees)
+        + "\n  hint: each entry is (name, position) or just a name, e.g. (\"Truls Teknolog\", \"Kårkontakt\") or just \"Truls Teknolog\"",
+    )
   }
+  required(chair, "chair", fn: "minutes")
+  required(secretary, "secretary", fn: "minutes")
 
   let watermark = if not attested {
     set align(center + horizon)

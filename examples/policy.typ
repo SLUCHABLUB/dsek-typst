@@ -37,6 +37,7 @@
     (
       meeting: "HTM2 2021",
       change: "Uppdaterad enligt Policy för policyer",
+      who: "-",
     ),
     (
       meeting: "HTM1 2022",
@@ -51,6 +52,7 @@
     (
       meeting: "VTM-extra 2023",
       change: "Uppdaterad enligt Policy för styrdokument",
+      who: "-",
     ),
     (
       meeting: "HTM1 2023",

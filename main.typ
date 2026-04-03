@@ -1,9 +1,9 @@
 #import "src/lib.typ": *
 
 #show: plain-document.with(
-  title: [Motion: detta är en titel],
-  doc-type: "Mötesdokumentshandling",
-  meeting: "VTM-1",
+  title: [Ett helt vanligt dokument],
+  doc-type: "Yrkande",
+  meeting: "VTM2",
 )
 
 = En titel
