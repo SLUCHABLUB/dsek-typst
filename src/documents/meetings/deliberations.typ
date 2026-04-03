@@ -182,9 +182,9 @@
 ///   // position defaults to "Sektionsmedlem" / "Guild member",
 ///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///   authors: (
-//      (name: "Truls Teknolog", position: strings.styr.ordf),
-//      (name: "Trula Teknolog", greeting: "För styrelsen"),
-//    )
+///      (name: "Truls Teknolog", position: strings.styr.ordf),
+///      (name: "Trula Teknolog", greeting: "För styrelsen"),
+///    )
 /// )
 ///
 /// #emoji.thumb.up
@@ -232,9 +232,9 @@
 ///   // position defaults to "Sektionsmedlem" / "Guild member",
 ///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///   authors: (
-//      (name: "Truls Teknolog", position: naru.koordinator),
-//      (name: "Trula Teknolog", greeting: "För uppdaterad information"),
-//    )
+///      (name: "Truls Teknolog", position: naru.koordinator),
+///      (name: "Trula Teknolog", greeting: "För uppdaterad information"),
+///    )
 /// )
 ///
 /// Det här är en uråldrig riktlinje vars innehåll inte längre är representativt
