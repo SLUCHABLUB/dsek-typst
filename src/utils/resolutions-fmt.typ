@@ -1,4 +1,4 @@
-#import "misc.typ": enhanced_ref, to-text
+#import "misc.typ": enhanced_ref, to-text, translate
 
 /// Formats a bullet list as operative clauses ("att"-lista / "to"-list).
 ///
@@ -10,68 +10,72 @@
 /// Sub-items (created with a nested numbered list `+`) are rendered in italics
 /// as an elaboration of the clause above them.
 ///
-/// - enumerate (bool | auto): Number each clause. `auto` enumerates when there
-///   are more than 3 items.
-/// - term (str | auto): Resolution keyword. `auto` detects from document language:
-///   `"att"` for Swedish, `"to"` for English. Panics for other languages if left `auto`.
+/// - enumerate (bool, auto): Whether to number each clause.
+///                           `auto` enumerates when there are more than 3 items.
+/// - term (str, auto): The resolution keyword.
+///                     `auto` detects it from document language (`"att"` for Swedish, `"to"` for English).
+///
 /// -> content
-#let resolutions(enumerate: auto, term: auto, it) = context {
+#let resolutions(enumerate: auto, term: auto, unstyled) = context {
+  // Copy the parameters into the context.
+  let enumerate = enumerate
+  let term = term
+
+  // TODO: Elaborate?
   // TODO: wrap in a figure to make references in feature parity with LaTeX
 
-  // language detection
-  let term = if term == auto {
-    if text.lang == "sv" {
-      "att"
-    } else if text.lang == "en" {
-      "to"
-    } else {
-      panic(
-        "language `"
-          + text.lang
-          + "` is not supported automatically for resolutions, set term manually using `term: \"...\"`",
-      )
-    }
-  } else { term }
+  if term == auto {
+    term = translate("att", "to")
+  }
 
-  let elems = it.children.filter(e => e != [ ])
-  let enumerate = if enumerate == auto { elems.len() > 3 } else { enumerate }
-  if elems.any(e => not to-text(e).starts-with(term + " ")) { return it }
+  let elements = unstyled.children.filter(e => e != [ ])
+
+  if enumerate == auto {
+    enumerate = elements.len() > 3
+  }
+
+  if elements.any(e => not to-text(e).starts-with(term + " ")) { return unstyled }
 
   let fmt(x) = to-text(x).replace(count: 1, regex(term + " ?"), "")
 
-  let res = counter("resolutions")
-  res.update(0)
+  let clause_counter = counter("resolutions")
+  clause_counter.update(0)
 
   list(
     tight: false,
     marker: {
-      res.step()
+      clause_counter.step()
 
       let number = if enumerate {
-        context align(center, text(fill: gray, size: 0.8em, res.display()))
+        align(center, text(fill: gray, size: 0.8em, clause_counter.display()))
       }
 
       box(width: 1em, number)
       strong(term)
     },
-    ..elems.map(e => {
-      // if there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept
-      if e.body.has("children") {
-        // descriptions are made by creating a numbered numbered sublist
+    ..elements.map(element => {
+      // If there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept.
+      if element.body.has("children") {
+        // TODO: Why set this here? Emulating 2 levels of indentation?
         set list(marker: ([–], [•], [‣]))
-        show enum: it => {
+
+        // Descriptions are made by creating a numbered numbered sublist.
+        show enum: sublist => {
           set text(style: "italic")
           set list(marker: none)
           parbreak()
-          it.children.map(x => list.item(x.body)).join(parbreak())
+          sublist.children.map(child => list.item(child.body)).join(parbreak())
           parbreak()
         }
-        let cn = e.body.children
-        // edge case if someone starts formatting something immediately after the term
-        let from = if cn.first() == [#term] { 2 } else { 1 }
-        fmt(cn.first()) + cn.slice(from, cn.len()).join()
+
+        let children = element.body.children
+
+        // Edge case if someone starts formatting something immediately after the term.
+        let from = if children.first() == [#term] { 2 } else { 1 }
+
+        fmt(children.first()) + children.slice(from, children.len()).join()
       } else {
-        fmt(e)
+        fmt(element)
       }
     }),
   )
@@ -97,9 +101,9 @@ och sedan yrkar vi på
 Vi kan även se
 
 - att vi kan lägga till beskrivningar
-  - Beskrivningar ger en möjligheten att ge en utförligare förklaring eller förtydligande
+  + Beskrivningar ger en möjligheten att ge en utförligare förklaring eller förtydligande
 - att satserna numreras om det är 4 eller fler totalt
-  - detta sker automatiskt, men man kan även ställa in att det alltid eller aldirg ska ske
+  + detta sker automatiskt, men man kan även ställa in att det alltid eller aldrig ska ske
 - att numreringen börjar om vid en ny lista
 - att `formattering` behålls
 
@@ -110,13 +114,7 @@ Now we'll switch to English and move
 - to show that it can work automatically based on language
 - to combine the 2 different variants
 
-// Y hasta en español podemos mostrar
-
-// #att-lista(term: "que", enumerate: true)[
-//   - que puedes elegir tu propio palabra para "att"
-//   - que también se puede invocar como una función convencional,
-//   - que se puede especificar si se desea numerar la lista completa o no.
-// ]
+#set text(lang: "sv")
 
 och till sist återgår vi till
 
@@ -124,3 +122,9 @@ och till sist återgår vi till
 - helt
 - vanlig
 - lista
+
+// TODO:
+där återstår:
+
+- _att hantera fullständigt formaterade satser_
+  + Troligtvis genom att hantera att `element.body.has("body")`

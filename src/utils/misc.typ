@@ -16,8 +16,9 @@
 ///
 /// - swedish (content): Shown when `text.lang == "sv"`.
 /// - english (content): Shown when `text.lang == "en"`.
+///
 /// -> content
-#let translate(swedish, english) = context {
+#let translate(swedish, english) = {
   let lang = text.lang
   if lang == "sv" {
     swedish
