@@ -22,8 +22,6 @@ find ../src \
 
 echo '  Compiling to PDF...' >&2
 
-typst compile main.typ \
-    --font-path ../fonts \
-    --root ..
+../typst compile main.typ
 
 echo '...done!' >&2
