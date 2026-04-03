@@ -20,6 +20,7 @@
 
 // --- Swedish Bindings ---
 
+/// Swedish binding to #link(label("documents:document:doc()"))[`plain-document`].
 #let dokument = plain-document
 #let protokoll = minutes
 #let proposition = proposal

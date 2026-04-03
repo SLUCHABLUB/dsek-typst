@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -eu
+
+echo 'Building the documentation...' >&2
+
+cd "$(dirname "$0")"
+
+cp -f preamble.typ main.typ
+
+echo '  Inserting modules...' >&2
+
+# We ignore `../src/lib.typ` since we want it sorted first.
+# Since we split on a newline, any file names containing newlines will break the script.
+# The %d, sort, cut chain is to sort shallower file paths first.
+find ../src \
+    -name '*typ' -not -path ../src/lib.typ \
+    -printf '%d %p\n' |
+    sort -n |
+    cut -d' ' -f2- |
+    sed 's/.*/#document-module("&")/g' >>main.typ
+
+echo '  Compiling to PDF...' >&2
+
+typst compile main.typ \
+    --font-path ../fonts \
+    --root ..
+
+echo '...done!' >&2

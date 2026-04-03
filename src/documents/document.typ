@@ -73,7 +73,8 @@
   [#current_page (#last_page)]
 }
 
-#let document_title = title
+/// An alias to the builtin `title` function to not be shadowed by the parameter in @@doc().
+#let _title = title
 
 //  ▄▄▄▄▄▄ ▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄  ▄▄     ▄▄▄ ▄▄▄▄▄▄ ▄▄▄▄▄
 //    ██   ██▄▄  ██▀▄▀██ ██▄█▀ ██    ██▀██  ██   ██▄▄
@@ -90,18 +91,29 @@
 /// resolution list formatter. Renders `title` as a styled document title above
 /// the content.
 ///
-/// - title (str | content): Document title displayed at the top of the page.
-/// - meeting (str | content): Meeting identifier shown in the page header.
-/// - doc-type (str): Document type label shown in the page header.
-/// - lang (str): Document language, `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document date shown in the header. Defaults to today.
 /// -> content
 #let doc(
+  /// The title of the document, if any.
+  /// It will be displayed at the top of the page.
+  /// -> content
   title: none,
+  /// The meeting for/during which the document was written, if any.
+  /// It will be displayed in the page header.
+  /// -> content | none
   meeting: none,
+  /// The "type" of the document.
+  /// It will be displayed in the page header.
+  /// -> str
   doc-type: "",
+  /// The language of the document.
+  /// -> "sv" | "en"
   lang: "sv",
+  /// The date at which the document was written.
+  /// It will be displayed in the page header.
+  /// -> datetime
   date: datetime.today(),
+  /// The body of the document.
+  /// -> content
   body,
 ) = context {
   set document(
@@ -109,7 +121,7 @@
     date: date,
   )
 
-  show document_title: set text(
+  show _title: set text(
     font: sans_serif,
     weight: "bold",
     size: 15pt,
@@ -158,7 +170,7 @@
 
   set list(spacing: par.spacing)
 
-  document_title()
+  _title()
   v(1em)
   body
 }
