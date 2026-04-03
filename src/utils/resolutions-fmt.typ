@@ -91,12 +91,12 @@ Här har vi
 
 - en helt vanlig lista
 - med helt vanliga punkter
-- och helt vanlig formattering
+- och helt vanlig formatering
 
 och sedan yrkar vi på
 
-- att ändra formatteringen
-- att bolda varje inledande "att"
+- att ändra formateringen
+- att bold:a varje inledande "att"
 
 Vi kan även se
 
