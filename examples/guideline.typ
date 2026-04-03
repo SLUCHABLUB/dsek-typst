@@ -5,7 +5,7 @@
 // TODO: Update the contents of the guideline.
 
 #show: guideline.with(
-  title: "grafisk profil",
+  subject: "grafisk profil",
   summary: [
     Riktlinje för grafisk profil beskriver många av sektionens vanligaste förekommande grafiska element samt verktyg som man kan använda för att utforma grafiskt material för D-sektionen.
   ],

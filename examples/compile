@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -eu
+
+echo 'Building the examples...' >&2
+
+cd "$(dirname "$0")"
+
+for example in *.typ; do
+    echo "  Compiling $example..." >&2
+
+    typst compile "$example" \
+        --font-path ../fonts \
+        --root ..
+done
+
+echo '...done!' >&2

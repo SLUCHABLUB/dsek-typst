@@ -118,7 +118,7 @@
 ///
 /// -> content
 #let policy(
-  title: none,
+  subject: none,
   summary: [],
   purpose: [],
   scope: [],

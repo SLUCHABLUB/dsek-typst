@@ -3,7 +3,7 @@
 #import util: terms-fmt
 
 #show: policy.with(
-  title: "tackverksamhet",
+  subject: "tackverksamhet",
   summary: [
     Policyn beskriver hur tackverksamhet får gå till på sektionen och vilka funktionärsposter som har rätt till specifika fördelar.
   ],
