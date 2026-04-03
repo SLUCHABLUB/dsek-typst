@@ -35,10 +35,6 @@
   body
 }
 
-// TODO: Should we force a cover page here?
-//       The regulation have a cover page currently.
-//       A: yes
-
 /// Creates the guild regulations (reglemente) document. Apply with `#show: regulations`.
 ///
 /// - Terms blocks (`/ Term: Description`) are formatted as a 2-column table (term, description)
@@ -62,6 +58,8 @@
 
   show list: resolutions.with(enumerate: false)
   show terms: terms-fmt.with(columns: (9.5em, 1fr))
+
+  // TODO: Cover page.
 
   body
 }
