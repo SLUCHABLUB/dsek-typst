@@ -10,7 +10,7 @@
 // rather than relying on freehand typing to be consistent.
 
 #let rubric(
-  title: none, // required
+  subject: none, // required
   summary: none, // required
   purpose: none, // required
   scope: none, // required
@@ -20,7 +20,7 @@
   doc-type: "",
   body,
 ) = {
-  required(title, "title", fn: "policy/guideline")
+  required(subject, "subject", fn: "policy/guideline")
   required(summary, "summary", fn: "policy/guideline")
   required(purpose, "purpose", fn: "policy/guideline")
   required(scope, "scope", fn: "policy/guideline")
@@ -40,7 +40,7 @@
   }
 
   show: doc.with(
-    title: [#doc-type #translate("för", "for") #title],
+    title: [#doc-type #translate("för", "for") #subject],
     doc-type: doc-type,
     meeting: history.map(x => x.meeting).last(),
     date: date,
@@ -105,26 +105,29 @@
 /// - A page break separates Formalia from the body.
 /// - Terms blocks in the body are formatted as a 2-column table (term, description).
 ///
-/// - title (str | content): Document subject, e.g. `"Val"` or `"Tackverksamhet"`.
-/// - summary (str | content): Description of what this document covers.
-/// - purpose (str | content): Why this document exists.
-/// - scope (str | content): Who or what this document applies to.
-/// - history (array): Modification history. Each entry is a dict with required keys
-///   `meeting`, `change`, and `who`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document date shown in the header. Defaults to today.
+/// - subject (content): The subject of the policy, e.g. `"Val"` or `"Tackverksamhet"`.
+/// - summary (content): Description of what this document covers.
+/// - purpose (content): Why this document exists.
+/// - scope (content): Who or what this document applies to.
+/// - history (array): Modification history.
+///                    Each entry is a dict with required keys `meeting`, `change`, and `who`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let policy(
-  title: none, // required
-  summary: [], // required
-  purpose: [], // required
-  scope: [], // required
-  history: (), // required
+  title: none,
+  summary: [],
+  purpose: [],
+  scope: [],
+  history: (),
   date: datetime.today(),
   lang: "sv",
   body,
 ) = rubric(
-  title: title,
+  subject: subject,
   summary: summary,
   purpose: purpose,
   scope: scope,
@@ -137,29 +140,32 @@
 
 /// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
 ///
-/// A riktlinje provides recommended practice without being as binding as a `policy`.
+/// A guideline provides recommended practice without being as binding as a policy.
 /// Same structure as `policy`: Formalia section, page break, then body.
 ///
-/// - title (str | content): Document subject, e.g. `"Grafisk design"` or `"Överlämning"`.
-/// - summary (str | content): Description of what this document covers.
-/// - purpose (str | content): Why this document exists.
-/// - scope (str | content): Who or what this document applies to.
+/// - subject (str): The subject of the guideline, e.g. `"Grafisk design"` or `"Överlämning"`.
+/// - summary (content): A description of what this document covers.
+/// - purpose (content): Why this document exists.
+/// - scope (content): Who or what this document applies to.
 /// - history (array): Modification history. Each entry is a dict with required keys
 ///   `meeting`, `change`, and `who`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document date shown in the header. Defaults to today.
+/// - date (datetime): The date at which the document was written.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let guideline(
-  title: none, // required
-  summary: [], // required
-  purpose: [], // required
-  scope: [], // required
-  history: (), // required
+  subject: none,
+  summary: [],
+  purpose: [],
+  scope: [],
+  history: (),
   date: datetime.today(),
   lang: "sv",
   body,
 ) = rubric(
-  title: title,
+  subject: subject,
   summary: summary,
   purpose: purpose,
   scope: scope,

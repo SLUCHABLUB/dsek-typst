@@ -91,29 +91,21 @@
 /// resolution list formatter. Renders `title` as a styled document title above
 /// the content.
 ///
+/// - title (content, none): The title of the document.
+/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - doc-type (str): Document "type" label, shown in the page header.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let doc(
-  /// The title of the document, if any.
-  /// It will be displayed at the top of the page.
-  /// -> content
   title: none,
-  /// The meeting for/during which the document was written, if any.
-  /// It will be displayed in the page header.
-  /// -> content | none
   meeting: none,
-  /// The "type" of the document.
-  /// It will be displayed in the page header.
-  /// -> str
   doc-type: "",
-  /// The language of the document.
-  /// -> "sv" | "en"
   lang: "sv",
-  /// The date at which the document was written.
-  /// It will be displayed in the page header.
-  /// -> datetime
   date: datetime.today(),
-  /// The body of the document.
-  /// -> content
   body,
 ) = context {
   set document(

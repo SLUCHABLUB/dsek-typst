@@ -18,6 +18,8 @@
     read(path),
     name: name,
     label-prefix: label + ":",
+    // Tinymist uses the old syntax.
+    old-syntax: true,
   )
 
   heading[#name -- #link(path, raw(relative_path))]

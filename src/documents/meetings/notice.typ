@@ -39,20 +39,23 @@
 /// + [] TFMA
 /// ```
 ///
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
 /// - time (datetime): Meeting date and time. Use `date()`, e.g. `date(15, 3, 2025, time: (13, 0))`.
 /// - location (str | content): Meeting venue, e.g. `[E:1124]`.
 /// - adjournment (datetime): Optional planned adjournment time, shown in the time/location block.
-/// - meeting-type (str | content): Optional label in the title, e.g. `"Styrelsemöte"`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document creation date shown in the header. Defaults to today.
+/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let notice(
-  meeting: none, // required
-  authors: (), // required
-  time: none, // required
-  location: none, // required
+  meeting: none,
+  authors: (),
+  time: none,
+  location: none,
   adjournment: none,
   meeting-type: none,
   lang: "sv",

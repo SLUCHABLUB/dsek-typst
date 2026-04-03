@@ -33,16 +33,19 @@
 /// + [] TFMA
 /// ```
 ///
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - meeting (content): The meeting which the agenda outlines, e.g. `"HTM1"`.
 /// - time (datetime): Meeting date and time. Use `date()`, e.g. `date(15, 3, 2025, time: (13, 0))`.
-/// - meeting-type (str | content): Optional label in the title, e.g. `"Styrelsemöte"`.
+/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
 /// - authors (array): Optional signatories shown in a signature block.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document creation date shown in the header. Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let agenda(
-  meeting: none, // required
-  time: none, // required
+  meeting: none,
+  time: none,
   meeting-type: [],
   authors: (),
   date: datetime.today(),

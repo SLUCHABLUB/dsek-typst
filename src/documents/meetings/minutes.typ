@@ -94,23 +94,26 @@
 ///   Mötet avslog yrkandet.
 /// ```
 ///
-/// - meeting (str | content): Short meeting identifier shown in the title, e.g. `"S06"`.
+/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - attendees (array): Attendee list. Each entry is a `name` string/content,
 ///   or a 2-element `(name, position)` array. Positions can be entered manually or taken
 ///   from the `strings` module.
 /// - chair (str | content): Meeting chair, shown in the signature block.
 /// - secretary (str | content): Meeting secretary, shown in the signature block.
 /// - reviewers (array): Optional minute reviewers, shown in the signature block.
-/// - meeting-type (str | content): Optional label in the title, e.g. `"Styrelsemöte"`.
+/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
 /// - attested (bool): Shows "OJUSTERAT"/"UNATTESTED" watermark when `false`. Default `false`.
-/// - lang (str): Document language, `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document date shown in the header. Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let minutes(
-  meeting: none, // required
-  attendees: (), // required
-  chair: none, // required
-  secretary: none, // required
+  meeting: none,
+  attendees: (),
+  chair: none,
+  secretary: none,
   reviewers: (),
   meeting-type: none,
   attested: false,

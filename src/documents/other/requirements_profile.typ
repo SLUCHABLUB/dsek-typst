@@ -26,18 +26,21 @@
 /// Ordförande leder sektionens styrelse och representerar sektionen utåt.
 /// ```
 ///
-/// - position (str | content): The position title, e.g. `"Vice ordförande"` or `strings.medalj.mdlm`.
+/// - position (str, content): The position title, e.g. `"Vice ordförande"` or `strings.medalj.mdlm`.
 /// - requirements (array): Mandatory requirements (strings or content).
 /// - merits (array): Meritorious qualifications. Defaults to empty.
-/// - mandate (dictionary | auto): Mandate period as `(from: datetime, to: datetime)`.
+/// - mandate (dictionary, auto): Mandate period as `(from: datetime, to: datetime)`.
 ///   Set to `auto` to use the full calendar year given by `year`. Default `auto`.
 /// - year (int): Calendar year used when `mandate: auto`. Defaults to current year.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Document date shown in the header. Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let req-profile(
-  position: none, // required
-  requirements: (), // required (heh)
+  position: none,
+  requirements: (),
   merits: (),
   mandate: auto,
   year: datetime.today().year(),
@@ -100,4 +103,3 @@
     [#for r in requirements [- #r]], [#for m in merits [- #m]],
   )
 }
-

@@ -89,16 +89,19 @@
 /// - att införa ett månadslångt Geekend // becomes: *att* införa...
 /// ```
 ///
-/// - title (str | content): Motion title.
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - title (content): The title of the motion.
+/// - meeting (content): The meeting for which the motion was written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let motion(
-  title: none, // required
-  meeting: none, // required
-  authors: (), // required?
+  title: none,
+  meeting: none,
+  authors: (),
   lang: "sv",
   date: datetime.today(),
   body,
@@ -143,16 +146,18 @@
 /// - att avskaffa sektionen // becomes: *att* avskaffa...
 /// ```
 ///
-/// - title (str | content): Proposal title.
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - title (content): The title of the proposal.
+/// - meeting (content): The meeting for which the proposal was written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+///
 /// -> content
 #let proposal(
-  title: none, // required
-  meeting: none, // required
-  authors: (), // required?
+  title: none,
+  meeting: none,
+  authors: (),
   lang: "sv",
   date: datetime.today(),
   body,
@@ -193,16 +198,18 @@
 /// - att bifalla motionen i sin helhet // becomes: *att* bifalla...
 /// ```
 ///
-/// - title (str | content): Title of the motion being responded to.
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - title (content): The title of the motion being responded to.
+/// - meeting (content): The meeting for which the motion and response were written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+///
 /// -> content
 #let board-response(
-  title: none, // required
-  meeting: none, // required
-  authors: (), // required?
+  title: none,
+  meeting: none,
+  authors: (),
   lang: "sv",
   date: datetime.today(),
   body,
@@ -244,16 +251,18 @@
 /// - att uppdatera Riktlinjen enligt bilaga // becomes: *att* uppdatera...
 /// ```
 ///
-/// - title (str | content): Consideration title.
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - title (content): The title of the consideration.
+/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+///
 /// -> content
 #let consideration(
-  title: none, // required
-  meeting: none, // required
-  authors: (), // required?
+  title: none,
+  meeting: none,
+  authors: (),
   lang: "sv",
   date: datetime.today(),
   body,

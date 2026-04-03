@@ -9,13 +9,15 @@
 ///
 /// Outputs the position in bold followed by a bullet list of nominees.
 ///
-/// - position (str | content): The position being nominated for.
-/// - ..people (str | content): The nominee(s) for this position.
+/// - position (content): The position being nominated for.
+/// - ..people (content): The nominee(s) for this position.
 /// -> content
 #let nominees(position: none, ..people) = {
   [*#position*]
   for person in people.pos() [- #person]
 }
+
+// TODO: Make title default to auto.
 
 /// Creates a nomination (nominering) document. Apply with `#show: nomination.with(...)`.
 ///
@@ -42,16 +44,19 @@
 /// #nominees(position: infu.mastare, "Alice Alström")
 /// ```
 ///
-/// - title (str | content): Document title, e.g. `[Nominering till HTM1]`.
-/// - meeting (str | content): Short meeting identifier, e.g. `"HTM1"`.
+/// - title (content): The title of the document, e.g. `[Nominering till HTM1]`.
+/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
-/// - date (datetime): Defaults to today.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let nomination(
-  title: none, // required
-  meeting: none, // required
-  authors: (), // required
+  title: none,
+  meeting: none,
+  authors: (),
   lang: "sv",
   date: datetime.today(),
   body,
@@ -79,4 +84,3 @@
 
   author-signatures(authors)
 }
-

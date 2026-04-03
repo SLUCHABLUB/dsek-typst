@@ -11,11 +11,19 @@
 /// - Nested terms in a description cell use `old-terms` style (bold term, hanging indent).
 /// - Standard heading numbering (`= 1`, `== 1.1`) creates the section structure.
 ///
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - body (content): The body of the document.
+///
 /// -> content
-#let statutes(lang: "sv", it) = {
+#let statutes(
+  lang: "sv",
+  body
+) = {
   let statutes-name = translate("Stadgar", "Statutes")
 
+  // TODO: Expose the date parameter.
+  // TODO: Should we set the meeting? Practice seems to be to set it to the meeting of last change.
   show: doc.with(
     title: [#statutes-name #translate("för", "of") #guild.dseklth],
     lang: lang,
@@ -38,7 +46,10 @@
 /// - Lists where every item starts with `att` are formatted as un-enumerated operative clauses.
 /// - Otherwise identical structure to `statutes`.
 ///
-/// - lang (str): `"sv"` or `"en"`. Default `"sv"`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - body (content): The body of the document.
+///
 /// -> content
 #let regulations(lang: "sv", body) = {
   let regulations-name = translate("Reglemente", "Regulations")
