@@ -7,7 +7,7 @@ set -eu
 cd "$(dirname "$0")/.."
 
 tools/build-docs
-tools/compile-examples
+tools/build-examples
 
 echo 'Compiling the files in src...'
 find src -name '*.typ' \

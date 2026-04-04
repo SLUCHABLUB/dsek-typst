@@ -94,13 +94,13 @@
 
   set heading(numbering: none)
   set par(justify: false)
-  let requirements = translate([== Krav], [== Requirements])
-  let merits = translate([== Meriterande], [== Merits])
+
   table(
     columns: (1fr, 1fr),
     row-gutter: 0.5em,
     stroke: none,
-    requirements, merits,
+    translate([== Krav], [== Requirements]),
+    translate([== Meriterande], [== Merits]),
     [#for r in requirements [- #r]], [#for m in merits [- #m]],
   )
 }
