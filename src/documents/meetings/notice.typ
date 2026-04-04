@@ -8,7 +8,7 @@
 /// Creates a meeting notice/summons (kallelse) document. Apply with `#show: kallelse.with(...)` or `#show: notice.with(...)`.
 ///
 /// - A "Tid och plats" / "Time and location" block is automatically prepended to the body.
-/// - The body should include either (for Sektionsmöten / Guild Assembiles) freemform text or
+/// - The body should include either (for Sektionsmöten / Guild Assemblies) free-form text or
 ///   (SRD and Board meetings) a numbered list using bracket syntax: `+ [Action] Item name`.
 ///   All items must begin with brackets.
 ///   The action label (e.g. `Beslut`, `Information`) goes inside the brackets.

@@ -1,5 +1,5 @@
 #import "../plain.typ": plain-document
-#import "../../utils/misc.typ": labelize, ref-id, to-text, translate
+#import "../../utils/misc.typ": to-label, ref-id, to-text, translate
 #import "../../utils/assert.typ": required
 #import "../../utils/minutes-fmt.typ": minutes-fmt
 #import "../../utils/resolutions-fmt.typ": resolutions
@@ -41,7 +41,7 @@
             // also you can make it behave exactly like text
             #show heading: set text(font: text.font, weight: text.weight, size: text.size)
             #set heading(depth: ref-id.person, numbering: none, outlined: false)
-            #heading(name, supplement: position) #label(labelize(name))
+            #heading(name, supplement: position) #label(to-label(name))
           ],
           position,
         )

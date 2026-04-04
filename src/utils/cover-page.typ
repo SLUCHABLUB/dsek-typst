@@ -25,7 +25,7 @@
     #text(size: 25pt, guild.dseklth)
   ]
   #place(dy: -2em, bottom, text(size: 13pt, weight: "bold", font: serif)[
-    #translate("Organisationsnummmer", "Company registration number"): 845003-2878
+    #translate("Organisationsnummer", "Company registration number"): 845003-2878
   ])
   #place(bottom, text(size: 13pt, font: serif)[
     #custom-date-format(date, pattern: "long", lang: lang)

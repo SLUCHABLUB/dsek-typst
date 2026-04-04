@@ -21,7 +21,7 @@
 ///     "Erfarenhet av projektledning",
 ///     "Tidigare ordföranderoll i studentförening",
 ///   ),
-///   // mandate: auto  // jan 1 – cec 31 (default)
+///   // mandate: auto  // jan 1 – dec 31 (default)
 /// )
 ///
 /// Ordförande leder sektionens styrelse och representerar sektionen utåt.
@@ -94,13 +94,13 @@
 
   set heading(numbering: none)
   set par(justify: false)
-  let reqs = translate([== Krav], [== Requirements])
-  let mers = translate([== Meriterande], [== Merits])
+  let requirements = translate([== Krav], [== Requirements])
+  let merits = translate([== Meriterande], [== Merits])
   table(
     columns: (1fr, 1fr),
     row-gutter: 0.5em,
     stroke: none,
-    [#reqs], [#mers],
+    requirements, merits,
     [#for r in requirements [- #r]], [#for m in merits [- #m]],
   )
 }

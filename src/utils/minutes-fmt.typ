@@ -1,10 +1,10 @@
-#import "misc.typ": labelize, ref-id, to-text, translate
+#import "misc.typ": to-label, ref-id, to-text, translate
 #import "terms-fmt.typ": old-terms
 
 /// Formats a terms block as a meeting minutes table (§N | Title | Description).
 ///
 /// Applied automatically inside `minutes()` via `show terms: minutes-fmt`,
-/// not called directly. Each term gets automatically labeled, enabling `@title`
+/// not called directly. Each term gets automatically labelled, enabling `@title`
 /// references that resolve to "§N Title".
 ///
 /// - mins (content): A terms block produced by `/` syntax in the document body.
@@ -27,7 +27,7 @@
             set heading(depth: ref-id.minute, numbering: none, outlined: false, supplement: str(n))
             show heading: set text(size: text.size, weight: text.weight, font: text.font)
             show heading: set par(justify: false)
-            [#heading(item.term) #label(labelize(to-text(item.term), sep: "-"))]
+            [#heading(item.term) #label(to-label(to-text(item.term), sep: "-"))]
           },
           [
             #show terms: old-terms

@@ -1,4 +1,4 @@
-#import "misc.typ": labelize, ref-id, to-text, translate
+#import "misc.typ": to-label, ref-id, to-text, translate
 #import "assert.typ": required-keys
 
 // TODO: In typst 0.15.0+, we can take a path to the image.
@@ -73,9 +73,9 @@
       let message = author.at("message", default: default_greeting)
       let position = author.at("position", default: default_position)
       let lbl = if type(author.name) == content {
-        labelize(to-text(author.name))
+        to-label(to-text(author.name))
       } else {
-        labelize(author.name)
+        to-label(author.name)
       }
       let name = context {
         show heading: set text(font: text.font, weight: text.weight, size: text.size)

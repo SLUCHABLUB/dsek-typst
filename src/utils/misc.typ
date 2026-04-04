@@ -48,7 +48,7 @@
   }
 }
 
-#let latinize(str) = {
+#let to-latin(str) = {
   let new = str
   let chars = (
     ("á", "a"),
@@ -81,16 +81,17 @@
   return new
 }
 
-// Should the main separator be `-` to match our style?
+// TODO: Should the main separator be `-` to match our style?
 /// Converts a name string into a valid Typst label identifier.
 ///
-/// Lowercases, removes accents via `latinize`, and joins on whitespace, dashes,
+/// Lowercases, removes accents via `to-latin`, and joins on whitespace, dashes,
 /// and quote characters. Used to auto-generate `@labels` for attendees and authors.
 ///
 /// - str (str): Input string, typically a person's name.
 /// - sep (str): Separator inserted between words. Defaults to `""` (no separator).
+///
 /// -> str
-#let labelize(str, sep: "") = latinize(lower(str.split(regex("[-`'´\s]")).join(sep)))
+#let to-label(str, sep: "") = to-latin(lower(str.split(regex("[-`'´\s]")).join(sep)))
 
 #let to-text(c) = {
   if type(c) == str {
@@ -195,4 +196,3 @@
     second: s,
   )
 }
-
