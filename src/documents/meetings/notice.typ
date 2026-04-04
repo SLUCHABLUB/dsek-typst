@@ -23,7 +23,7 @@
 ///   location: [E:A, LTH],
 ///   authors: (
 ///     // position defaults to "Sektionsmedlem" / "Guild member",
-///     // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     // message defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///     (name: "Truls Teknolog", position: styr.ordf),
 ///   ),
 /// )
@@ -41,7 +41,7 @@
 /// ```
 ///
 /// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - time (datetime): Meeting date and time. Use `date()`, e.g. `date(15, 3, 2025, time: (13, 0))`.
 /// - location (str | content): Meeting venue, e.g. `[E:1124]`.
 /// - adjournment (datetime): Optional planned adjournment time, shown in the time/location block.

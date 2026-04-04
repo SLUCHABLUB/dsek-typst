@@ -18,7 +18,7 @@
     authors,
     "authors",
     fn: "deliberation",
-    hint: "list of author dicts, e.g. authors: ((name: \"Truls Teknolog\", position: \"Funktionär inom Informationsutskottet\", greeting: \"Lund, dag som ovan\"),)",
+    hint: "list of author dicts, e.g. authors: ((name: \"Truls Teknolog\", position: \"Funktionär inom Informationsutskottet\", message: \"Lund, dag som ovan\"),)",
   )
 
   show: plain-document.with(
@@ -68,9 +68,9 @@
 ///   meeting: "HTM1",
 ///   authors: (
 ///     // position defaults to "Sektionsmedlem" / "Guild member",
-///     // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     // message defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///     (name: "Truls Teknolog", position: aktu.dsportare),
-///     (name: "Trula Teknolog", greeting: "gaming"),
+///     (name: "Trula Teknolog", message: "gaming"),
 ///   ),
 /// )
 ///
@@ -94,7 +94,7 @@
 ///
 /// - title (content): The title of the motion.
 /// - meeting (content): The meeting for which the motion was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -134,9 +134,9 @@
 ///   meeting: "VTM-Extra",
 ///   authors: (
 ///     // position defaults to "Sektionsmedlem" / "Guild member",
-///     // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     // message defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///     (name: "Truls Teknolog", position: styr.ordf),
-///     (name: "Trula Teknolog", greeting: "För styrelsen"),
+///     (name: "Trula Teknolog", message: "För styrelsen"),
 ///   ),
 /// )
 ///
@@ -152,7 +152,7 @@
 ///
 /// - title (content): The title of the proposal.
 /// - meeting (content): The meeting for which the proposal was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -190,10 +190,10 @@
 ///   title: [3.0 flugor i en smäll],  // should same title as the motion
 ///   meeting: "HTM1",
 ///   // position defaults to "Sektionsmedlem" / "Guild member",
-///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///   // message defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///   authors: (
 ///      (name: "Truls Teknolog", position: strings.styr.ordf),
-///      (name: "Trula Teknolog", greeting: "För styrelsen"),
+///      (name: "Trula Teknolog", message: "För styrelsen"),
 ///    )
 /// )
 ///
@@ -205,7 +205,7 @@
 ///
 /// - title (content): The title of the motion being responded to.
 /// - meeting (content): The meeting for which the motion and response were written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -243,10 +243,10 @@
 ///   title: [Uppdatering av Riktlinje för marknadsföring och prissättning],
 ///   meeting: "S23",
 ///   // position defaults to "Sektionsmedlem" / "Guild member",
-///   // greeting defaults to "Lund, dag som ovan" / "Lund, day as above"
+///   // message defaults to "Lund, dag som ovan" / "Lund, day as above"
 ///   authors: (
 ///      (name: "Truls Teknolog", position: naru.koordinator),
-///      (name: "Trula Teknolog", greeting: "För uppdaterad information"),
+///      (name: "Trula Teknolog", message: "För uppdaterad information"),
 ///    )
 /// )
 ///
@@ -259,7 +259,7 @@
 ///
 /// - title (content): The title of the consideration.
 /// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `greeting`, `position` and `image`.
+/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.

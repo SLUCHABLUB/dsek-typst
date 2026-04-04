@@ -56,6 +56,7 @@
       ("meeting", "change", "who"),
       fn: "policy/guideline (history entry)",
       hint: "(meeting: \"HTM1\", change: \"Uppdaterad enligt proposition\", who: \"Styrelsen genom Truls Teknolog och Trula Teknolog\")",
+      allowed: ("meeting", "change", "who")
     )
   }
 
@@ -69,10 +70,9 @@
 
   [= #translate("Formalia", "Overview")]
 
-  // TODO: This breaks "Policy för styrdokument".
+  // TODO: Change "Policy för styrdokument" to reflect new style.
   // <policybrott>
   [
-    // new style?
     #show terms: terms-fmt.with(columns: (9.5em, 1fr))
     / #translate("Sammanfattning", "Summary"): #summary
     / #translate("Syfte", "Purpose"): #purpose

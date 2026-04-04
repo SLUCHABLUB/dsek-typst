@@ -1,13 +1,11 @@
-#import "../src/lib.typ": proposal, strings
-#import "../src/utils/misc.typ": to-text
-#import strings: *
+#import "../src/lib.typ": *
 
 #show: proposal.with(
   title: "Policy för samverkan med D-chip",
   date: datetime(year: 2024, month: 9, day: 28),
   meeting: "HTM1",
   authors: (
-    (name: "Emma Haggren", position: styr.ordf, greeting: "För Sryrelsen, dag som ovan"),
+    (name: "Emma Haggren", position: strings.styr.ordf, message: "För Sryrelsen, dag som ovan"),
   ),
 )
 

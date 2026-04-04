@@ -26,7 +26,8 @@
 /// - keys (array): The key names (strings) that must be present.
 /// - fn (str): The calling function's name, prepended as context.
 /// - hint (str): Optional example or explanation appended after a newline.
-#let required-keys(dict, keys, fn: none, hint: none) = {
+/// - allowed (array): Array of allowed keys. If set to `auto`, all no check is performed.
+#let required-keys(dict, keys, fn: none, hint: none, allowed: auto) = {
   let missing = keys.filter(k => not dict.keys().contains(k))
 
   let label = if missing.len() == 1 { "key" } else { "keys" }
@@ -35,4 +36,12 @@
   let message = origin(fn) + "missing required " + label + " " + listed + make-hint(hint)
 
   assert(missing == (), message: message)
+
+  let incorrect = dict.keys().filter(k => k not in allowed)
+
+  let label = if incorrect.len() == 1 { "key" } else { "keys" }
+  let listed = incorrect.map(k => "`" + k + "`").join(", ")
+
+  let message = origin(fn) + "incorrect " + label + " " + listed + make-hint(hint)
+  assert(incorrect == (), message: message)
 }
