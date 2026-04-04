@@ -70,7 +70,7 @@
 
   [= #translate("Formalia", "Overview")]
 
-  // TODO: Change "Policy för styrdokument" to reflect new style.
+  // TODO: Change "Policy för styrdokument" to reflect the new style.
   // <policybrott>
   [
     #show terms: terms-fmt.with(columns: (9.5em, 1fr))
