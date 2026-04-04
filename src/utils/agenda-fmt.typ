@@ -1,7 +1,7 @@
 #import "misc.typ": translate
 
-#let agenda-fmt(make-heading: false, en) = {
-  let items = en.children
+#let agenda-fmt(make-heading: false, unstyled) = {
+  let items = unstyled.children
 
   // only format if correct syntax
   if items.any(item => {
@@ -10,10 +10,10 @@
       let children = item.body.children
       let begin = children.first().at("text", default: "") == "["
       let end = "]" in children.map(x => x.at("text", default: ""))
-      begin and not end
+      begin and not end or not begin
     }
   }) {
-    return en
+    return unstyled
   }
 
   let link-map = (:)
@@ -24,7 +24,7 @@
     ls.filter(x => x.has("body")),
   )
 
-  let links = items.map(x => x.body.children.filter(x => x.has("body"))).flatten().map(x => x.body)
+  let links = items.map(item => item.body.children.filter(child => child.has("body"))).flatten().map(item => item.body)
 
   for url in links {
     if url.dest not in link-map {
@@ -37,10 +37,12 @@
     }
   }
 
+  // Actually works for both numbered and non-numbered lists, and I can't really 
+  // figure out how to differentiate between them -- both are just `item`s
   let extract(item) = {
-    let (n, it) = item
-    if it.body.has("children") {
-      let (open, label, close, ..rest) = it.body.children
+    let (n, item) = item
+    if item.body.has("children") {
+      let (open, label, close, ..rest) = item.body.children
       let txt = none
       let links = none
       let lbl = label
@@ -84,6 +86,6 @@
     [*#translate("Bilaga", "Annex")*],
     grid.hline(stroke: 0.4pt),
     grid.cell(colspan: 4, []),
-    ..en.children.enumerate(start: 1).map(item => extract(item)).flatten(),
+    ..unstyled.children.enumerate(start: 1).map(item => extract(item)).flatten(),
   )
 }

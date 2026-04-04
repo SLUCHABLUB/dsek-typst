@@ -1,5 +1,5 @@
 #import "@preview/datify:1.0.1": custom-date-format
-#import "../document.typ": doc, sans_serif, serif
+#import "../document.typ": doc, sans-serif, serif
 #import "../../graphics.typ": guild_logo
 #import "../../utils/misc.typ": to-text, translate
 #import "../../utils/cover-page.typ": cover-page

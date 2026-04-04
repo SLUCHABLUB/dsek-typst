@@ -9,38 +9,38 @@
 //  ▄▄██▀   ██     █   ██▄▄▄ ██ ██ ▀██ ▀███▀
 
 #let serif = "Domitian"
-#let sans_serif = "TeX Gyre Heros"
+#let sans-serif = "TeX Gyre Heros"
 
-#let page_content_width = 160mm
-#let page_content_height = 230mm
+#let page-content-width = 160mm
+#let page-content-height = 230mm
 
-#let a4_width = 21cm
-#let a4_height = calc.sqrt(2) * a4_width
+#let a4-width = 21cm
+#let a4-height = calc.sqrt(2) * a4-width
 
-#let header_height = 16mm
-#let header_padding = 15mm
+#let header-height = 16mm
+#let header-padding = 15mm
 
-#let horizontal_margin = (a4_width - page_content_width) / 2
+#let horizontal-margin = (a4-width - page-content-width) / 2
 
 // TODO: Investigate how this works in the current LaTeX templates.
-#let top_margin_excluding_header = 15mm
+#let top-margin-excluding-header = 15mm
 // In typst, headers are put in the margin.
-#let top_margin = top_margin_excluding_header + header_height + header_padding
-#let bottom_margin = a4_height - top_margin - page_content_height
+#let top-margin = top-margin-excluding-header + header-height + header-padding
+#let bottom-margin = a4-height - top-margin - page-content-height
 
 //  ▄▄ ▄▄ ▄▄▄▄▄ ▄▄    ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄   ▄▄▄▄
 //  ██▄██ ██▄▄  ██    ██▄█▀ ██▄▄  ██▄█▄ ███▄▄
 //  ██ ██ ██▄▄▄ ██▄▄▄ ██    ██▄▄▄ ██ ██ ▄▄██▀
 
 #let header(doc-type, meeting, date) = context pad(
-  bottom: header_padding,
-  box(height: header_height)[
+  bottom: header-padding,
+  box(height: header-height)[
     #set align(horizon)
     #set text(size: 10pt)
     #stack(
       dir: ltr,
       box(width: 18mm)[
-        #guild_logo(height: header_height)
+        #guild_logo(height: header-height)
       ],
       box(width: 82mm)[
         #show: smallcaps
@@ -114,14 +114,14 @@
   )
 
   show _title: set text(
-    font: sans_serif,
+    font: sans-serif,
     weight: "bold",
     size: 15pt,
     number-type: "lining",
   )
 
   // TODO: Investigate spacing between numbering and heading text as well as heading text and paragraph.
-  show heading: set text(font: sans_serif, weight: "bold", number-type: "lining")
+  show heading: set text(font: sans-serif, weight: "bold", number-type: "lining")
 
   set heading(numbering: "1.1  ")
   show heading.where(level: 1): set text(size: 14pt)
@@ -157,7 +157,7 @@
     footer: footer(),
     header-ascent: 0%,
     footer-descent: 0%,
-    margin: (x: horizontal_margin, top: top_margin, bottom: bottom_margin),
+    margin: (x: horizontal-margin, top: top-margin, bottom: bottom-margin),
   )
 
   set list(spacing: par.spacing)

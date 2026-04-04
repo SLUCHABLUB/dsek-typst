@@ -1,7 +1,7 @@
 #import "../strings.typ": guild
 #import "../utils/misc.typ": translate
 #import "../graphics.typ": guild_logo
-#import "../documents/document.typ": sans_serif, serif
+#import "../documents/document.typ": sans-serif, serif
 #import "@preview/datify:1.0.1": custom-date-format
 
 // might as well make it fancy, yknow

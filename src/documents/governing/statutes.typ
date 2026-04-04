@@ -1,4 +1,4 @@
-#import "../document.typ": custom-date-format, doc, sans_serif, serif
+#import "../document.typ": custom-date-format, doc, sans-serif, serif
 #import "../../utils/misc.typ": to-text, translate
 #import "../../utils/cover-page.typ": cover-page
 #import "../../graphics.typ": guild_logo
