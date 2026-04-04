@@ -1,8 +1,10 @@
 #import "documents/document.typ": doc as plain-document
 #import "documents/meetings/minutes.typ": minutes
 #import "documents/meetings/deliberations.typ": board-response, consideration, motion, proposal
-#import "documents/governing/frameworks.typ": regulations, statutes
-#import "documents/governing/rubrics.typ": guideline, policy
+#import "documents/governing/regulations.typ": regulations
+#import "documents/governing/statutes.typ": statutes
+#import "documents/governing/guideline.typ": guideline
+#import "documents/governing/policy.typ": policy
 #import "documents/meetings/notice.typ": notice
 #import "documents/meetings/agenda.typ": agenda
 #import "documents/meetings/nomination.typ": nomination, nominees

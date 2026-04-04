@@ -167,6 +167,4 @@
   body
 }
 
-// TODO: Add a cover page function.
-// TODO: Add a way to add attachments.
-// TODO: Fix colours (råsa links, footnotes).
+// TODO: Add a way to add attachments. (Maybe stale now due to agenda-fmt)

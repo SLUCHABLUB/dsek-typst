@@ -16,7 +16,7 @@
 ///                     `auto` detects it from document language (`"att"` for Swedish, `"to"` for English).
 ///
 /// -> content
-#let resolutions(enumerate: auto, term: auto, unstyled) = context {
+#let resolutions(enumerate: auto, term: auto, unstyled) = {
   // Copy the parameters into the context.
   let enumerate = enumerate
   let term = term
@@ -47,7 +47,8 @@
       clause_counter.step()
 
       let number = if enumerate {
-        align(center, text(fill: gray, size: 0.8em, clause_counter.display()))
+        // context is needed here for clause_counter to display correctly
+        context align(center, text(fill: gray, size: 0.8em, clause_counter.display()))
       }
 
       box(width: 1em, number)
@@ -56,7 +57,9 @@
     ..elements.map(element => {
       // If there is any formatting (bold, italic, etc), "flatten" only the text until that point so the formatting is kept.
       if element.body.has("children") {
-        // TODO: Why set this here? Emulating 2 levels of indentation?
+        // Lists inside this list are parsed as just being indented one step from a normal list
+        // (which does makes sense, since they technically are)
+        // So we offset the markers by one to make it seem like they are top-level again
         set list(marker: ([–], [•], [‣]))
 
         // Descriptions are made by creating a numbered numbered sublist.

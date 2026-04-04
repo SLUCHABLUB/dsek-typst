@@ -9,7 +9,7 @@
 // This way, a more correct way of writing is enforced,
 // rather than relying on freehand typing to be consistent.
 
-#let rubric(
+#let govdoc(
   subject: none, // required
   summary: none, // required
   purpose: none, // required
@@ -97,81 +97,3 @@
   pagebreak(weak: true)
   body
 }
-
-/// Creates a policy document. Apply with `#show: policy.with(...)`.
-///
-/// - The document begins with a "Formalia" / "Overview" section containing the
-///   summary, purpose, scope, and a revision history table.
-/// - A page break separates Formalia from the body.
-/// - Terms blocks in the body are formatted as a 2-column table (term, description).
-///
-/// - subject (content): The subject of the policy, e.g. `"Val"` or `"Tackverksamhet"`.
-/// - summary (content): Description of what this document covers.
-/// - purpose (content): Why this document exists.
-/// - scope (content): Who or what this document applies to.
-/// - history (array): Modification history.
-///                    Each entry is a dict with required keys `meeting`, `change`, and `who`.
-/// - lang (str): The language of the document (same format as `text.lang`).
-///               Only "sv" and "en" are supported.
-/// - date (datetime): The date at which the document was written.
-/// - body (content): The body of the document.
-///
-/// -> content
-#let policy(
-  subject: none,
-  summary: [],
-  purpose: [],
-  scope: [],
-  history: (),
-  date: datetime.today(),
-  lang: "sv",
-  body,
-) = rubric(
-  subject: subject,
-  summary: summary,
-  purpose: purpose,
-  scope: scope,
-  history: history,
-  date: date,
-  lang: lang,
-  doc-type: "Policy",
-  body,
-)
-
-/// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
-///
-/// A guideline provides recommended practice without being as binding as a policy.
-/// Same structure as `policy`: Formalia section, page break, then body.
-///
-/// - subject (str): The subject of the guideline, e.g. `"Grafisk design"` or `"Överlämning"`.
-/// - summary (content): A description of what this document covers.
-/// - purpose (content): Why this document exists.
-/// - scope (content): Who or what this document applies to.
-/// - history (array): Modification history. Each entry is a dict with required keys
-///   `meeting`, `change`, and `who`.
-/// - date (datetime): The date at which the document was written.
-/// - lang (str): The language of the document (same format as `text.lang`).
-///               Only "sv" and "en" are supported.
-/// - body (content): The body of the document.
-///
-/// -> content
-#let guideline(
-  subject: none,
-  summary: [],
-  purpose: [],
-  scope: [],
-  history: (),
-  date: datetime.today(),
-  lang: "sv",
-  body,
-) = rubric(
-  subject: subject,
-  summary: summary,
-  purpose: purpose,
-  scope: scope,
-  history: history,
-  date: date,
-  lang: lang,
-  doc-type: translate("Riktlinje", "Guideline"),
-  body,
-)

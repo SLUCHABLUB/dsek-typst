@@ -22,14 +22,12 @@ find src \
 
 echo '  Compiling to PDF...' >&2
 
-tools/typstw compile main.typ
-../typst compile main.typ
 # TODO: Split up documentation pdfs between documents and util functions
 # I think most people using this are more likely to want to know what templates
 # there are, and which parameters go with which template.
 # But of course we still need to provide documentation for the util functions for
 # people who want more flexibility in their writing, and future package maintainers
 
-../typst compile main.typ
+tools/typstw compile main.typ
 
 echo '...done!' >&2
