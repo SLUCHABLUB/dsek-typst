@@ -37,7 +37,7 @@
 /// - english (str): Shown when `text.lang == "en"`.
 ///
 /// -> str
-#let translate_str(swedish, english) = {
+#let translate-str(swedish, english) = {
   let lang = text.lang
   if lang == "sv" {
     swedish
@@ -134,9 +134,9 @@
 /// both in the body text colour (no pink). Falls back to the default renderer
 /// for all other references.
 ///
-/// Not called directly — set via `show ref: enhanced_ref` inside `doc()`.
+/// Not called directly — set via `show ref: enhanced-ref` inside `doc()`.
 /// -> content
-#let enhanced_ref(it) = {
+#let enhanced-ref(it) = {
   let elem = it.element
   show: box
   if elem != none and elem.func() == heading and elem.numbering == none and not elem.outlined {

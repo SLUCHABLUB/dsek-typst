@@ -4,7 +4,7 @@
 #import "../../strings.typ"
 #import "../../utils/assert.typ": required, required-keys
 
-/// Creates a requirements profile (kravprofil) for an elected position. Apply with `#show: req-profile.with(...)`.
+/// Creates a requirements profile (kravprofil) for an elected position. Apply with `#show: requirements-profile.with(...)`.
 ///
 /// - Body content is shown as a preamble above the requirements table.
 /// - Requirements and merits are rendered as a two-column bullet list at the end.
@@ -12,7 +12,7 @@
 ///
 /// === Example
 /// ```typst
-/// #show: req-profile.with(
+/// #show: requirements-profile.with(
 ///   position: strings.styr.ordf,  // or a plain string: "Vice ordförande"
 ///   requirements: (
 ///     "Godkänd i B2",
@@ -39,7 +39,7 @@
 /// - body (content): The body of the document.
 ///
 /// -> content
-#let req-profile(
+#let requirements-profile(
   position: none,
   requirements: (),
   merits: (),
@@ -49,11 +49,11 @@
   date: datetime.today(),
   body,
 ) = {
-  required(position, "position", fn: "req-profile", hint: "the position title, e.g. position: \"Vice ordförande\"")
+  required(position, "position", fn: "requirements-profile", hint: "the position title, e.g. position: \"Vice ordförande\"")
   required(
     requirements,
     "requirements",
-    fn: "req-profile",
+    fn: "requirements-profile",
     hint: "array of requirements, e.g. requirements: (\"Ansvarsfull\", \"Stresshanteringsförmåga\", \"Godkänd i B2an\")",
   )
 
@@ -75,7 +75,7 @@
     required-keys(
       mandate,
       ("from", "to"),
-      fn: "req-profile (mandate)",
+      fn: "requirements-profile (mandate)",
       hint: "mandate: (from: date(1, 7, 2026), to: date(31, 6, 2027)), or set mandate: auto for the full calendar year",
     )
     mandate

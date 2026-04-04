@@ -8,7 +8,7 @@
 #import "documents/meetings/notice.typ": notice
 #import "documents/meetings/agenda.typ": agenda
 #import "documents/meetings/nomination.typ": nomination, nominees
-#import "documents/other/requirements_profile.typ": req-profile
+#import "documents/other/requirements-profile.typ": requirements-profile
 
 #import "utils/misc.typ": date, diff-added, diff-deleted
 

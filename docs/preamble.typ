@@ -8,8 +8,8 @@
 )
 
 #let document-module(path) = {
-  let relative_path = path.trim("../src/", at: start)
-  let name = relative_path.trim(".typ", at: end).replace("/", ".")
+  let relative-path = path.trim("../src/", at: start)
+  let name = relative-path.trim(".typ", at: end).replace("/", ".")
 
   // Tidy handles periods specifically, and both `_` and `-` are allowed in identifiers, so we use `:`.
   let label = name.replace(".", ":")
@@ -27,7 +27,7 @@
     it
   }
   show heading.where(level: 3).or(heading.where(level: 4)): set heading(numbering: none)
-  heading[#name -- #link(path, raw(relative_path))]
+  heading[#name -- #link(path, raw(relative-path))]
 
   tidy.show-module(
     show-module-name: false,

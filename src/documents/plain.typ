@@ -2,7 +2,7 @@
 #import "../graphics.typ": guild_logo
 #import "../strings.typ": guild
 #import "../utils/resolutions-fmt.typ": resolutions
-#import "../utils/misc.typ": enhanced_ref
+#import "../utils/misc.typ": enhanced-ref
 
 //   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄ ▄▄ ▄▄    ▄▄ ▄▄  ▄▄  ▄▄▄▄
 //  ███▄▄   ██   ▀███▀ ██    ██ ███▄██ ██ ▄▄
@@ -141,7 +141,7 @@
   show quote: set par(justify: false)
 
   show list: resolutions
-  show ref: enhanced_ref
+  show ref: enhanced-ref
 
   // TODO: Pick and set a monospace font for code-esque excerpts.
   set text(lang: lang, font: serif, size: 11pt, number-type: "old-style")

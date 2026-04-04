@@ -1,4 +1,4 @@
-#import "misc.typ": enhanced_ref, to-text, translate_str
+#import "misc.typ": enhanced-ref, to-text, translate-str
 
 /// Formats a bullet list as operative clauses ("att"-lista / "to"-list).
 ///
@@ -25,7 +25,7 @@
   // TODO: wrap in a figure to make references in feature parity with LaTeX
 
   if term == auto {
-    term = translate_str("att", "to")
+    term = translate-str("att", "to")
   }
 
   let elements = unstyled.children.filter(e => e != [ ])

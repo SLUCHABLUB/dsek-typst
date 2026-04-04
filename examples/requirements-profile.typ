@@ -1,5 +1,6 @@
 #import "../src/lib.typ": *
-#show: req-profile.with(
+
+#show: requirements-profile.with(
   position: strings.nollu.pepp,
   year: 2025,
   requirements: (

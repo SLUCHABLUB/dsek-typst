@@ -41,8 +41,8 @@
 
 #let author-signatures(
   authors,
-  default_greeting: translate("Lund, dag som ovan", "Lund, day as above"),
-  default_position: translate("Sektionsmedlem", "Guild member"),
+  default-message: translate("Lund, dag som ovan", "Lund, day as above"),
+  default-position: translate("Sektionsmedlem", "Guild member"),
 ) = {
   let authors = if type(authors) == array {
     authors.map(author => {
@@ -50,6 +50,7 @@
         required-keys(
           author,
           ("name",),
+          allowed: ("name", "position", "message", "image"),
           fn: "author-signatures",
           hint: "each author dict needs at least `name`, e.g. (name: \"Truls Teknolog\", position: \"Gammal och dryg\") -- `position`, `message`, and `image` are optional (but have default values)",
         )
@@ -70,8 +71,8 @@
     columns: 3, // TODO: calculate based on longest width?
     row-gutter: 2em,
     ..authors.map(author => {
-      let message = author.at("message", default: default_greeting)
-      let position = author.at("position", default: default_position)
+      let message = author.at("message", default: default-message)
+      let position = author.at("position", default: default-position)
       let lbl = if type(author.name) == content {
         to-label(to-text(author.name))
       } else {
