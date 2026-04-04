@@ -1,4 +1,6 @@
 #import "document.typ": governing-document
+#import "../../utils/misc.typ": translate
+#import "../../utils/assert.typ": required
 
 /// Creates a policy document. Apply with `#show: policy.with(...)`.
 ///
@@ -28,14 +30,19 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = governing-document(
-  subject: subject,
-  summary: summary,
-  purpose: purpose,
-  scope: scope,
-  history: history,
-  date: date,
-  lang: lang,
-  doc-type: "Policy",
-  body,
-)
+) = {
+  required(subject, "subject", fn: "policy")
+  let policy-name = "Policy"
+
+  governing-document(
+    title: [#policy-name #translate("för", "for") #subject],
+    summary: summary,
+    purpose: purpose,
+    scope: scope,
+    history: history,
+    date: date,
+    lang: lang,
+    doc-type: policy-name,
+    body,
+  )
+}

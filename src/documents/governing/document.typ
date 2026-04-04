@@ -3,11 +3,10 @@
 #import "../../utils/terms-fmt.typ": terms-fmt
 #import "../../utils/assert.typ": required, required-keys
 
-// Since these generally are not edited nor written often,
-// we think it is fine, or even appropriate,
-// for rubrics to be more "function-heavy".
-// This way, a more correct way of writing is enforced,
-// rather than relying on freehand typing to be consistent.
+// Since these generally are not edited nor written often, we think it is fine,
+// or even appropriate, for governing documents to be more "function-heavy".
+// This way, a more correct way of writing is enforced, rather than relying on
+// freehand typing to be consistent.
 
 /// Creates a rubric (guideline/policy/&c.) document.
 /// See `guideline` and `policy`.
@@ -30,7 +29,7 @@
 ///
 /// -> content
 #let governing-document(
-  subject: none, // required
+  title: none, // required
   summary: none, // required
   purpose: none, // required
   scope: none, // required
@@ -38,40 +37,41 @@
   date: datetime.today(),
   lang: "sv",
   doc-type: "",
+  use-cover-page: false,
   body,
 ) = {
-  required(subject, "subject", fn: "policy/guideline")
-  required(summary, "summary", fn: "policy/guideline")
-  required(purpose, "purpose", fn: "policy/guideline")
-  required(scope, "scope", fn: "policy/guideline")
+  required(summary, "summary", fn: "governing-document")
+  required(purpose, "purpose", fn: "governing-document")
+  required(scope, "scope", fn: "governing-document")
   required(
     history,
     "history",
-    fn: "policy/guideline",
+    fn: "governing-document",
     hint: "array of (meeting: ..., change: ..., who: ...) dicts, e.g. ((meeting: \"HTM1\", change: \"Uppdaterad enligt proposition\", who: \"Styrelsen genom Truls Teknolog och Trula Teknolog\"),)",
   )
   for entry in history {
     required-keys(
       entry,
       ("meeting", "change", "who"),
-      fn: "policy/guideline (history entry)",
+      fn: "governing-document (history entry)",
       hint: "(meeting: \"HTM1\", change: \"Uppdaterad enligt proposition\", who: \"Styrelsen genom Truls Teknolog och Trula Teknolog\")",
-      allowed: ("meeting", "change", "who")
+      allowed: ("meeting", "change", "who"),
     )
   }
 
   show: plain-document.with(
-    title: [#doc-type #translate("för", "for") #subject],
+    title: title,
     doc-type: doc-type,
     meeting: history.last().meeting,
     date: date,
     lang: lang,
+    use-cover-page: use-cover-page,
   )
-
-  [= #translate("Formalia", "Overview")]
 
   // TODO: Change "Policy för styrdokument" to reflect the new style.
   // <policybrott>
+  [= #translate("Översikt", "Overview")]
+
   [
     #show terms: terms-fmt.with(columns: (9.5em, 1fr))
     / #translate("Sammanfattning", "Summary"): #summary

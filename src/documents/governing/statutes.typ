@@ -1,6 +1,5 @@
 #import "../plain.typ": custom-date-format, plain-document, sans-serif, serif
 #import "../../utils/misc.typ": to-text, translate
-#import "../../utils/cover-page.typ": cover-page
 #import "../../graphics.typ": guild_logo
 #import "../../utils/terms-fmt.typ": terms-fmt
 #import "../../utils/resolutions-fmt.typ": resolutions
@@ -25,14 +24,16 @@
 ) = {
   let statutes-name = translate("Stadgar", "Statutes")
 
-  cover-page(statutes-name, lang, date)
-
   // TODO: Should we set the meeting? Practice seems to be to set it to the meeting of last change.
+  // Probably yes, but then ideally we'd need a way to also automatically get the last meeting
+  // For other governing documents that's easy since an array of history entries is already required
+  // But doing it for Regulations feels very tedious unless we also introduce the history array here
   show: plain-document.with(
     title: [#statutes-name #translate("för", "of") #guild.dseklth],
     lang: lang,
     date: date,
     doc-type: statutes-name,
+    use-cover-page: true,
   )
 
   show terms: terms-fmt.with(columns: (3.5em, 9.5em, 1fr))

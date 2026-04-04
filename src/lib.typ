@@ -5,6 +5,7 @@
 #import "documents/governing/statutes.typ": statutes
 #import "documents/governing/guideline.typ": guideline
 #import "documents/governing/policy.typ": policy
+#import "documents/governing/strategic-goals.typ": strategic-goals
 #import "documents/meetings/notice.typ": notice
 #import "documents/meetings/agenda.typ": agenda
 #import "documents/meetings/nomination.typ": nomination, nominees
@@ -31,6 +32,9 @@
 #let handling = consideration
 #let föredragningslista = agenda
 #let kallelse = notice
+#let reglemente = regulations
+#let stadgar = statutes
+#let strategiska-mål = strategic-goals
 
 #let lägg-till = diff-added
 #let ta-bort = diff-deleted

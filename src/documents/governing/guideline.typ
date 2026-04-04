@@ -1,5 +1,6 @@
 #import "document.typ": governing-document
 #import "../../utils/misc.typ": translate
+#import "../../utils/assert.typ": required
 
 /// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
 ///
@@ -27,14 +28,19 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = governing-document(
-  subject: subject,
-  summary: summary,
-  purpose: purpose,
-  scope: scope,
-  history: history,
-  date: date,
-  lang: lang,
-  doc-type: translate("Riktlinje", "Guideline"),
-  body,
-)
+) = {
+  required(subject, "subject", fn: "guideline")
+  let guideline-name = translate("Riktlinje", "Guideline")
+
+  governing-document(
+    title: [#guideline-name #translate("för", "for") #subject],
+    summary: summary,
+    purpose: purpose,
+    scope: scope,
+    history: history,
+    date: date,
+    lang: lang,
+    doc-type: guideline-name,
+    body,
+  )
+}

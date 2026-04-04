@@ -2,7 +2,7 @@
 #import "../graphics.typ": guild_logo
 #import "../strings.typ": guild
 #import "../utils/resolutions-fmt.typ": resolutions
-#import "../utils/misc.typ": enhanced-ref
+#import "../utils/misc.typ": enhanced-ref, translate
 
 //   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄ ▄▄ ▄▄    ▄▄ ▄▄  ▄▄  ▄▄▄▄
 //  ███▄▄   ██   ▀███▀ ██    ██ ███▄██ ██ ▄▄
@@ -73,6 +73,32 @@
   [#current_page (#last_page)]
 }
 
+
+/// Creates a cover page.
+///
+/// - title (content): The title of the document.
+/// - date (datetime): The date at which the document was written.
+///
+/// -> content
+#let cover-page(title, date) = page[
+  // might as well make it fancy, yknow
+  #place(top + left)[
+    #guild_logo(height: 10em, colour: true)
+  ]
+  #place(horizon, dy: -15em)[
+    #set text(weight: "bold", font: "TeX Gyre Heros")
+    #text(size: 2em, title) \
+
+    #text(size: 1.5em, guild.dseklth)
+  ]
+  #place(dy: -2em, bottom, text(size: 13pt, weight: "bold", font: serif)[
+    #translate("Organisationsnummer", "Company registration number"): 845003-2878
+  ])
+  #place(bottom, text(size: 13pt, font: serif)[
+    #custom-date-format(date, pattern: "long", lang: text.lang)
+  ])
+]
+
 /// An alias to the builtin `title` function to not be shadowed by the parameter in @@doc().
 #let _title = title
 
@@ -97,6 +123,7 @@
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
+/// - use-cover-page (boolean): Whether to display the document title on a separate cover page instead of as a non-numbered heading
 /// - body (content): The body of the document.
 ///
 /// -> content
@@ -106,6 +133,7 @@
   doc-type: "",
   lang: "sv",
   date: datetime.today(),
+  use-cover-page: false,
   body,
 ) = context {
   set document(
@@ -152,6 +180,10 @@
     justify: true,
   )
 
+  if use-cover-page {
+    cover-page(title, date)
+  }
+
   set page(
     header: header(doc-type, meeting, date),
     footer: footer(),
@@ -162,8 +194,10 @@
 
   set list(spacing: par.spacing)
 
-  _title()
-  v(1em)
+  if not use-cover-page {
+    _title()
+    v(1em)
+  }
   body
 }
 
