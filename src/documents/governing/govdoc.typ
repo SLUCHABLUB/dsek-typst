@@ -9,6 +9,26 @@
 // This way, a more correct way of writing is enforced,
 // rather than relying on freehand typing to be consistent.
 
+/// Creates a rubric (guideline/policy/&c.) document.
+/// See `guideline` and `policy`.
+///
+/// - The document begins with a "Formalia" / "Overview" section containing the
+///   summary, purpose, scope, and a revision history table.
+/// - A page break separates Formalia from the body.
+/// - Terms blocks in the body are formatted as a 2-column table (term, description).
+///
+/// - subject (content): The subject of the rubric, e.g. `"val"` or `"överlämning"`.
+/// - summary (content): Description of what this document covers.
+/// - purpose (content): Why this document exists.
+/// - scope (content): Who or what this document applies to.
+/// - history (array): The modification history.
+///                    Each entry is a dict with required keys `meeting`, `change`, and `who`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
+/// -> content
 #let govdoc(
   subject: none, // required
   summary: none, // required
@@ -42,13 +62,15 @@
   show: doc.with(
     title: [#doc-type #translate("för", "for") #subject],
     doc-type: doc-type,
-    meeting: history.map(x => x.meeting).last(),
+    meeting: history.last().meeting,
     date: date,
     lang: lang,
   )
 
   [= #translate("Formalia", "Overview")]
 
+  // TODO: This breaks "Policy för styrdokument".
+  // <policybrott>
   [
     // new style?
     #show terms: terms-fmt.with(columns: (9.5em, 1fr))
@@ -62,6 +84,7 @@
     depth: 2,
     translate("Historik", "Revisions"),
   )
+  // </policybrott>
 
   context table(
     columns: (8em, 1.2fr, 1fr),
@@ -74,20 +97,18 @@
     ),
     row-gutter: (0.25em, auto),
     ..history
-      .map(x => {
-        // let meeting = x.at("meeting", default: panic("please provide a meeting"))
-        let who = x.at("who", default: "-")
+      .map(edit => {
         (
           [
-            #x.meeting
+            #edit.meeting
           ],
           [
             #set par(justify: false)
-            #x.change
+            #edit.change
           ],
           [
             #set par(justify: false)
-            #who
+            #edit.who
           ],
         )
       })
