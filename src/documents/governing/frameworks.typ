@@ -1,6 +1,6 @@
 #import "../document.typ": doc
-#import "../../utils/misc.typ": old-terms, to-text, translate
-#import "../../utils/terms-fmt.typ": terms-fmt
+#import "../../utils/misc.typ": to-text, translate
+#import "../../utils/terms-fmt.typ": terms-fmt, old-terms
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../strings.typ": guild
 

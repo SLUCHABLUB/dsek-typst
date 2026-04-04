@@ -156,18 +156,6 @@
   }
 }
 
-#let old-terms(t) = {
-  set par(hanging-indent: 2em)
-  t
-    .children
-    .map(c => [
-      *#c.term*
-      #h(0.6em, weak: true)
-      #c.description
-    ])
-    .join(parbreak())
-}
-
 /// Constructs a `datetime` from separate components.
 ///
 /// Shorthand for the verbose `datetime(year: ..., month: ..., day: ...)` constructor.

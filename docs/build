@@ -22,6 +22,6 @@ find ../src \
 
 echo '  Compiling to PDF...' >&2
 
-../typst compile main.typ
+../typstw compile main.typ
 
 echo '...done!' >&2
