@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# TODO: Remove this script when we gen an actual test suite (like Tytanic) set up.
+
+set -eu
+
+cd "$(dirname "$0")"
+
+docs/build
+examples/compile
+
+echo 'Compiling the files in src...'
+find src -name '*.typ' \
+    -exec printf '  Compiling %s...\n' {} ';' \
+    -exec ./typstw compile {} ';'
+echo '...done!'
