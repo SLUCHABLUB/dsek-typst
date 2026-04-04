@@ -37,9 +37,11 @@
     }
   }
 
-  // Actually works for both numbered and non-numbered lists, and I can't really 
+  // Actually works for both numbered and non-numbered lists, and I can't really
   // figure out how to differentiate between them -- both are just `item`s
+  // TODO: ^ You can use `.func()` and compare it to `list.item`/`enum.item`.
   let extract(item) = {
+
     let (n, item) = item
     if item.body.has("children") {
       let (open, label, close, ..rest) = item.body.children
