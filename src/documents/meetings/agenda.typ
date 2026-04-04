@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/assert.typ": required
 #import "../../utils/agenda-fmt.typ": agenda-fmt
@@ -59,7 +59,7 @@
   let agenda-name = translate("Föredragningslista", "Agenda")
   let meeting-time = context custom-date-format(time, pattern: "full", lang: text.lang)
 
-  show: doc.with(
+  show: plain-document.with(
     title: [#agenda-name #translate("för", "for") #meeting-type #meeting, #meeting-time],
     date: date,
     lang: lang,

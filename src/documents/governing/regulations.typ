@@ -1,5 +1,5 @@
 #import "@preview/datify:1.0.1": custom-date-format
-#import "../document.typ": doc, sans-serif, serif
+#import "../plain.typ": plain-document, sans-serif, serif
 #import "../../graphics.typ": guild_logo
 #import "../../utils/misc.typ": to-text, translate
 #import "../../utils/cover-page.typ": cover-page
@@ -28,7 +28,7 @@
 
   cover-page(regulations-name, lang, date)
 
-  show: doc.with(
+  show: plain-document.with(
     title: [#regulations-name #translate("för", "of") #guild.dseklth],
     lang: lang,
     date: date,

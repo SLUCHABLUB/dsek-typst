@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/signature.typ": author-signatures
 #import "../../utils/assert.typ": required
@@ -73,7 +73,7 @@
 
   let nomination-name = translate("Nominering", "Nomination")
 
-  show: doc.with(
+  show: plain-document.with(
     title: title,
     doc-type: nomination-name,
     lang: lang,

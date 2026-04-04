@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/misc.typ": labelize, ref-id, to-text, translate
 #import "../../utils/assert.typ": required
 #import "../../utils/minutes-fmt.typ": minutes-fmt
@@ -157,7 +157,7 @@
   let meeting-time = custom-date-format(date, pattern: "long", lang: lang)
 
   show terms: minutes-fmt
-  show: doc.with(
+  show: plain-document.with(
     title: [#minutes-name #translate("för", "of") #meeting-type #meeting, #meeting-time],
     doc-type: minutes-name,
     meeting: meeting,

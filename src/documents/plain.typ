@@ -100,7 +100,7 @@
 /// - body (content): The body of the document.
 ///
 /// -> content
-#let doc(
+#let plain-document(
   title: none,
   meeting: none,
   doc-type: "",

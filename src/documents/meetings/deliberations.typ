@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/signature.typ": author-signatures
 #import "../../utils/misc.typ": labelize, ref-id, to-text, translate
 #import "../../utils/assert.typ": required
@@ -21,7 +21,7 @@
     hint: "list of author dicts, e.g. authors: ((name: \"Truls Teknolog\", position: \"Funktionär inom Informationsutskottet\", greeting: \"Lund, dag som ovan\"),)",
   )
 
-  show: doc.with(
+  show: plain-document.with(
     title: [#doc-type: #title],
     meeting: meeting,
     lang: lang,

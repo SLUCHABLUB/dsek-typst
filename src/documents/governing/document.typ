@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/terms-fmt.typ": terms-fmt
 #import "../../utils/assert.typ": required, required-keys
@@ -29,7 +29,7 @@
 /// - body (content): The body of the document.
 ///
 /// -> content
-#let govdoc(
+#let governing-document(
   subject: none, // required
   summary: none, // required
   purpose: none, // required
@@ -59,7 +59,7 @@
     )
   }
 
-  show: doc.with(
+  show: plain-document.with(
     title: [#doc-type #translate("för", "for") #subject],
     doc-type: doc-type,
     meeting: history.last().meeting,

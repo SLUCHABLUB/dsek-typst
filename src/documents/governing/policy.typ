@@ -1,4 +1,4 @@
-#import "govdoc.typ": govdoc
+#import "document.typ": governing-document
 
 /// Creates a policy document. Apply with `#show: policy.with(...)`.
 ///
@@ -28,7 +28,7 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = govdoc(
+) = governing-document(
   subject: subject,
   summary: summary,
   purpose: purpose,

@@ -1,4 +1,4 @@
-#import "../document.typ": doc
+#import "../plain.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "@preview/datify:1.0.1": custom-date-format
 #import "../../strings.typ"
@@ -61,7 +61,7 @@
   let default-start = datetime(day: 1, month: 1, year: year)
   let default-stop = datetime(day: 31, month: 12, year: year)
 
-  show: doc.with(
+  show: plain-document.with(
     title: [#req-profile-name: #position],
     doc-type: req-profile-name,
     lang: lang,

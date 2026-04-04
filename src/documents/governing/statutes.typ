@@ -1,4 +1,4 @@
-#import "../document.typ": custom-date-format, doc, sans-serif, serif
+#import "../plain.typ": custom-date-format, plain-document, sans-serif, serif
 #import "../../utils/misc.typ": to-text, translate
 #import "../../utils/cover-page.typ": cover-page
 #import "../../graphics.typ": guild_logo
@@ -28,7 +28,7 @@
   cover-page(statutes-name, lang, date)
 
   // TODO: Should we set the meeting? Practice seems to be to set it to the meeting of last change.
-  show: doc.with(
+  show: plain-document.with(
     title: [#statutes-name #translate("för", "of") #guild.dseklth],
     lang: lang,
     date: date,

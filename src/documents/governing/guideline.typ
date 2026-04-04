@@ -1,4 +1,4 @@
-#import "govdoc.typ": govdoc
+#import "document.typ": governing-document
 #import "../../utils/misc.typ": translate
 
 /// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
@@ -27,7 +27,7 @@
   date: datetime.today(),
   lang: "sv",
   body,
-) = govdoc(
+) = governing-document(
   subject: subject,
   summary: summary,
   purpose: purpose,
