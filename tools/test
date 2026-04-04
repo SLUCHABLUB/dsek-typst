@@ -4,13 +4,13 @@
 
 set -eu
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.."
 
-docs/build
-examples/compile
+tools/build-docs
+tools/compile-examples
 
 echo 'Compiling the files in src...'
 find src -name '*.typ' \
     -exec printf '  Compiling %s...\n' {} ';' \
-    -exec ./typstw compile {} ';'
+    -exec tools/typstw compile {} ';'
 echo '...done!'

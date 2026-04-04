@@ -10,7 +10,7 @@ if [ "$#" = 0 ]; then
     echo "$about" | fold -s >&2
 fi
 
-ROOT="$(dirname "$0")"
+ROOT="$(dirname "$0")/.."
 
 root=
 font=

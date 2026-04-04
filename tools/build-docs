@@ -2,26 +2,26 @@
 
 set -eu
 
+cd "$(dirname "$0")/.."
+
 echo 'Building the documentation...' >&2
 
-cd "$(dirname "$0")"
-
-cp -f preamble.typ main.typ
+cp -f docs/preamble.typ docs/main.typ
 
 echo '  Inserting modules...' >&2
 
 # We ignore `../src/lib.typ` since we want it sorted first.
 # Since we split on a newline, any file names containing newlines will break the script.
 # The %d, sort, cut chain is to sort shallower file paths first.
-find ../src \
-    -name '*typ' -not -path ../src/lib.typ \
+find src \
+    -name '*typ' -not -path src/lib.typ \
     -printf '%d %p\n' |
     sort -n |
     cut -d' ' -f2- |
-    sed 's/.*/#document-module("&")/g' >>main.typ
+    sed 's/.*/#document-module("&")/g' >>docs/main.typ
 
 echo '  Compiling to PDF...' >&2
 
-../typstw compile main.typ
+tools/typstw compile main.typ
 
 echo '...done!' >&2
