@@ -1,4 +1,4 @@
-#import "../src/lib.typ": regulations
+#import "../src/lib.typ": *
 #import "../src/strings.typ": *
 
 #let copies = (

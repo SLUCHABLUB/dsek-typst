@@ -4,7 +4,7 @@
 #show: minutes.with(
   meeting-type: "Styrelsemöte",
   meeting: "S06",
-  date: datetime(year: 2026, month: 2, day: 24),
+  date: date(24, 2, 2026),
   attendees: (
     ("Ella Svensson", styr.ordf),
     ("Loke Bahr", styr.vice_ordf),

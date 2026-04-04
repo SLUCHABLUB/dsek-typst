@@ -2,7 +2,7 @@
 
 #show: proposal.with(
   title: "Policy för samverkan med D-chip",
-  date: datetime(year: 2024, month: 9, day: 28),
+  date: date(28, 9, 2024),
   meeting: "HTM1",
   authors: (
     (name: "Emma Haggren", position: strings.styr.ordf, message: "För Sryrelsen, dag som ovan"),
