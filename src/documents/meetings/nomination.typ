@@ -25,6 +25,7 @@
 ///   paragraphs) can be mixed in between `nominees()` calls.
 /// - Author signatures are appended automatically.
 ///
+/// === Example
 /// ```typst
 /// #show: nomination.with(
 ///   title: [Nominering till HTM1 2025],

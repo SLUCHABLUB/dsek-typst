@@ -22,6 +22,11 @@
     old-syntax: true,
   )
 
+  show heading.where(level: 1): it => {
+    pagebreak()
+    it
+  }
+  show heading.where(level: 3).or(heading.where(level: 4)): set heading(numbering: none)
   heading[#name -- #link(path, raw(relative_path))]
 
   tidy.show-module(

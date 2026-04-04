@@ -10,6 +10,7 @@
 /// - Requirements and merits are rendered as a two-column bullet list at the end.
 /// - The mandate period defaults to the full calendar year of `year` if not set explicitly.
 ///
+/// === Example
 /// ```typst
 /// #show: req-profile.with(
 ///   position: strings.styr.ordf,  // or a plain string: "Vice ordförande"

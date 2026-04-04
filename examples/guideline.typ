@@ -72,8 +72,7 @@ Infocom har färgen ametistlila, som kan beskrivas som `#9966CC`
 
 = D-sektionens sigill, logotyp och mer
 
-// TODO: Bör vara §1.4.
-I sektionens stadgar, §1.3, står det att sektionens symbol ser ut enligt nedanstående bild:
+I sektionens stadgar, §1.4, står det att sektionens symbol ser ut enligt nedanstående bild:
 
 #figure(guild_symbol(height: 32mm))
 

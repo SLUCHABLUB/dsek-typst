@@ -14,6 +14,7 @@
 /// - Links attached to an item are collected into the Annex / Bilaga column and numbered.
 ///   Referring to the same link more than once gives it the same number.
 ///
+/// === Example
 /// ```typst
 /// #show: föredragningslista.with(
 ///   meeting: "HTM1",

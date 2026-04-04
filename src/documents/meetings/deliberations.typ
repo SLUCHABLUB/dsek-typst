@@ -61,6 +61,7 @@
 ///   operative clauses; other lists render normally.
 /// - Author signatures are appended automatically.
 ///
+/// === Example
 /// ```typst
 /// #show: motion.with(
 ///   title: [3.0 flugor i en smäll],
@@ -84,6 +85,8 @@
 /// sittande. Jag är inte helt säker på hur vi fick plats, men kul var det.
 ///
 /// = Sammanfattning
+///
+/// Geekend är kul, så vi vill ha mer Geekend
 ///
 /// Aktivitetsutskottet yrkar på // extra space is inserted before this paragraph automatically
 /// - att införa ett månadslångt Geekend // becomes: *att* införa...
@@ -124,6 +127,7 @@
 ///   operative clauses; other lists render normally.
 /// - Author signatures are appended automatically.
 ///
+/// === Example
 /// ```typst
 /// #show: proposition.with(
 ///   title: [Budgetrevidering],
@@ -180,6 +184,7 @@
 ///   operative clauses; other lists render normally.
 /// - Author signatures are appended automatically.
 ///
+/// === Example
 /// ```typst
 /// #show: styrelsens-svar.with(
 ///   title: [3.0 flugor i en smäll],  // should same title as the motion
@@ -232,6 +237,7 @@
 ///   operative clauses; other lists render normally.
 /// - Author signatures are appended automatically.
 ///
+/// === Example
 /// ```typst
 /// #show: handling.with(
 ///   title: [Uppdatering av Riktlinje för marknadsföring och prissättning],

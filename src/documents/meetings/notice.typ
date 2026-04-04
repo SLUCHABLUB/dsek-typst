@@ -15,6 +15,7 @@
 ///   Leave bracket empty for no action (e.g OFMÖ / OFMA).
 /// - Time is displayed in 24-hour format (Swedish) or 12-hour with am/pm (English).
 ///
+/// === Example
 /// ```typst
 /// #show: kallelse.with(
 ///   meeting: "SRD02",

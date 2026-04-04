@@ -161,6 +161,7 @@
 /// Shorthand for the verbose `datetime(year: ..., month: ..., day: ...)` constructor.
 /// Pass to any `time:` or `date:` parameter in this library.
 ///
+/// === Example
 /// ```typst
 /// date(15, 3, 2025)                  // 15 March 2025 at midnight
 /// date(15, 3, 2025, time: (13, 30))  // 15 March 2025 at 13:30
@@ -194,3 +195,4 @@
     second: s,
   )
 }
+

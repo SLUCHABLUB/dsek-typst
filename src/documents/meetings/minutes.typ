@@ -59,7 +59,7 @@
 /// - Attendees are auto-labelled so they can be referenced with `@name` or `@name[]`
 ///   (to include position) anywhere in the document.
 ///
-/// Example:
+/// === Example:
 /// ```typst
 /// #show: minutes.with(
 ///   meeting: "S06",
