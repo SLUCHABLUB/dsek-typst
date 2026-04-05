@@ -1,4 +1,4 @@
-#import "../plain.typ": plain-document
+#import "../plain-document.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/signature.typ": author-signatures
 #import "../../utils/assert.typ": required

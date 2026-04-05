@@ -1,4 +1,4 @@
-#import "documents/plain.typ": plain-document
+#import "documents/plain-document.typ": plain-document
 #import "documents/meetings/minutes.typ": minutes
 #import "documents/meetings/deliberations.typ": board-response, consideration, motion, proposal
 #import "documents/governing/regulations.typ": regulations

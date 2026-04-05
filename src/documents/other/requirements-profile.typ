@@ -1,4 +1,4 @@
-#import "../plain.typ": plain-document
+#import "../plain-document.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "@preview/datify:1.0.1": custom-date-format
 #import "../../strings.typ"

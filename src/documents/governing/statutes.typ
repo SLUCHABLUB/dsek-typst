@@ -1,4 +1,4 @@
-#import "../plain.typ": custom-date-format, plain-document, sans-serif, serif
+#import "../plain-document.typ": custom-date-format, plain-document, sans-serif, serif
 #import "../../utils/misc.typ": to-text, translate
 #import "../../graphics.typ": guild_logo
 #import "../../utils/terms-fmt.typ": terms-fmt

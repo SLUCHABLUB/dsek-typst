@@ -1,4 +1,4 @@
-#import "../plain.typ": plain-document
+#import "../plain-document.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/terms-fmt.typ": terms-fmt
 #import "../../utils/assert.typ": required, required-keys

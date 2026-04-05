@@ -1,5 +1,5 @@
 #import "@preview/datify:1.0.1": custom-date-format
-#import "../plain.typ": plain-document, sans-serif, serif
+#import "../plain-document.typ": plain-document, sans-serif, serif
 #import "../../graphics.typ": guild_logo
 #import "../../utils/misc.typ": to-text, translate
 #import "../../utils/terms-fmt.typ": terms-fmt
