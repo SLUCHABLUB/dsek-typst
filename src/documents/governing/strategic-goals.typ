@@ -1,13 +1,10 @@
 #import "governing-document.typ": governing-document
 #import "../../utils/misc.typ": translate
-#import "../../utils/terms-fmt.typ": terms-fmt
-#import "../../utils/assert.typ": required, required-keys
 
 #let strategic-goals(
   summary: none, // required
   purpose: none, // required
   scope: none, // required
-  history: (), // required
   date: datetime.today(),
   lang: "sv",
   body,

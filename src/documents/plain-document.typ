@@ -86,7 +86,7 @@
     #guild_logo(height: 10em, colour: true)
   ]
   #place(horizon, dy: -15em)[
-    #set text(weight: "bold", font: "TeX Gyre Heros")
+    #set text(weight: "bold", font: "TeX Gyre Heros", number-type: "lining")
     #text(size: 2em, title) \
 
     #text(size: 1.5em, guild.dseklth)
@@ -95,7 +95,7 @@
     #translate("Organisationsnummer", "Company registration number"): 845003-2878
   ])
   #place(bottom, text(size: 13pt, font: serif)[
-    #custom-date-format(date, pattern: "long", lang: text.lang)
+    #context custom-date-format(date, pattern: "long", lang: text.lang)
   ])
 ]
 

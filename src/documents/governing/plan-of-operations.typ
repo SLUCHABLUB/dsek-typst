@@ -1,0 +1,64 @@
+#import "../plain-document.typ": plain-document
+#import "../../utils/misc.typ": translate
+#import "../../utils/terms-fmt.typ": terms-fmt
+#import "../../strings.typ": *
+
+#let plan-of-operations(
+  year: datetime.today().year() + 1,
+  date: datetime.today(),
+  overview-overrides: (:),
+  lang: "sv",
+  body,
+) = {
+  let plan-name = translate("Verksamhetsplan", "Plan of Operations")
+
+  show: plain-document.with(
+    title: [#plan-name #year],
+    doc-type: plan-name,
+    date: date,
+    lang: lang,
+    use-cover-page: true,
+  )
+
+  [= #translate("Översikt", "Overview")]
+  [
+    #show terms: terms-fmt.with(columns: (9.5em, 1fr))
+    / #translate("Sammanfattning", "Summary"): #overview-overrides.at(
+        "summary",
+        default: translate(
+          [Verksamhetsplan för D-sektionen, vilken innehåller aktuella mål för året.],
+          [The Plan of Operations for the D-guild, which contains the current goals for the year.],
+        ),
+      )
+    / #translate("Syfte", "Purpose"): #overview-overrides.at(
+        "purpose",
+        default: translate(
+          [Verksamhetsplanen är ett sätt för sektionens medlemmar att påverka vad som skall ligga i fokus det nästkommande verksamhetsåret],
+          [The Plan of Operations is a way for the guild's members to influence the focus of the upcoming operational year.],
+        ),
+      )
+    / #translate("Upplägg", "Structure"): #overview-overrides.at(
+        "structure",
+        default: translate(
+          [Verksamhetsplanen består av två olika delar: projekt sprungna ur den strategiska planen samtårsspecifika projekt. Alla mål skall vara tydligt förklarade samt konkreta. Det ska vara lätt att utvärdera huruvida målet är uppnått.],
+          [The Plan of Operations consists of two parts: projects derived from the Strategic plan and year-specific projects. All goals should be clearly explained and concrete. It should be easy to evaluate whether a goal has been achieved.],
+        ),
+      )
+    / #translate("Ansvar", "Responsibility"): #overview-overrides.at(
+        "responsibility",
+        default: translate(
+          [Ytterst ansvariga för verksamhetsplanen är styrelsen. Styrelsen kan dock med fördel ta hjälp av andra delar av sektionen för att uppnå målen.],
+          [The Board is ultimately responsible for the Plan of Operations. However, the Board may benefit from the assistance of other parts of the guild to achieve the goals.],
+        ),
+      )
+    / #translate("Rapportering", "Reporting"): #overview-overrides.at(
+        "reporting",
+        default: translate(
+          [Styrelsen ska rapportera status kring det arbete som pågår med målen minst två gånger per år, förslagsvis på sektionsmöten. Styrelsen har dessutom som mål att på styrelsemöten ta upp hur verksamhetsplanen arbetas med i utskotten. Verksamhetsplanen ska finnas tydligt reflekterad i verksamhetsrapporten i slutet av året. I verksamhetsrapporten ska minst finnas vad som gjordes samt resultatet av dessa handlingar.],
+          [The Board shall report on the progress of the goals at least twice a year, preferably at guild assemblies. Furthermore, the Board should aim to discuss the progress of the Plan of Operations within the committees during board meetings. The Plan of Operations should be clearly reflected in the operational report at the end of the year, detailing what was done and the results of those actions.],
+        ),
+      )
+  ]
+  pagebreak()
+  body
+}
