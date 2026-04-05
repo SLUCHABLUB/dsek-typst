@@ -2,7 +2,7 @@
 #import strings: *
 
 #show: agenda.with(
-  meeting: [HTM1],
+  meeting: "HTM1",
   time: date(7, 10, 2024),
   authors: (
     name: "Axel Svensson",

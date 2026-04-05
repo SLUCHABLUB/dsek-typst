@@ -31,7 +31,7 @@
   + #link("https://files.dsek.se/documents/public/2026/S08/Val_av_Phaddrar.pdf")
 - [Beslut] Val av Pluggphaddrar
   + #link("https://files.dsek.se/documents/public/2026/S08/Val_av_Pluggphaddrar.pdf")
-- [Beslut] Val av Pluggphaddrar
+- [Beslut] Val av Caféfunkisar
   + #link("https://files.dsek.se/documents/public/2026/S08/Val_av_cafefunkisar.pdf")
 - [Beslut] Avsägelser
 - [Information] Meddelanden
