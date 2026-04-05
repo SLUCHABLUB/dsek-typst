@@ -21,7 +21,7 @@
 
   let partition(ls) = (
     ls.filter(x => not x.has("body")),
-    ls.filter(x => x.has("body")),
+    ls.filter(x => x.has("body") and x.func() == enum.item),
   )
 
   let links = items.map(item => item.body.children.filter(child => child.has("body"))).flatten().map(item => item.body)
@@ -37,11 +37,7 @@
     }
   }
 
-  // Actually works for both numbered and non-numbered lists, and I can't really
-  // figure out how to differentiate between them -- both are just `item`s
-  // TODO: ^ You can use `.func()` and compare it to `list.item`/`enum.item`.
   let extract(item) = {
-
     let (n, item) = item
     if item.body.has("children") {
       let (open, label, close, ..rest) = item.body.children
@@ -66,7 +62,11 @@
         [
           #set par(justify: false)
           #set text(number-type: "lining")
-          #links.map(x => link-map.at(x.body.dest)).join([, ])
+          #context {
+            let links = links.map(x => link-map.at(x.body.dest)).join([, ])
+            let width = measure(links).width
+            block(width: calc.min(width, 55pt), links)
+          }
         ],
       )
     }
@@ -78,7 +78,7 @@
 
   v(1em)
   context grid(
-    columns: (auto, 1fr, auto, 5em),
+    columns: (auto, 1fr, auto, auto),
     stroke: none,
     row-gutter: (0.5em, 0.5em, par.leading),
     column-gutter: 1em,

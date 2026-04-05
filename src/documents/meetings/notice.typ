@@ -122,7 +122,7 @@
     ..time-and-date
   )
 
-  show enum: agenda-fmt.with(make-heading: true)
+  show list: agenda-fmt.with(make-heading: true)
   body
   author-signatures(authors)
 }

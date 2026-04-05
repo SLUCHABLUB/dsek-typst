@@ -47,7 +47,7 @@
 #let agenda(
   meeting: none,
   time: none,
-  meeting-type: [],
+  meeting-type: none,
   authors: (),
   date: datetime.today(),
   lang: "sv",
@@ -67,7 +67,7 @@
     doc-type: agenda-name,
   )
 
-  show enum: agenda-fmt
+  show list: agenda-fmt
   body
   author-signatures(authors)
 }
