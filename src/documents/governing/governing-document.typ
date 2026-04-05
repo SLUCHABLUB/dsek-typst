@@ -8,7 +8,7 @@
 // This way, a more correct way of writing is enforced, rather than relying on
 // freehand typing to be consistent.
 
-/// Creates a rubric (guideline/policy/&c.) document.
+/// Creates a generic governing document (policy / guideline / strategic goals).
 /// See `guideline` and `policy`.
 ///
 /// - The document begins with a "Formalia" / "Overview" section containing the

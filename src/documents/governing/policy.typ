@@ -1,4 +1,4 @@
-#import "document.typ": governing-document
+#import "governing-document.typ": governing-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/assert.typ": required
 
