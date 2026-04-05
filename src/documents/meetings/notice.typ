@@ -1,5 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": translate
+#import "../../utils/misc.typ": detect-meeting-type, translate
 #import "../../utils/assert.typ": required
 #import "../../utils/agenda-fmt.typ": agenda-fmt
 #import "../../utils/signature.typ": author-signatures
@@ -63,7 +63,7 @@
   time: none,
   location: none,
   adjournment: none,
-  meeting-type: none,
+  meeting-type: auto,
   lang: "sv",
   date: datetime.today(),
   body,
@@ -74,6 +74,7 @@
 
   let notice-name = translate("Kallelse", "Notice")
   let meeting-time = context custom-date-format(time, pattern: "full", lang: text.lang)
+  let meeting-type = detect-meeting-type(meeting, meeting-type)
 
   show: plain-document.with(
     title: [#notice-name #translate("till", "for") #meeting-type #meeting, #meeting-time],

@@ -2,7 +2,6 @@
 
 #show: notice.with(
   meeting: "S06",
-  meeting-type: "Styrelsemöte",
   time: date(24, 3, 2026, time: (12, 15)),
   location: [E:2116],
   authors: (

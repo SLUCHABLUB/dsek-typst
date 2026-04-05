@@ -2,7 +2,6 @@
 #import strings: *
 
 #show: minutes.with(
-  meeting-type: "Styrelsemöte",
   meeting: "S06",
   date: date(24, 2, 2026),
   attendees: (

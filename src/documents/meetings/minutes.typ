@@ -1,5 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": to-label, ref-id, to-text, translate
+#import "../../utils/misc.typ": detect-meeting-type, ref-id, to-label, to-text, translate
 #import "../../utils/assert.typ": required
 #import "../../utils/minutes-fmt.typ": minutes-fmt
 #import "../../utils/resolutions-fmt.typ": resolutions
@@ -20,13 +20,12 @@
       .map(xi => {
         let (i, name-pos) = xi
         let (name, position) = if type(name-pos) == array {
-          if name-pos.len() > 2 {
-            panic(
-              "attendance: attendee entry has "
-                + str(name-pos.len())
-                + " elements, expected at most 2\n  hint: each entry is (name, position) or just a name, e.g. (\"Truls Teknolog\", \"Kårkontakt\") or just \"Truls Teknolog\"",
-            )
-          }
+          assert(
+            name-pos.len() <= 2,
+            message: "attendance: attendee entry has "
+              + str(name-pos.len())
+              + " elements, expected at most 2\n  hint: each entry is (name, position) or just a name, e.g. (\"Truls Teknolog\", \"Kårkontakt\") or just \"Truls Teknolog\"",
+          )
           name-pos
         } else {
           (name-pos, none)
@@ -121,7 +120,7 @@
   chair: none,
   secretary: none,
   reviewers: (),
-  meeting-type: none,
+  meeting-type: auto,
   attested: false,
   lang: "sv",
   date: datetime.today(),
@@ -160,6 +159,7 @@
   let reviewers = if type(reviewers) == array { reviewers } else { (reviewers,) }
   let minutes-name = translate("Protokoll", "Meeting minutes")
   let meeting-time = custom-date-format(date, pattern: "long", lang: lang)
+  let meeting-type = detect-meeting-type(meeting, meeting-type)
 
   show terms: minutes-fmt
   show: plain-document.with(
