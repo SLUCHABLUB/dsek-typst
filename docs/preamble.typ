@@ -5,6 +5,7 @@
   title: [Documentation for `dsek-typst`],
   doc-type: "Documentation",
   lang: "en",
+  use-cover-page: true,
 )
 
 #let document-module(path) = {
@@ -32,7 +33,7 @@
   tidy.show-module(
     show-module-name: false,
     first-heading-level: 1,
-    module
+    module,
   )
 }
 

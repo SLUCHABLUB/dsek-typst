@@ -8,15 +8,13 @@
 // This way, a more correct way of writing is enforced, rather than relying on
 // freehand typing to be consistent.
 
+/// #set raw(lang: "typst")
 /// Creates a generic governing document (policy / guideline / strategic goals).
-/// See `guideline` and `policy`.
 ///
-/// - The document begins with a "Formalia" / "Overview" section containing the
-///   summary, purpose, scope, and a revision history table.
-/// - A page break separates Formalia from the body.
-/// - Terms blocks in the body are formatted as a 2-column table (term, description).
+/// === Notes
+/// - The document begins with an "Översikt" / "Overview" section containing the summary, purpose, scope, and a revision history table. A page break separates the Overview section from the body.
 ///
-/// - subject (content): The subject of the rubric, e.g. `"val"` or `"överlämning"`.
+/// - title (content): The title of the rubric, e.g. `"val"` or `"överlämning"`.
 /// - summary (content): Description of what this document covers.
 /// - purpose (content): Why this document exists.
 /// - scope (content): Who or what this document applies to.
@@ -29,11 +27,11 @@
 ///
 /// -> content
 #let governing-document(
-  title: none, // required
-  summary: none, // required
-  purpose: none, // required
-  scope: none, // required
-  history: (), // required
+  title: none,
+  summary: none,
+  purpose: none,
+  scope: none,
+  history: (),
   date: datetime.today(),
   lang: "sv",
   doc-type: "",

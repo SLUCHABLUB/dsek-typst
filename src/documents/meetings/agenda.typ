@@ -5,12 +5,14 @@
 #import "../../utils/signature.typ": author-signatures
 #import "@preview/datify:1.0.1": custom-date-format
 
+/// #set raw(lang: "typst")
 /// Creates an agenda (föredragningslista) document. Apply with `#show: föredragningslista.with(...)` or `#show: agenda.with(...)`.
 ///
+/// === Notes
 /// - The body should include a numbered list using bracket syntax: `+ [Action] Item name`.
 ///   All items must begin with brackets.
 ///   The action label (e.g. `Beslut`, `Information`) goes inside the brackets.
-///   Leave bracket empty for no action (e.g OFMÖ / OFMA).
+///   Leave bracket empty for no action (e.g for OFMÖ / OFMA).
 /// - Links attached to an item are collected into the Annex / Bilaga column and numbered.
 ///   Referring to the same link more than once gives it the same number.
 ///
@@ -22,22 +24,25 @@
 ///   authors: ((name: "Truls Teknolog", position: strings.otherpos.talman),),
 /// )
 ///
-/// + [] TFMÖ // [] = no action label
-/// + [Sång] Sektionshymn
-///   - #link("https://dsek.se/hymn")[Text]    // link shown in Annex / Bilaga column with label Text
-/// + [Beslut] Val av justerare
-/// + [Information] Ekonomisk status
-///   - #link("https://dsek.se/rambudget")     // numbered: 1
-///   - #link("https://dsek.se/detaljbudget")  // numbered: 2
-/// + [Beslut] Motion: Jag tycker sektionen borde ha Financial Times
-///   - #link("https://dsek.se/rambudget")     // numbered: 1 (same link)
-/// + [] TFMA
+/// - [] TFMÖ // [] = no action label
+/// - [Sång] Sektionshymn
+///   + #link("https://dsek.se/hymn")[Text]    // link shown in Annex / Bilaga column with label Text
+/// - [Beslut] Val av justerare
+/// - [Information] Ekonomisk status
+///   + #link("https://dsek.se/rambudget")     // numbered: 1
+///   + #link("https://dsek.se/detaljbudget")  // numbered: 2
+/// - [Beslut] Motion: Jag tycker sektionen borde ha Financial Times
+///   + #link("https://dsek.se/rambudget")     // numbered: 1 (same link)
+/// - [] TFMA
 /// ```
 ///
-/// - meeting (content): The meeting which the agenda outlines, e.g. `"HTM1"`.
+/// - meeting (str, content): The meeting which the agenda outlines, e.g. `"HTM1"`.
 /// - time (datetime): Meeting date and time. Use `date()`, e.g. `date(15, 3, 2025, time: (13, 0))`.
-/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
-/// - authors (array): Optional signatories shown in a signature block.
+/// - meeting-type (content, auto): The type of meeting, e.g. `"Styrelsemöte"` or `"Studierådsmöte"`.
+///                                 If set to `auto`, the meeting type is detected from the the `meeting`
+///                                 parameter -- `SXX` gives "Styrelsemöte" and `SRDXX` gives "Studierådsmöte"
+///                                 (where `X` is a digit).
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.

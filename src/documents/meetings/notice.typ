@@ -5,15 +5,17 @@
 #import "../../utils/signature.typ": author-signatures
 #import "@preview/datify:1.0.1": custom-date-format
 
+/// #set raw(lang: "typst")
 /// Creates a meeting notice/summons (kallelse) document. Apply with `#show: kallelse.with(...)` or `#show: notice.with(...)`.
 ///
+/// === Notes
 /// - A "Tid och plats" / "Time and location" block is automatically prepended to the body.
-/// - The body should include either (for Sektionsmöten / Guild Assemblies) free-form text or
-///   (SRD and Board meetings) a numbered list using bracket syntax: `+ [Action] Item name`.
-///   All items must begin with brackets.
-///   The action label (e.g. `Beslut`, `Information`) goes inside the brackets.
-///   Leave bracket empty for no action (e.g OFMÖ / OFMA).
-/// - Time is displayed in 24-hour format (Swedish) or 12-hour with am/pm (English).
+/// - The body can include either free-form text or a numbered list using bracket syntax
+///   `+ [Action] Item name` similar to the `agenda` function.
+///
+///   - All items must begin with brackets.
+///     The action label (e.g. `Beslut`, `Information`) goes inside the brackets.
+///     Leave bracket empty for no action (e.g for OFMÖ / OFMA).
 ///
 /// === Example
 /// ```typst
@@ -28,24 +30,27 @@
 ///   ),
 /// )
 ///
-/// + [] TFMÖ // [] = no action label
-/// + [Sång] Sektionshymn
-///   - #link("https://dsek.se/hymn")[Text]    // link shown in Bilaga / Annex column with label Text
-/// + [Beslut] Val av justerare
-/// + [Information] Ekonomisk status
-///   - #link("https://dsek.se/rambudget")     // numbered: 1
-///   - #link("https://dsek.se/detaljbudget")  // numbered: 2
-/// + [Beslut] Motion: Jag tycker sektionen borde ha Financial Times
-///   - #link("https://dsek.se/rambudget")     // numbered: 1 (same link)
-/// + [] TFMA
+/// - [] TFMÖ // [] = no action label
+/// - [Sång] Sektionshymn
+///   + #link("https://dsek.se/hymn")[Text]    // link shown in Bilaga / Annex column with label Text
+/// - [Beslut] Val av justerare
+/// - [Information] Ekonomisk status
+///   + #link("https://dsek.se/rambudget")     // numbered: 1
+///   + #link("https://dsek.se/detaljbudget")  // numbered: 2
+/// - [Beslut] Motion: Jag tycker sektionen borde ha Financial Times
+///   + #link("https://dsek.se/rambudget")     // numbered: 1 (same link)
+/// - [] TFMA
 /// ```
 ///
-/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - time (datetime): Meeting date and time. Use `date()`, e.g. `date(15, 3, 2025, time: (13, 0))`.
-/// - location (str | content): Meeting venue, e.g. `[E:1124]`.
+/// - location (str, content): Meeting venue, e.g. `[E:1124]`.
 /// - adjournment (datetime): Optional planned adjournment time, shown in the time/location block.
-/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
+/// - meeting-type (content, auto): The type of meeting, e.g. `"Styrelsemöte"` or `"Studierådsmöte"`.
+///                           If set to `auto`, the meeting type is detected from the the `meeting`
+///                           parameter -- `SXX` gives "Styrelsemöte" and `SRDXX` gives "Studierådsmöte"
+///                           (where `X` is a digit).
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.

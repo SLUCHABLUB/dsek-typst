@@ -6,12 +6,27 @@
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../strings.typ": guild
 
-/// Creates the guild regulations (reglemente) document. Apply with `#show: regulations`.
+/// #set raw(lang: "typst")
+/// Creates the guild regulations (reglemente) document. Apply with `#show: reglemente.with(...)` or `#show: regulations.with(...)`.
 ///
-/// - Terms blocks (`/ Term: Description`) are formatted as a 2-column table (term, description)
-///   without §-numbers (the heading structure provides the section context instead).
-/// - Lists where every item starts with `att` are formatted as un-enumerated operative clauses.
-/// - Otherwise identical structure to `statutes`.
+/// === Notes
+/// - Terms blocks (`/ Term: Description`) are formatted as a 2-column table (term, description).
+///
+/// === Example
+/// ```typst
+/// #show: regulations
+///
+/// = Teknologia
+///
+/// / Råsa:
+///   En lämplig tolkning av råsa är _Pepto-Bismol_.
+///
+/// / Rosa Pantern:
+///   Med Rosa Pantern åsyftas den drink som skapas med mjölk, grenadin och sockerlag.
+///
+/// / Råsa Digitalis:
+///   Råsa, fast digitaliskt.
+/// ```
 ///
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.

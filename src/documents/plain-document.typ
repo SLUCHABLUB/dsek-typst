@@ -117,8 +117,8 @@
 /// resolution list formatter. Renders `title` as a styled document title above
 /// the content.
 ///
-/// - title (content, none): The title of the document.
-/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - title (str, content): The title of the document.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - doc-type (str): Document "type" label, shown in the page header.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.

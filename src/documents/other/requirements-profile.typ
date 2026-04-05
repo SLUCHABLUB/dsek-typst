@@ -4,11 +4,12 @@
 #import "../../strings.typ"
 #import "../../utils/assert.typ": required, required-keys
 
-/// Creates a requirements profile (kravprofil) for an elected position. Apply with `#show: requirements-profile.with(...)`.
+/// #set raw(lang: "typst")
+/// Creates a requirements profile (kravprofil) for an elected position. Apply with `#show: kravprofil.with(...)` or `#show: requirements-profile.with(...)`.
 ///
-/// - Body content is shown as a preamble above the requirements table.
-/// - Requirements and merits are rendered as a two-column bullet list at the end.
-/// - The mandate period defaults to the full calendar year of `year` if not set explicitly.
+/// === Notes
+/// - Body content is shown as a preamble above the requirements table. Requirements and merits are rendered as a two-column bullet list at the end.
+/// - The mandate period defaults to the full calendar year of the `year` parameter if not set explicitly.
 ///
 /// === Example
 /// ```typst
@@ -21,7 +22,8 @@
 ///     "Erfarenhet av projektledning",
 ///     "Tidigare ordföranderoll i studentförening",
 ///   ),
-///   // mandate: auto  // jan 1 – dec 31 (default)
+///   year: 2025,
+///   mandate: auto  // set to `auto` for default of jan 1 – dec 31
 /// )
 ///
 /// Ordförande leder sektionens styrelse och representerar sektionen utåt.
@@ -29,10 +31,10 @@
 ///
 /// - position (str, content): The position title, e.g. `"Vice ordförande"` or `strings.medalj.mdlm`.
 /// - requirements (array): Mandatory requirements (strings or content).
-/// - merits (array): Meritorious qualifications. Defaults to empty.
+/// - merits (array): Meritorious qualifications.
 /// - mandate (dictionary, auto): Mandate period as `(from: datetime, to: datetime)`.
-///   Set to `auto` to use the full calendar year given by `year`. Default `auto`.
-/// - year (int): Calendar year used when `mandate: auto`. Defaults to current year.
+///                               Set to `auto` to use the full calendar year given by `year`.
+/// - year (int): Calendar year used when `mandate: auto`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -49,7 +51,12 @@
   date: datetime.today(),
   body,
 ) = {
-  required(position, "position", fn: "requirements-profile", hint: "the position title, e.g. position: \"Vice ordförande\"")
+  required(
+    position,
+    "position",
+    fn: "requirements-profile",
+    hint: "the position title, e.g. position: \"Vice ordförande\"",
+  )
   required(
     requirements,
     "requirements",
@@ -99,8 +106,7 @@
     columns: (1fr, 1fr),
     row-gutter: 0.5em,
     stroke: none,
-    translate([== Krav], [== Requirements]),
-    translate([== Meriterande], [== Merits]),
+    translate([== Krav], [== Requirements]), translate([== Meriterande], [== Merits]),
     [#for r in requirements [- #r]], [#for m in merits [- #m]],
   )
 }

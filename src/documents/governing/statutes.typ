@@ -5,12 +5,25 @@
 #import "../../utils/resolutions-fmt.typ": resolutions
 #import "../../strings.typ": guild
 
-/// Creates the guild statutes (stadgar) document. Apply with `#show: statutes.with(...)`.
+/// #set raw(lang: "typst")
+/// Creates the guild statutes (stadgar) document. Apply with `#show: stadgar.with(...)` or `#show: statutes.with(...)`.
 ///
+/// === Notes
 /// - Terms blocks (`/ Term: Description`) are formatted as a §-numbered 3-column table.
-///   The §-number reflects the current heading section (e.g. §2.3 inside `== 2 Organ`).
-/// - Nested terms in a description cell use `old-terms` style (bold term, hanging indent).
-/// - Standard heading numbering (`= 1`, `== 1.1`) creates the section structure.
+///   - The §-number reflects the current heading section (e.g. §2.3 Rättigheter inside `== Ordinarie medlemmar`).
+///
+/// === Example
+/// ```typst
+/// #show: statutes
+///
+/// = Sektionen
+///
+/// / Namn:
+///   Sektionens namn är D-sektionen.
+///
+/// / Ändamål:
+///   Föreningens ändamål och syfte är att diskutera Policy för val.
+/// ```
 ///
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.

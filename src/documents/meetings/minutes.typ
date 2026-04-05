@@ -50,9 +50,11 @@
   )
 }
 
-/// Creates a meeting minutes (protokoll) document. Apply with `#show: minutes.with(...)`.
+/// #set raw(lang: "typst")
+/// Creates a meeting minutes (protokoll) document. Apply with `#show: protokoll.with(...)` or `#show: minutes.with(...)`.
 ///
-/// - The body uses `/` term syntax where each term is an agenda item title and the
+/// === Notes
+/// - The body uses `/ Term: description` syntax where each term is an agenda item title and the
 ///   description is the item text. Inside an item, term items are formatted normally.
 /// - Items are automatically numbered as §1, §2, … and can be cross-referenced with
 ///   `@item` (resolves to "§N") or `@item[]` (resolves to "§N Item").
@@ -95,15 +97,18 @@
 ///   Mötet avslog yrkandet.
 /// ```
 ///
-/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
 /// - attendees (array): Attendee list. Each entry is a `name` string/content,
-///   or a 2-element `(name, position)` array. Positions can be entered manually or taken
-///   from the `strings` module.
-/// - chair (str | content): Meeting chair, shown in the signature block.
-/// - secretary (str | content): Meeting secretary, shown in the signature block.
+///                      or a 2-element `(name, position)` array. Positions can be entered manually or taken
+///                      from the `strings` module.
+/// - chair (content): Meeting chair, shown in the signature block.
+/// - secretary (content): Meeting secretary, shown in the signature block.
 /// - reviewers (array): Optional minute reviewers, shown in the signature block.
-/// - meeting-type (content): The type of the meeting, e.g. `"Styrelsemöte"` or `"Sektionsmöte"`.
-/// - attested (bool): Shows "OJUSTERAT"/"UNATTESTED" watermark when `false`. Default `false`.
+/// - meeting-type (content, auto): The type of meeting, e.g. `"Styrelsemöte"` or `"Studierådsmöte"`.
+///                                 If set to `auto`, the meeting type is detected from the the `meeting`
+///                                 parameter -- `SXX` gives "Styrelsemöte" and `SRDXX` gives "Studierådsmöte"
+///                                 (where `X` is a digit).
+/// - attested (bool): Shows "OJUSTERAT"/"UNATTESTED" watermark when `false`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.

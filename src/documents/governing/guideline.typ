@@ -2,10 +2,33 @@
 #import "../../utils/misc.typ": translate
 #import "../../utils/assert.typ": required
 
+/// #set raw(lang: "typst")
 /// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
 ///
-/// A guideline provides recommended practice without being as binding as a policy.
-/// Same structure as `policy`: Formalia section, page break, then body.
+/// === Notes
+/// - The document begins with an "Översikt" / "Overview" section containing the summary, purpose, scope, and a revision history table. A page break separates the Overview section from the body.
+///
+/// === Example
+/// ```typst
+/// #show: guideline.with(
+///   subject: "sektionsbilens användning", // title becomes "Riktline för sektionsbilens användning"
+///   summary: [Riktlinjen beskriver hur man inte är en trafikfara.],
+///   purpose: [Syftet med denna riktlinje är att undvika ännu ett VTM-extra.],
+///   scope: [Alla på sektionen som har körkort.],
+///   history: (
+///     (
+///       meeting: "S14 2024",
+///       change: "Uppdateade bilens registreringsnummer",
+///       who: "Stylresen genom Truls Teknolog",
+///     ),
+///   )
+/// )
+///
+/// = Hastigheter
+///
+/// Bilen får inte köras i över 80 km/h. Inte för att det är olagligt, utan för att motorn inte klarar av det.
+/// ```
+///
 ///
 /// - subject (str): The subject of the guideline, e.g. `"Grafisk design"` or `"Överlämning"`.
 /// - summary (content): A description of what this document covers.

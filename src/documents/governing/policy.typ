@@ -2,12 +2,32 @@
 #import "../../utils/misc.typ": translate
 #import "../../utils/assert.typ": required
 
+/// #set raw(lang: "typst")
 /// Creates a policy document. Apply with `#show: policy.with(...)`.
 ///
-/// - The document begins with a "Formalia" / "Overview" section containing the
-///   summary, purpose, scope, and a revision history table.
-/// - A page break separates Formalia from the body.
-/// - Terms blocks in the body are formatted as a 2-column table (term, description).
+/// === Notes
+/// - The document begins with an "Översikt" / "Overview" section containing the summary, purpose, scope, and a revision history table. A page break separates the Overview section from the body.
+///
+/// === Example
+/// ```typst
+/// #show: policy.with(
+///   subject: "ekonomi", // title becomes "Policy för ekonomi"
+///   summary: [Policyn beskriver hur ekonomin på sektionen ska skötas.],
+///   purpose: [Syftet med denna policy är att se till att vi inte bryter lagen.],
+///   scope: [Sektionen i sin helhet. Men mest Skattmästeriet.],
+///   history: (
+///     (
+///       meeting: "VTM-extra 2022",
+///       change: "Tillämpade Dijkstra på attesträttsgrafen",
+///       who: "Stylresen genom Truls Teknolog",
+///     ),
+///   )
+/// )
+///
+/// = Bokslut
+///
+/// Bokslut måste lämnas in senast när Skattmästaren känner för det.
+/// ```
 ///
 /// - subject (content): The subject of the policy, e.g. `"Val"` or `"Tackverksamhet"`.
 /// - summary (content): Description of what this document covers.

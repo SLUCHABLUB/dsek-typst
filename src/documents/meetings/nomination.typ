@@ -19,7 +19,8 @@
 
 // TODO: Make title default to auto.
 
-/// Creates a nomination (nominering) document. Apply with `#show: nomination.with(...)`.
+/// #set raw(lang: "typst")
+/// Creates a nomination (nominering) document. Apply with `#show: nominering.with(...)` or `#show: nomination.with(...)`.
 ///
 /// - Use `nominees()` to group candidates by position. Free-form content (headings,
 ///   paragraphs) can be mixed in between `nominees()` calls.
@@ -46,8 +47,8 @@
 /// ```
 ///
 /// - title (content): The title of the document, e.g. `[Nominering till HTM1]`.
-/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.

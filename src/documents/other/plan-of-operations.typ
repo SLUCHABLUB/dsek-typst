@@ -1,15 +1,57 @@
 #import "../plain-document.typ": plain-document
 #import "../../utils/misc.typ": translate
 #import "../../utils/terms-fmt.typ": terms-fmt
+#import "../../utils/assert.typ": required-keys
 #import "../../strings.typ": *
 
+/// #set raw(lang: "typst")
+/// Creates a plan of operations (verksamhetsplan) document. Apply with `#show: verksamhetsplan.with(...)` or `#show: plan-of-operations.with(...)`.
+///
+/// === Notes
+/// - The document begins with a pre-filled "Översikt" / "Overview" section containing subsections summary, purpose, structure, responsibility, and reporting. A page break separates the Overview section from the body.
+///   - The different sections can be overriden using the `overview-overrides` parameter.
+///
+/// === Example
+/// ```typst
+/// #show: plan-of-operations
+///
+/// = Mål från de strategiska målen
+///
+/// == Korrigera benämning av de strategiska målen
+/// För att säkerställa att målet uppfylls tänker vi ta i med hårdhandskarna.
+/// - Be jättesnällt för annars blir vi ledsna i ögat :(
+/// ```
+///
+/// - overview-overrides (dict): A dictionary of overrides in the Overview section.
+///                              Available keys are `summary`, `purpose`, `structure`,
+///                              `responsibility` and `reporting`.
+/// - year (int): The year for which the plan was written.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
+/// -> content
 #let plan-of-operations(
   year: datetime.today().year() + 1,
-  date: datetime.today(),
   overview-overrides: (:),
   lang: "sv",
+  date: datetime.today(),
   body,
 ) = {
+  required-keys(
+    overview-overrides,
+    (),
+    allowed: (
+      "summary",
+      "purpose",
+      "structure",
+      "responsibility",
+      "reporting",
+    ),
+    fn: "plan-of-operations",
+  )
+
   let plan-name = translate("Verksamhetsplan", "Plan of Operations")
 
   show: plain-document.with(

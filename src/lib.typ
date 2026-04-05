@@ -6,11 +6,11 @@
 #import "documents/governing/guideline.typ": guideline
 #import "documents/governing/policy.typ": policy
 #import "documents/governing/strategic-goals.typ": strategic-goals
-#import "documents/governing/plan-of-operations.typ": plan-of-operations
 #import "documents/meetings/notice.typ": notice
 #import "documents/meetings/agenda.typ": agenda
 #import "documents/meetings/nomination.typ": nomination, nominees
 #import "documents/other/requirements-profile.typ": requirements-profile
+#import "documents/other/plan-of-operations.typ": plan-of-operations
 
 #import "utils/misc.typ": date, diff-added, diff-deleted
 

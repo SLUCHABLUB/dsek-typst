@@ -1,6 +1,6 @@
 #import "../plain-document.typ": plain-document
 #import "../../utils/signature.typ": author-signatures
-#import "../../utils/misc.typ": to-label, ref-id, to-text, translate
+#import "../../utils/misc.typ": ref-id, to-label, to-text, translate
 #import "../../utils/assert.typ": required
 
 #let deliberation(
@@ -52,14 +52,13 @@
   author-signatures(authors)
 }
 
+/// #set raw(lang: "typst")
 /// Creates a motion document. Apply with `#show: motion.with(...)`.
 ///
-/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// === Notes
+/// - Author signatures are appended automatically through the `authors` parameter.
 /// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
 ///   automatically get extra vertical space before them.
-/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
-///   operative clauses; other lists render normally.
-/// - Author signatures are appended automatically.
 ///
 /// === Example
 /// ```typst
@@ -72,11 +71,6 @@
 ///     (name: "Truls Teknolog", position: aktu.dsportare),
 ///     (name: "Trula Teknolog", message: "gaming"),
 ///   ),
-/// )
-///
-/// #quote(
-///   "Vi har en radikal hypotes att folk på data gillar gaming",
-///   attribution: "LAN-partyansvarig",
 /// )
 ///
 /// = Bakgrund
@@ -93,8 +87,8 @@
 /// ```
 ///
 /// - title (content): The title of the motion.
-/// - meeting (content): The meeting for which the motion was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the motion was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -118,14 +112,13 @@
   body,
 )
 
+/// #set raw(lang: "typst")
 /// Creates a proposal (proposition) document. Apply with `#show: proposition.with(...)` or `#show: proposal.with(...)`.
 ///
-/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// === Notes
+/// - Author signatures are appended automatically through the `authors` parameter.
 /// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
 ///   automatically get extra vertical space before them.
-/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
-///   operative clauses; other lists render normally.
-/// - Author signatures are appended automatically.
 ///
 /// === Example
 /// ```typst
@@ -151,8 +144,8 @@
 /// ```
 ///
 /// - title (content): The title of the proposal.
-/// - meeting (content): The meeting for which the proposal was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the proposal was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -175,19 +168,18 @@
   body,
 )
 
+/// #set raw(lang: "typst")
 /// Creates a board response (styrelsens svar) document. Apply with `#show: styrelsens-svar.with(...)` or `#show: board-response.with(...)`.
 ///
-/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// === Notes
+/// - Author signatures are appended automatically through the `authors` parameter.
 /// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
 ///   automatically get extra vertical space before them.
-/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
-///   operative clauses; other lists render normally.
-/// - Author signatures are appended automatically.
 ///
 /// === Example
 /// ```typst
 /// #show: styrelsens-svar.with(
-///   title: [3.0 flugor i en smäll],  // should same title as the motion
+///   title: [3.0 flugor i en smäll],
 ///   meeting: "HTM1",
 ///   // position defaults to "Sektionsmedlem" / "Guild member",
 ///   // message defaults to "Lund, dag som ovan" / "Lund, day as above"
@@ -204,8 +196,8 @@
 /// ```
 ///
 /// - title (content): The title of the motion being responded to.
-/// - meeting (content): The meeting for which the motion and response were written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the motion and response were written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
@@ -228,14 +220,13 @@
   body,
 )
 
+/// #set raw(lang: "typst")
 /// Creates a consideration (handling) document. Apply with `#show: handling.with(...)` or `#show: consideration.with(...)`.
 ///
-/// - The body is free-form content: headings, paragraphs, tables, etc.
+/// === Notes
+/// - Author signatures are appended automatically through the `authors` parameter.
 /// - Paragraphs ending with "yrka på", "besluta" (sv) or "move", "decide" (en)
 ///   automatically get extra vertical space before them.
-/// - Lists where every item starts with `att` (or `to` with lang: "en") are rendered as
-///   operative clauses; other lists render normally.
-/// - Author signatures are appended automatically.
 ///
 /// === Example
 /// ```typst
@@ -258,8 +249,8 @@
 /// ```
 ///
 /// - title (content): The title of the consideration.
-/// - meeting (content): The meeting for which the document was written, e.g. `"HTM1"`.
-/// - authors (array): Signatories. Each dict must have at least the key `name`, optionally `message`, `position` and `image`.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `image`.
 /// - lang (str): The language of the document (same format as `text.lang`).
 ///               Only "sv" and "en" are supported.
 /// - date (datetime): The date at which the document was written.
