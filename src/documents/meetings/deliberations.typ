@@ -31,7 +31,7 @@
 
   set document(author: authors.map(a => a.name))
   show par: it => context {
-    let rgx = {
+    let pattern = regex(
       if text.lang == "sv" {
         "(?i)yrka(.*)(på|beslut(a?))"
       } else if text.lang == "en" {
@@ -39,8 +39,8 @@
       } else {
         "a^"
       }
-    }
-    if to-text(it).ends-with(regex(rgx)) {
+    )
+    if to-text(it).ends-with(pattern) {
       v(1em)
       it
     } else {

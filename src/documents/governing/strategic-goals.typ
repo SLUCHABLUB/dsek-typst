@@ -27,7 +27,7 @@
 /// = Mål
 ///
 /// == Korrigera benämning av de strategiska målen (2026--2028)
-/// I dagsläget är det tydligen ingen som vet vad det här dokumentet faktiskt heter, utan i folkmun kallas det av outgrunderliga skäl fortfarande för "den strategiska planen".
+/// I dagsläget är det tydligen ingen som vet vad det här dokumentet faktiskt heter, utan i folkmun kallas det av outgrundliga skäl fortfarande för "den strategiska planen".
 ///
 /// - Få folk att kalla de strategiska målen för de strategiska målen.
 /// ```
@@ -52,7 +52,7 @@
   lang: "sv",
   body,
 ) = {
-  let strategic-goals-name = translate("Strategiska mål", "Stategic goals")
+  let strategic-goals-name = translate("Strategiska mål", "Strategic goals")
 
   governing-document(
     title: strategic-goals-name,

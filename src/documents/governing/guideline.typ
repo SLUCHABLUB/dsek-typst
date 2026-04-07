@@ -11,15 +11,15 @@
 /// === Example
 /// ```typst
 /// #show: guideline.with(
-///   subject: "sektionsbilens användning", // title becomes "Riktline för sektionsbilens användning"
+///   subject: "sektionsbilens användning", // title becomes "Riktlinje för sektionsbilens användning"
 ///   summary: [Riktlinjen beskriver hur man inte är en trafikfara.],
 ///   purpose: [Syftet med denna riktlinje är att undvika ännu ett VTM-extra.],
 ///   scope: [Alla på sektionen som har körkort.],
 ///   history: (
 ///     (
 ///       meeting: "S14 2024",
-///       change: "Uppdateade bilens registreringsnummer",
-///       who: "Stylresen genom Truls Teknolog",
+///       change: "Uppdaterade bilens registreringsnummer",
+///       who: "Styrelsen genom Truls Teknolog",
 ///     ),
 ///   )
 /// )

@@ -19,7 +19,7 @@
 ///     (
 ///       meeting: "VTM-extra 2022",
 ///       change: "Tillämpade Dijkstra på attesträttsgrafen",
-///       who: "Stylresen genom Truls Teknolog",
+///       who: "Styrelsen genom Truls Teknolog",
 ///     ),
 ///   )
 /// )

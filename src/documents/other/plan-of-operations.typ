@@ -9,7 +9,7 @@
 ///
 /// === Notes
 /// - The document begins with a pre-filled "Översikt" / "Overview" section containing subsections summary, purpose, structure, responsibility, and reporting. A page break separates the Overview section from the body.
-///   - The different sections can be overriden using the `overview-overrides` parameter.
+///   - The different sections can be overridden using the `overview-overrides` parameter.
 ///
 /// === Example
 /// ```typst
@@ -82,7 +82,7 @@
     / #translate("Upplägg", "Structure"): #overview-overrides.at(
         "structure",
         default: translate(
-          [Verksamhetsplanen består av två olika delar: projekt sprungna ur den strategiska planen samtårsspecifika projekt. Alla mål skall vara tydligt förklarade samt konkreta. Det ska vara lätt att utvärdera huruvida målet är uppnått.],
+          [Verksamhetsplanen består av två olika delar: projekt sprungna ur den strategiska planen samt årsspecifika projekt. Alla mål skall vara tydligt förklarade samt konkreta. Det ska vara lätt att utvärdera huruvida målet är uppnått.],
           [The Plan of Operations consists of two parts: projects derived from the Strategic plan and year-specific projects. All goals should be clearly explained and concrete. It should be easy to evaluate whether a goal has been achieved.],
         ),
       )
