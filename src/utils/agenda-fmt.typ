@@ -10,7 +10,7 @@
       let children = item.body.children
       let begin = children.first().at("text", default: "") == "["
       let end = "]" in children.map(x => x.at("text", default: ""))
-      begin and not end or not begin
+      not (begin and end)
     }
   }) {
     return unstyled
