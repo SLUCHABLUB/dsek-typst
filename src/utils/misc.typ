@@ -197,6 +197,23 @@
   )
 }
 
+/// Adds an appendix on a separate page.
+///
+/// === Example
+/// ```typst
+/// #appendix("Poster som bör väljas innan årsskiftet")[
+///   - Stabsmedlem
+///   - Brunchmästare
+///   - Framtidsledamot
+/// ]
+/// ```
+#let apdx-counter = counter("appendix")
+#let appendix(title, body) = page[
+  #apdx-counter.step()
+  #context heading([Appendix #apdx-counter.display("A"): #title], numbering: none)
+  #body
+]
+
 #let detect-meeting-type(meeting, meeting-type) = if meeting-type == auto {
   let meeting = if type(meeting) == content { meeting.text } else { meeting }
   if meeting.starts-with(regex("S\d\d")) {

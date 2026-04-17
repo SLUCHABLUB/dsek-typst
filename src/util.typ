@@ -1,7 +1,7 @@
 #import "utils/signature.typ": signature, signature-image
 #import "utils/resolutions-fmt.typ": resolutions
 #import "utils/terms-fmt.typ": terms-fmt
-#import "utils/misc.typ": translate
+#import "utils/misc.typ": appendix, translate
 
 // --- Swedish Bindings. ---
 

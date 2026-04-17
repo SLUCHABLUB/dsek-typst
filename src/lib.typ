@@ -12,7 +12,7 @@
 #import "documents/other/requirements-profile.typ": requirements-profile
 #import "documents/other/plan-of-operations.typ": plan-of-operations
 
-#import "utils/misc.typ": date, diff-added, diff-deleted
+#import "utils/misc.typ": appendix, date, diff-added, diff-deleted
 
 #import "strings.typ"
 #import "util.typ"
