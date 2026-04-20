@@ -99,9 +99,6 @@
   ])
 ]
 
-/// An alias to the builtin `title` function to not be shadowed by the parameter in @@doc().
-#let _title = title
-
 //  ▄▄▄▄▄▄ ▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄  ▄▄     ▄▄▄ ▄▄▄▄▄▄ ▄▄▄▄▄
 //    ██   ██▄▄  ██▀▄▀██ ██▄█▀ ██    ██▀██  ██   ██▄▄
 //    ██   ██▄▄▄ ██   ██ ██    ██▄▄▄ ██▀██  ██   ██▄▄▄
@@ -141,7 +138,7 @@
     date: date,
   )
 
-  show _title: set text(
+  show std.title: set text(
     font: sans-serif,
     weight: "bold",
     size: 15pt,
@@ -195,7 +192,7 @@
   set list(spacing: par.spacing)
 
   if not use-cover-page {
-    _title()
+    std.title()
     v(1em)
   }
   body
