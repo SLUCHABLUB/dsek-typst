@@ -22,6 +22,7 @@
 ) = table(
   columns: columns,
   row-gutter: 0.6em,
+  inset: (x: 0pt),
   stroke: none,
   ..unstyled
     .children

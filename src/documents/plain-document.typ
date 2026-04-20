@@ -190,11 +190,13 @@
   )
 
   set list(spacing: par.spacing)
+  set terms(spacing: par.spacing)
 
   if not use-cover-page {
     std.title()
     v(1em)
   }
+
   body
 }
 

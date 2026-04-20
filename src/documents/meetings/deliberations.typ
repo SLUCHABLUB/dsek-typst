@@ -38,7 +38,7 @@
         "(?i)(move(s?)|decide)"
       } else {
         "a^"
-      }
+      },
     )
     if to-text(it).ends-with(pattern) {
       v(1em)

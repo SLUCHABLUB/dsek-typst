@@ -85,7 +85,7 @@
   // </policybrott>
 
   context table(
-    columns: (8em, 1.2fr, 1fr),
+    columns: (8em, 1.2fr, auto),
     stroke: none,
     table.hline(stroke: 0.4pt, position: bottom),
     table.header(
@@ -106,7 +106,10 @@
           ],
           [
             #set par(justify: false)
-            #edit.who
+            #context {
+              let width = measure(edit.who).width
+              block(width: calc.min(width, 150pt), edit.who)
+            }
           ],
         )
       })

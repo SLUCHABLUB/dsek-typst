@@ -1,6 +1,7 @@
 // TODO: Add committee logos?
 // TODO: Add "word marks"?
 // TODO: Move this module to a dedicated package so we can update things separately.
+// TODO: Use https://typst.app/universe/package/prequery/ to fetch graphics from github.com/dsek-lth/grafik
 
 #let graphic(type: "dsek", colour: false, symbol: false, height: 10pt) = {
   let available = ("dsek", "datateknik", "infocom", "vr_ar")
