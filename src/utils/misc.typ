@@ -209,8 +209,20 @@
 /// ```
 #let apdx-counter = counter("appendix")
 #let appendix(title, body) = page[
+  #let count = context if apdx-counter.final().first() < 2 [] else [ #apdx-counter.display("A")]
+  #counter(heading).update(0)
   #apdx-counter.step()
-  #context heading([Appendix #apdx-counter.display("A"): #title], numbering: none)
+  #show heading.where(depth: 1, numbering: none): set text(size: 15pt)
+  #context heading(
+    [Appendix#count: #title],
+    numbering: none,
+    depth: 1,
+  )
+  #set heading(offset: 1, numbering: (..nums) => nums.pos().slice(1).map(str).join(".") + "  ")
+  #show heading.where(level: 2): set text(size: 14pt)
+  #show heading.where(level: 3): set text(size: 12pt)
+  #show heading.where(level: 4): set text(size: 11pt)
+  #v(1em)
   #body
 ]
 
