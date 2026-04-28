@@ -1,12 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": detect-meeting-type, ref-id, to-label, to-text, translate
-#import "../../utils/assert.typ": required
-#import "../../utils/minutes-fmt.typ": minutes-fmt
-#import "../../utils/resolutions-fmt.typ": resolutions
-#import "../../utils/signature.typ": signature
-#import "../../utils/terms-fmt.typ": old-terms
-#import "../../strings.typ"
-#import "@preview/datify:1.0.1": custom-date-format
+#import "../../lib/_mod.typ": *
 
 #let attendance(..names) = {
   grid(
@@ -200,3 +193,6 @@
     }),
   )
 }
+
+/// Swedish binding for minutes
+#let protokoll = minutes

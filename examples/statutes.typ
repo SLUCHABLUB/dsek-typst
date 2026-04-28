@@ -1,5 +1,5 @@
-#import "../src/lib.typ": statutes
-#import "../src/strings.typ": *
+#import "../src/lib.typ": *
+#import strings: *
 
 #show: statutes
 

@@ -1,10 +1,5 @@
-#import "@preview/datify:1.0.1": custom-date-format
-#import "../plain-document.typ": plain-document, sans-serif, serif
-#import "../../graphics.typ": guild_logo
-#import "../../utils/misc.typ": to-text, translate
-#import "../../utils/terms-fmt.typ": terms-fmt
-#import "../../utils/resolutions-fmt.typ": resolutions
-#import "../../strings.typ": guild
+#import "../plain-document.typ": plain-document
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates the guild regulations (reglemente) document. Apply with `#show: reglemente.with(...)` or `#show: regulations.with(...)`.
@@ -41,7 +36,7 @@
   let regulations-name = translate("Reglemente", "Regulations")
 
   show: plain-document.with(
-    title: [#regulations-name #translate("för", "of") #guild.dseklth],
+    title: [#regulations-name],
     lang: lang,
     date: date,
     doc-type: regulations-name,
@@ -53,3 +48,6 @@
 
   body
 }
+
+/// Swedish binding for regulations
+#let reglemente = regulations

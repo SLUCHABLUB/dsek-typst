@@ -32,7 +32,7 @@
     }
   }
 
-  let path = "../graphics/guild/" + type + "/" + file_name + ".svg"
+  let path = "../../../graphics/guild/" + type + "/" + file_name + ".svg"
 
   box(image(path, height: height))
 }

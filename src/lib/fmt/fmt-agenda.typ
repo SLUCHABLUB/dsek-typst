@@ -1,4 +1,4 @@
-#import "misc.typ": translate
+#import "../utils/translate.typ": translate
 
 #let agenda-fmt(make-heading: false, unstyled) = {
   let items = unstyled.children

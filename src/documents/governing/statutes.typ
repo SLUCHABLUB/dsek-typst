@@ -1,9 +1,6 @@
-#import "../plain-document.typ": custom-date-format, plain-document, sans-serif, serif
-#import "../../utils/misc.typ": to-text, translate
-#import "../../graphics.typ": guild_logo
-#import "../../utils/terms-fmt.typ": terms-fmt
-#import "../../utils/resolutions-fmt.typ": resolutions
-#import "../../strings.typ": guild
+#import "../plain-document.typ": plain-document
+#import "../../lib/_mod.typ": *
+#import strings: guild
 
 /// #set raw(lang: "typst")
 /// Creates the guild statutes (stadgar) document. Apply with `#show: stadgar.with(...)` or `#show: statutes.with(...)`.
@@ -42,7 +39,7 @@
   // For other governing documents that's easy since an array of history entries is already required
   // But doing it for Regulations feels very tedious unless we also introduce the history array here
   show: plain-document.with(
-    title: [#statutes-name #translate("för", "of") #guild.dseklth],
+    title: [#statutes-name],
     lang: lang,
     date: date,
     doc-type: statutes-name,
@@ -53,3 +50,6 @@
 
   body
 }
+
+/// Swedish binding for statutes
+#let stadgar = statutes

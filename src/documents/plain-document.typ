@@ -1,8 +1,6 @@
-#import "@preview/datify:1.0.1": custom-date-format
-#import "../graphics.typ": guild_logo
-#import "../strings.typ": guild
-#import "../utils/resolutions-fmt.typ": resolutions
-#import "../utils/misc.typ": enhanced-ref, translate
+#import "../lib/_mod.typ": *
+#import strings: guild
+#import graphics: guild_logo
 
 //   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄ ▄▄ ▄▄    ▄▄ ▄▄  ▄▄  ▄▄▄▄
 //  ███▄▄   ██   ▀███▀ ██    ██ ███▄██ ██ ▄▄
@@ -200,4 +198,5 @@
   body
 }
 
-// TODO: Add a way to add attachments. (Maybe stale now due to agenda-fmt)
+/// Swedish binding for plain-document
+#let dokument = plain-document

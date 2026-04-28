@@ -1,7 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": translate
-#import "../../utils/terms-fmt.typ": terms-fmt
-#import "../../utils/assert.typ": required, required-keys
+#import "../../lib/_mod.typ": *
 
 // Since these generally are not edited nor written often, we think it is fine,
 // or even appropriate, for governing documents to be more "function-heavy".
@@ -68,19 +66,29 @@
 
   // TODO: Change "Policy för styrdokument" to reflect the new style.
   // <policybrott>
-  [= #translate("Översikt", "Overview")]
+  context [= #translate-str("Översikt", "Overview")]
 
-  [
+  context [
+    // #show heading.where(level: 20): it => [
+    //   #set text(font: text.font, size: text.size, weight: text.weight)
+    //   #it.body
+    // ]
+    #let fmt-term(se, en) = {
+      set heading(depth: 2, numbering: none)
+      show heading: set text(size: text.size, weight: text.weight, font: text.font)
+      show heading: set par(justify: false)
+      heading(translate-str(se, en))
+    }
     #show terms: terms-fmt.with(columns: (9.5em, 1fr))
-    / #translate("Sammanfattning", "Summary"): #summary
-    / #translate("Syfte", "Purpose"): #purpose
-    / #translate("Omfattning", "Scope"): #scope
+    / #fmt-term("Sammanfattning", "Summary"): #summary
+    / #fmt-term("Syfte", "Purpose"): #purpose
+    / #fmt-term("Omfattning", "Scope"): #scope
   ]
 
-  heading(
+  context heading(
     numbering: none,
     depth: 2,
-    translate("Historik", "Revisions"),
+    translate-str("Historik", "Revisions"),
   )
   // </policybrott>
 

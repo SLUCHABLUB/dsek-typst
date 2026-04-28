@@ -1,8 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": translate
-#import "../../utils/terms-fmt.typ": terms-fmt
-#import "../../utils/assert.typ": required-keys
-#import "../../strings.typ": *
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a plan of operations (verksamhetsplan) document. Apply with `#show: verksamhetsplan.with(...)` or `#show: plan-of-operations.with(...)`.
@@ -104,3 +101,6 @@
   pagebreak()
   body
 }
+
+/// Swedish binding plan-of-operations
+#let verksamhetsplan = plan-of-operations

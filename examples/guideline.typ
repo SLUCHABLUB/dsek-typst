@@ -1,5 +1,5 @@
 #import "../src/lib.typ": *
-#import "../src/graphics.typ": *
+#import graphics: *
 #import "@preview/metalogo:1.2.0": LaTeX
 
 // TODO: Update the contents of the guideline.

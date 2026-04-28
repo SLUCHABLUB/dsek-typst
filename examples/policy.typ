@@ -1,6 +1,6 @@
 #import "../src/lib.typ": *
 #import strings: *
-#import util: terms-fmt
+#import fmt: terms-fmt
 
 #show: policy.with(
   subject: "tackverksamhet",

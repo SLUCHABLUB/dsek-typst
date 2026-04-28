@@ -1,8 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": translate
-#import "@preview/datify:1.0.1": custom-date-format
-#import "../../strings.typ"
-#import "../../utils/assert.typ": required, required-keys
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a requirements profile (kravprofil) for an elected position. Apply with `#show: kravprofil.with(...)` or `#show: requirements-profile.with(...)`.
@@ -110,3 +107,6 @@
     [#for r in requirements [- #r]], [#for m in merits [- #m]],
   )
 }
+
+/// Swedish binding for requirements-profile
+#let kravprofil = requirements-profile

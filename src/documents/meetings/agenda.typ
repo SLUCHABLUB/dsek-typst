@@ -1,19 +1,16 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": detect-meeting-type, translate
-#import "../../utils/assert.typ": required
-#import "../../utils/agenda-fmt.typ": agenda-fmt
-#import "../../utils/signature.typ": author-signatures
-#import "@preview/datify:1.0.1": custom-date-format
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates an agenda (föredragningslista) document. Apply with `#show: föredragningslista.with(...)` or `#show: agenda.with(...)`.
 ///
 /// === Notes
-/// - The body should include a numbered list using bracket syntax: `+ [Action] Item name`.
+/// - The body should include a numbered list using bracket syntax: `- [Action] Item name`.
 ///   All items must begin with brackets.
 ///   The action label (e.g. `Beslut`, `Information`) goes inside the brackets.
 ///   Leave bracket empty for no action (e.g for OFMÖ / OFMA).
-/// - Links attached to an item are collected into the Annex / Bilaga column and numbered.
+/// - Links attached to an item (using `+ #link("link.com")` in a sublist to an item)
+///   are collected into the Annex / Bilaga column and numbered.
 ///   Referring to the same link more than once gives it the same number.
 ///
 /// === Example
@@ -77,3 +74,6 @@
   body
   author-signatures(authors)
 }
+
+/// Swedish binding for agenda
+#let föredragningslista = agenda

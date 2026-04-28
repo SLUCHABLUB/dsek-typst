@@ -1,6 +1,5 @@
 #import "governing-document.typ": governing-document
-#import "../../utils/misc.typ": translate
-#import "../../utils/assert.typ": required
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a policy document. Apply with `#show: policy.with(...)`.

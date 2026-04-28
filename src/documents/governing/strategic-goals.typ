@@ -1,5 +1,5 @@
 #import "governing-document.typ": governing-document
-#import "../../utils/misc.typ": translate
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a strategic goals (strategiska mål) document. Apply with `#show: strategiska-mål.with(...)` or `#show: strategic-goals.with(...)`.
@@ -67,3 +67,6 @@
     body,
   )
 }
+
+/// Swedish binding for strategic-goals
+#let strategiska-mål = strategic-goals

@@ -1,4 +1,6 @@
-#import "misc.typ": enhanced-ref, to-text, translate-str
+#import "../misc/text.typ": to-text
+#import "../utils/translate.typ": translate, translate-str
+#import "fmt-references.typ": ref-id
 
 /// Formats a bullet list as operative clauses ("att"-lista / "to"-list).
 ///
@@ -84,50 +86,6 @@
   )
 }
 
-// --- Example ---
-
-#set text(font: "Domitian", number-type: "old-style", lang: "sv")
-
-#show list: resolutions
-
-Här har vi
-
-- en helt vanlig lista
-- med helt vanliga punkter
-- och helt vanlig formatering
-
-och sedan yrkar vi på
-
-- att ändra formateringen
-- att bold:a varje inledande "att"
-
-Vi kan även se
-
-- att vi kan lägga till beskrivningar
-  + Beskrivningar ger en möjligheten att ge en utförligare förklaring eller förtydligande
-- att satserna numreras om det är 4 eller fler totalt
-  + detta sker automatiskt, men man kan även ställa in att det alltid eller aldrig ska ske
-- att numreringen börjar om vid en ny lista
-- att `formattering` behålls
-
-#set text(lang: "en")
-
-Now we'll switch to English and move
-
-- to show that it can work automatically based on language
-- to combine the 2 different variants
-
-#set text(lang: "sv")
-
-och till sist återgår vi till
-
-- en
-- helt
-- vanlig
-- lista
-
-// TODO:
-där återstår:
-
-- _att hantera fullständigt formaterade satser_
-  + Troligtvis genom att hantera att `element.body.has("body")`
+//  TODO: där återstår
+//  - _att hantera fullständigt formaterade satser_
+//    + Troligtvis genom att hantera att `element.body.has("body")`

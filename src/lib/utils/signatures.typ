@@ -1,5 +1,6 @@
-#import "misc.typ": to-label, ref-id, to-text, translate
-#import "assert.typ": required-keys
+#import "../misc/_mod.typ": *
+#import "../fmt/fmt-references.typ": ref-id
+#import "translate.typ": translate, translate-str
 
 // TODO: In typst 0.15.0+, we can take a path to the image.
 //       We cannot do this at the moment since paths are resolved

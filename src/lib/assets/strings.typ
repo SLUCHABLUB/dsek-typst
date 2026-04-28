@@ -1,4 +1,4 @@
-#import "utils/misc.typ": translate
+#import "../utils/translate.typ": translate
 
 // TODO: Prettify/regularise the keys.
 

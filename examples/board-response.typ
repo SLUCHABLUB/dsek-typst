@@ -1,6 +1,6 @@
 #import "../src/lib.typ": *
 
-#show: styrelsens-svar.with(
+#show: board-response.with(
   title: "Uppdatering av Strategiska Mål",
   meeting: "HTM1",
   date: date(24, 9, 2024),

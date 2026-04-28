@@ -1,10 +1,4 @@
 /// Shared helpers for consistent, informative validation panics.
-///
-/// Usage:
-///   #import "../../utils/assert.typ": required, required-keys
-
-// Using `assert(false, message: ...)` pretty-prints the message
-// whilst `panic(...)` debug-prints it.
 
 #let origin(fn) = if fn != none { fn + ": " } else { "" }
 #let make-hint(hint) = if hint != none { "\n  hint: " + hint } else { "" }

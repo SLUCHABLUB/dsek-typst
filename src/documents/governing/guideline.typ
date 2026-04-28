@@ -1,6 +1,5 @@
 #import "governing-document.typ": governing-document
-#import "../../utils/misc.typ": translate
-#import "../../utils/assert.typ": required
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a guideline (riktlinje) document. Apply with `#show: riktlinje.with(...)` or `#show: guideline.with(...)`.
@@ -67,3 +66,6 @@
     body,
   )
 }
+
+/// Swedish binding for guideline.
+#let riktlinje = guideline

@@ -18,7 +18,7 @@
 #let terms-fmt(
   numbered: true,
   columns: (2.5em, 9.5em, 1fr),
-  unstyled
+  unstyled,
 ) = table(
   columns: columns,
   row-gutter: 0.6em,

@@ -1,5 +1,7 @@
-#import "misc.typ": to-label, ref-id, to-text, translate
-#import "terms-fmt.typ": old-terms
+#import "../misc/text.typ": to-label, to-text
+#import "../utils/translate.typ": translate
+#import "fmt-references.typ": ref-id
+#import "fmt-terms.typ": old-terms
 
 /// Formats a terms block as a meeting minutes table (§N | Title | Description).
 ///

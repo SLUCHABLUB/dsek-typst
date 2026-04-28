@@ -1,9 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": detect-meeting-type, translate
-#import "../../utils/assert.typ": required
-#import "../../utils/agenda-fmt.typ": agenda-fmt
-#import "../../utils/signature.typ": author-signatures
-#import "@preview/datify:1.0.1": custom-date-format
+#import "../../lib/_mod.typ": *
 
 /// #set raw(lang: "typst")
 /// Creates a meeting notice/summons (kallelse) document. Apply with `#show: kallelse.with(...)` or `#show: notice.with(...)`.
@@ -11,11 +7,14 @@
 /// === Notes
 /// - A "Tid och plats" / "Time and location" block is automatically prepended to the body.
 /// - The body can include either free-form text or a numbered list using bracket syntax
-///   `+ [Action] Item name` similar to the `agenda` function.
+///   `- [Action] Item name` similar to the `agenda` function.
 ///
 ///   - All items must begin with brackets.
 ///     The action label (e.g. `Beslut`, `Information`) goes inside the brackets.
 ///     Leave bracket empty for no action (e.g for OFMÖ / OFMA).
+///   - Links attached to an item (using `+ #link("link.com")` in a sublist to an item)
+///     are collected into the Annex / Bilaga column and numbered.
+///     Referring to the same link more than once gives it the same number.
 ///
 /// === Example
 /// ```typst
@@ -132,3 +131,6 @@
   body
   author-signatures(authors)
 }
+
+/// Swedish binding for notice
+#let kallelse = notice

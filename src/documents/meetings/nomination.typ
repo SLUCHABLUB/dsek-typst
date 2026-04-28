@@ -1,7 +1,5 @@
 #import "../plain-document.typ": plain-document
-#import "../../utils/misc.typ": translate
-#import "../../utils/signature.typ": author-signatures
-#import "../../utils/assert.typ": required
+#import "../../lib/_mod.typ": *
 
 // TODO: refactor? having trouble figuring out a design for this template
 
@@ -86,3 +84,6 @@
 
   author-signatures(authors)
 }
+
+/// Swedish binding for nomination
+#let nominering = nomination
