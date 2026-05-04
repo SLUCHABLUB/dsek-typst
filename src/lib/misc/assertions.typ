@@ -31,7 +31,9 @@
 
   assert(missing == (), message: message)
 
-  let incorrect = dict.keys().filter(k => k not in allowed)
+  let incorrect = if allowed == auto { () } else {
+    dict.keys().filter(k => k not in allowed)
+  }
 
   let label = if incorrect.len() == 1 { "key" } else { "keys" }
   let listed = incorrect.map(k => "`" + k + "`").join(", ")
