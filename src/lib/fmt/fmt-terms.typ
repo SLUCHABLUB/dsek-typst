@@ -2,8 +2,6 @@
 #let old-terms(unstyled) = {
   set par(hanging-indent: unstyled.hanging-indent)
 
-  // TODO: Should we (as we do now) ignore `unstyled.tight`?
-
   unstyled
     .children
     .map(c => [
@@ -14,7 +12,11 @@
     .join(parbreak())
 }
 
-// TODO: Should 2-column be the default?
+// TODO:
+// - Remove `numbered`.
+// - Remove defaults
+// - Make private
+// - Make other functions that set defaults
 #let terms-fmt(
   numbered: true,
   columns: (2.5em, 9.5em, 1fr),

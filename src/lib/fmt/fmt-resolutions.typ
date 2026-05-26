@@ -23,9 +23,6 @@
   let enumerate = enumerate
   let term = term
 
-  // TODO: Elaborate?
-  // TODO: wrap in a figure to make references in feature parity with LaTeX
-
   if term == auto {
     term = translate-str("att", "to")
   }
@@ -85,7 +82,3 @@
     }),
   )
 }
-
-//  TODO: där återstår
-//  - _att hantera fullständigt formaterade satser_
-//    + Troligtvis genom att hantera att `element.body.has("body")`
