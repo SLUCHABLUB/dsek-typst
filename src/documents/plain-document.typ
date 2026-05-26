@@ -26,6 +26,8 @@
 #let top-margin = top-margin-excluding-header + header-height + header-padding
 #let bottom-margin = a4-height - top-margin - page-content-height
 
+#let dark-råsa = rgb("#EA028C")
+
 //  ▄▄ ▄▄ ▄▄▄▄▄ ▄▄    ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄   ▄▄▄▄
 //  ██▄██ ██▄▄  ██    ██▄█▀ ██▄▄  ██▄█▄ ███▄▄
 //  ██ ██ ██▄▄▄ ██▄▄▄ ██    ██▄▄▄ ██ ██ ▄▄██▀
@@ -62,7 +64,7 @@
   let last = counter(page).final().at(0)
   let last_page = link(
     (page: last, x: 0mm, y: 0mm),
-    text(fill: red, str(last)),
+    text(fill: dark-råsa, str(last)),
   )
 
   v(2em)
@@ -158,7 +160,7 @@
 
   show figure.caption: set text(font: serif, size: 9pt, style: "italic")
 
-  show link: set text(rgb("#EA028C"))
+  show link: set text(dark-råsa)
 
   set quote(block: true, quotes: true)
   show quote: set par(justify: false)
