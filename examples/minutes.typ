@@ -1,7 +1,7 @@
 #import "../src/lib.typ": *
 #import strings: *
 
-#show: minutes.with(
+#show: protokoll.with(
   meeting: "S06",
   date: date(24, 2, 2026),
   attendees: (
